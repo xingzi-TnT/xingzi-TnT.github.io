@@ -55,16 +55,16 @@
   };
 </script>
 
-  <meta name="description" content="第一篇第二篇```kkk">
+  <meta name="description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;17&#x2F;%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0&#x2F;index.html">
+<meta property="og:title" content="Vue学习第一天">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第一篇第二篇```kkk">
+<meta property="og:description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-17T12:05:00.824Z">
+<meta property="og:updated_time" content="2019-10-21T11:58:53.274Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="http://yoursite.com/2019/10/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
 
 
 <script id="page-configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>第一篇文章 | Hexo</title>
+  <title>Vue学习第一天 | Hexo</title>
   
 
 
@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wxz">
@@ -209,7 +209,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            第一篇文章
+            Vue学习第一天
             
 
           
@@ -226,7 +226,7 @@
                 
               
 
-              <time title="创建时间：2019-10-17 19:10:54 / 修改时间：20:05:00" itemprop="dateCreated datePublished" datetime="2019-10-17T19:10:54+08:00">2019-10-17</time>
+              <time title="创建时间：2019-10-21 19:57:45 / 修改时间：19:58:53" itemprop="dateCreated datePublished" datetime="2019-10-21T19:57:45+08:00">2019-10-21</time>
             </span>
           
             
@@ -245,8 +245,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><h2 id="第二篇"><a href="#第二篇" class="headerlink" title="第二篇"></a>第二篇</h2><p>```kkk</p>
+        <p>Vue 模板语法</p>
+<h2 id="1-插值表达式"><a href="#1-插值表达式" class="headerlink" title="1.插值表达式    "></a>1.插值表达式    </h2><h2 id="2-指令-属性-增强html的功能"><a href="#2-指令-属性-增强html的功能" class="headerlink" title="2.指令(属性) 增强html的功能"></a>2.指令(属性) 增强html的功能</h2><h3 id="（1）v-cloak-指令"><a href="#（1）v-cloak-指令" class="headerlink" title="（1）v-cloak 指令"></a>（1）v-cloak 指令</h3><pre><code>用法：解决插值表达式存在的闪动问题
+原理：
+1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak
+的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的
+2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v-cloak
+移除掉，这时候就会显示出来
+3.由于用户看到的直接就是hello，所以就不存在总{{msg}}到hello的切换</code></pre><h3 id="2-v-text-v-html-v-pre"><a href="#2-v-text-v-html-v-pre" class="headerlink" title="(2)v-text , v-html , v-pre"></a>(2)v-text , v-html , v-pre</h3><pre><code>- v-text : 填充纯文本(比插值表达式更加简洁)
+- v-html : 可以填充html代码(不推荐，有xss攻击的漏洞)
+- v-pre  : 原样输出 会直接输出{{msg}} 不会输出hello</code></pre><h3 id="3-数据响应式"><a href="#3-数据响应式" class="headerlink" title="(3)数据响应式"></a>(3)数据响应式</h3><pre><code>页面数据会根据数据的变化，而变化
 
+v-once 如果显示的额数据不需要修改，就使用v-once，来减少vue对数据的监听
+提高性能(使数据不再响应式)</code></pre><h3 id="4-双向数据绑定"><a href="#4-双向数据绑定" class="headerlink" title="(4)双向数据绑定"></a>(4)双向数据绑定</h3><pre><code>v-model 绑定数据
+原理: 事件监听 DOM Listeners
+      数据绑定 Data Bindings
+
+MVVM设局思想
+M(model 数据)  V(view 视图) VM(View-model )
+使M与V层分离 使业务变简单</code></pre><h3 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="(5)事件绑定"></a>(5)事件绑定</h3><pre><code>v-on (简写 @)
+事件函数的调用方式
+- 1 直接函数名 (如果不需要传参，用这个)
+&lt;button @click=&apos;handle&apos;&gt;点击2&lt;/button&gt;
+- 2 函数调用 (如果需要传参，用这个)
+&lt;button @click=&apos;handle1(3)&apos;&gt;点击3&lt;/button&gt;
+
+如果要传具体的事件对象 
+直接函数名的方式是默认会带事件的对象过去
+函数调用的话  必须要命名为$event
+
+事件修饰符
+.stop 阻止冒泡
+.prevent 阻止默认行为
+
+按键修饰符
+.enter 回车键 （.13 也可以）
+
+表单域修饰符
+.number 转换为数值
+.trim 去掉开头和结尾的空格
+.lazy 将input事件变为 change事件 （v-model默认用input事件）
+（input事件一改变就触发 change事件 失去焦点时才触发）</code></pre><h3 id="6-属性绑定"><a href="#6-属性绑定" class="headerlink" title="(6) 属性绑定"></a>(6) 属性绑定</h3><pre><code>v-bind (简写   : )
+&lt;div v-bind:属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;
+&lt;div :属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;</code></pre><h3 id="7-v-model-原理："><a href="#7-v-model-原理：" class="headerlink" title="(7) v-model 原理："></a>(7) v-model 原理：</h3><pre><code>&lt;input type=&apos;text&apos; v-bind:value = &apos;msg&apos;  v-on:input=&apos;msg = $event.target.value&apos;&gt;</code></pre>
     </div>
 
     
@@ -262,15 +303,15 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/10/17/%E6%80%BB%E7%BB%93/" rel="next" title="第一篇文章">
+                  <i class="fa fa-chevron-left"></i> 第一篇文章
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/17/%E6%80%BB%E7%BB%93/" rel="prev" title="第一篇文章">
-                  第一篇文章 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -316,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一篇"><span class="nav-number">1.</span> <span class="nav-text">第一篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二篇"><span class="nav-number">2.</span> <span class="nav-text">第二篇</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插值表达式"><span class="nav-number">1.</span> <span class="nav-text">1.插值表达式    </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-指令-属性-增强html的功能"><span class="nav-number">2.</span> <span class="nav-text">2.指令(属性) 增强html的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）v-cloak-指令"><span class="nav-number">2.1.</span> <span class="nav-text">（1）v-cloak 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-v-text-v-html-v-pre"><span class="nav-number">2.2.</span> <span class="nav-text">(2)v-text , v-html , v-pre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据响应式"><span class="nav-number">2.3.</span> <span class="nav-text">(3)数据响应式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-双向数据绑定"><span class="nav-number">2.4.</span> <span class="nav-text">(4)双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-事件绑定"><span class="nav-number">2.5.</span> <span class="nav-text">(5)事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-属性绑定"><span class="nav-number">2.6.</span> <span class="nav-text">(6) 属性绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-v-model-原理："><span class="nav-number">2.7.</span> <span class="nav-text">(7) v-model 原理：</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

@@ -55,27 +55,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="浏览器渲染页面原理浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）  解析HTML，构建DOM tree。  解析CSS，构建CSSOM tree。  合并DOM tree和CSSOM tree，生成render tree。  布局（layout&#x2F;reflow），计算各元素尺寸、位置。  绘制（paint&#x2F;repaint），绘制页面像素信息。  浏览器将各层的信息发送给GPU，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一篇文章">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;17&#x2F;%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="浏览器渲染页面原理浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）  解析HTML，构建DOM tree。  解析CSS，构建CSSOM tree。  合并DOM tree和CSSOM tree，生成render tree。  布局（layout&#x2F;reflow），计算各元素尺寸、位置。  绘制（paint&#x2F;repaint），绘制页面像素信息。  浏览器将各层的信息发送给GPU，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;17&#x2F;img&#x2F;gc-new.png">
+<meta property="og:updated_time" content="2019-10-20T12:13:52.110Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;17&#x2F;img&#x2F;gc-new.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/%E6%80%BB%E7%BB%93/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Hexo</title>
+  <title>第一篇文章 | Hexo</title>
   
 
 
@@ -188,122 +193,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wxz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">Vue学习第一天</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-21 19:57:45 / 修改时间：19:58:53" itemprop="dateCreated datePublished" datetime="2019-10-21T19:57:45+08:00">2019-10-21</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>Vue 模板语法</p>
-<h2 id="1-插值表达式"><a href="#1-插值表达式" class="headerlink" title="1.插值表达式    "></a>1.插值表达式    </h2><h2 id="2-指令-属性-增强html的功能"><a href="#2-指令-属性-增强html的功能" class="headerlink" title="2.指令(属性) 增强html的功能"></a>2.指令(属性) 增强html的功能</h2><h3 id="（1）v-cloak-指令"><a href="#（1）v-cloak-指令" class="headerlink" title="（1）v-cloak 指令"></a>（1）v-cloak 指令</h3><pre><code>用法：解决插值表达式存在的闪动问题
-原理：
-1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak
-的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的
-2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v-cloak
-移除掉，这时候就会显示出来
-3.由于用户看到的直接就是hello，所以就不存在总{{msg}}到hello的切换</code></pre><h3 id="2-v-text-v-html-v-pre"><a href="#2-v-text-v-html-v-pre" class="headerlink" title="(2)v-text , v-html , v-pre"></a>(2)v-text , v-html , v-pre</h3><pre><code>- v-text : 填充纯文本(比插值表达式更加简洁)
-- v-html : 可以填充html代码(不推荐，有xss攻击的漏洞)
-- v-pre  : 原样输出 会直接输出{{msg}} 不会输出hello</code></pre><h3 id="3-数据响应式"><a href="#3-数据响应式" class="headerlink" title="(3)数据响应式"></a>(3)数据响应式</h3><pre><code>页面数据会根据数据的变化，而变化
-
-v-once 如果显示的额数据不需要修改，就使用v-once，来减少vue对数据的监听
-提高性能(使数据不再响应式)</code></pre><h3 id="4-双向数据绑定"><a href="#4-双向数据绑定" class="headerlink" title="(4)双向数据绑定"></a>(4)双向数据绑定</h3><pre><code>v-model 绑定数据
-原理: 事件监听 DOM Listeners
-      数据绑定 Data Bindings
-
-MVVM设局思想
-M(model 数据)  V(view 视图) VM(View-model )
-使M与V层分离 使业务变简单</code></pre><h3 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="(5)事件绑定"></a>(5)事件绑定</h3><pre><code>v-on (简写 @)
-事件函数的调用方式
-- 1 直接函数名 (如果不需要传参，用这个)
-&lt;button @click=&apos;handle&apos;&gt;点击2&lt;/button&gt;
-- 2 函数调用 (如果需要传参，用这个)
-&lt;button @click=&apos;handle1(3)&apos;&gt;点击3&lt;/button&gt;
-
-如果要传具体的事件对象 
-直接函数名的方式是默认会带事件的对象过去
-函数调用的话  必须要命名为$event
-
-事件修饰符
-.stop 阻止冒泡
-.prevent 阻止默认行为
-
-按键修饰符
-.enter 回车键 （.13 也可以）
-
-表单域修饰符
-.number 转换为数值
-.trim 去掉开头和结尾的空格
-.lazy 将input事件变为 change事件 （v-model默认用input事件）
-（input事件一改变就触发 change事件 失去焦点时才触发）</code></pre><h3 id="6-属性绑定"><a href="#6-属性绑定" class="headerlink" title="(6) 属性绑定"></a>(6) 属性绑定</h3><pre><code>v-bind (简写   : )
-&lt;div v-bind:属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;
-&lt;div :属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;</code></pre><h3 id="7-v-model-原理："><a href="#7-v-model-原理：" class="headerlink" title="(7) v-model 原理："></a>(7) v-model 原理：</h3><pre><code>&lt;input type=&apos;text&apos; v-bind:value = &apos;msg&apos;  v-on:input=&apos;msg = $event.target.value&apos;&gt;</code></pre>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -318,8 +211,9 @@ M(model 数据)  V(view 视图) VM(View-model )
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
+            第一篇文章
             
-            <a href="/2019/10/17/%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">第一篇文章</a>
+
           
         </h1>
 
@@ -361,7 +255,7 @@ M(model 数据)  V(view 视图) VM(View-model )
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="浏览器渲染页面原理"><a href="#浏览器渲染页面原理" class="headerlink" title="浏览器渲染页面原理"></a>浏览器渲染页面原理</h2><p>浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）</p>
+        <h2 id="浏览器渲染页面原理"><a href="#浏览器渲染页面原理" class="headerlink" title="浏览器渲染页面原理"></a>浏览器渲染页面原理</h2><p>浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）</p>
 <ol>
 <li><p>解析HTML，构建DOM tree。</p>
 </li>
@@ -396,97 +290,46 @@ M(model 数据)  V(view 视图) VM(View-model )
 <h2 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h2><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
 <h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
 <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2>
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" rel="next" title="第一篇文章">
+                  <i class="fa fa-chevron-left"></i> 第一篇文章
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" rel="prev" title="Vue学习第一天">
+                  Vue学习第一天 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
       </footer>
+    
   </article>
   
   
   
 
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wxz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">第一篇文章</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-17 19:10:54 / 修改时间：20:05:00" itemprop="dateCreated datePublished" datetime="2019-10-17T19:10:54+08:00">2019-10-17</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><h2 id="第二篇"><a href="#第二篇" class="headerlink" title="第二篇"></a>第二篇</h2><p>```kkk</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
-
-  
-
 
 
           </div>
@@ -503,6 +346,11 @@ M(model 数据)  V(view 视图) VM(View-model )
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -515,6 +363,8 @@ M(model 数据)  V(view 视图) VM(View-model )
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染页面原理"><span class="nav-number">1.</span> <span class="nav-text">浏览器渲染页面原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染阻塞"><span class="nav-number">2.</span> <span class="nav-text">渲染阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reflow回流："><span class="nav-number">3.</span> <span class="nav-text">reflow回流：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repaint重绘："><span class="nav-number">4.</span> <span class="nav-text">repaint重绘：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">5.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-call-apply-bind"><span class="nav-number">6.</span> <span class="nav-text">js call() apply() bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自封bind"><span class="nav-number">7.</span> <span class="nav-text">自封bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">8.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包原理"><span class="nav-number">9.</span> <span class="nav-text">闭包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">10.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC-垃圾回收新生代算法"><span class="nav-number">11.</span> <span class="nav-text">GC (垃圾回收新生代算法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收的方式"><span class="nav-number">12.</span> <span class="nav-text">垃圾回收的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">13.</span> <span class="nav-text">继承</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
