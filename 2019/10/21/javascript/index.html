@@ -55,16 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
+  <meta name="description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习第一天">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9&#x2F;index.html">
+<meta property="og:title" content="javascript">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;javascript&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
+<meta property="og:description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-21T12:35:28.236Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
+<meta property="og:updated_time" content="2019-10-21T12:35:23.758Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/javascript/">
 
 
 <script id="page-configurations">
@@ -78,7 +80,7 @@
   };
 </script>
 
-  <title>Vue学习第一天 | Hexo</title>
+  <title>javascript | Hexo</title>
   
 
 
@@ -195,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/javascript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wxz">
@@ -209,7 +211,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            Vue学习第一天
+            javascript
             
 
           
@@ -226,7 +228,7 @@
                 
               
 
-              <time title="创建时间：2019-10-21 19:57:45 / 修改时间：20:35:28" itemprop="dateCreated datePublished" datetime="2019-10-21T19:57:45+08:00">2019-10-21</time>
+              <time title="创建时间：2019-10-21 20:09:59 / 修改时间：20:35:23" itemprop="dateCreated datePublished" datetime="2019-10-21T20:09:59+08:00">2019-10-21</time>
             </span>
           
             
@@ -245,49 +247,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Vue 模板语法</p>
-<h2 id="1-插值表达式"><a href="#1-插值表达式" class="headerlink" title="1.插值表达式    "></a>1.插值表达式    </h2><h2 id="2-指令-属性-增强html的功能"><a href="#2-指令-属性-增强html的功能" class="headerlink" title="2.指令(属性) 增强html的功能"></a>2.指令(属性) 增强html的功能</h2><h3 id="（1）v-cloak-指令"><a href="#（1）v-cloak-指令" class="headerlink" title="（1）v-cloak 指令"></a>（1）v-cloak 指令</h3><pre><code>用法：解决插值表达式存在的闪动问题
-原理：
-1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak
-的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的
-2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v-cloak
-移除掉，这时候就会显示出来
-3.由于用户看到的直接就是hello，所以就不存在总{{msg}}到hello的切换</code></pre><h3 id="2-v-text-v-html-v-pre"><a href="#2-v-text-v-html-v-pre" class="headerlink" title="(2)v-text , v-html , v-pre"></a>(2)v-text , v-html , v-pre</h3><pre><code>- v-text : 填充纯文本(比插值表达式更加简洁)
-- v-html : 可以填充html代码(不推荐，有xss攻击的漏洞)
-- v-pre  : 原样输出 会直接输出{{msg}} 不会输出hello</code></pre><h3 id="3-数据响应式"><a href="#3-数据响应式" class="headerlink" title="(3)数据响应式"></a>(3)数据响应式</h3><pre><code>页面数据会根据数据的变化，而变化
-
-v-once 如果显示的额数据不需要修改，就使用v-once，来减少vue对数据的监听
-提高性能(使数据不再响应式)</code></pre><h3 id="4-双向数据绑定"><a href="#4-双向数据绑定" class="headerlink" title="(4)双向数据绑定"></a>(4)双向数据绑定</h3><pre><code>v-model 绑定数据
-原理: 事件监听 DOM Listeners
-      数据绑定 Data Bindings
-
-MVVM设局思想
-M(model 数据)  V(view 视图) VM(View-model )
-使M与V层分离 使业务变简单</code></pre><h3 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="(5)事件绑定"></a>(5)事件绑定</h3><pre><code>v-on (简写 @)
-事件函数的调用方式
-- 1 直接函数名 (如果不需要传参，用这个)
-&lt;button @click=&apos;handle&apos;&gt;点击2&lt;/button&gt;
-- 2 函数调用 (如果需要传参，用这个)
-&lt;button @click=&apos;handle1(3)&apos;&gt;点击3&lt;/button&gt;
-
-如果要传具体的事件对象 
-直接函数名的方式是默认会带事件的对象过去
-函数调用的话  必须要命名为$event
-
-事件修饰符
-.stop 阻止冒泡
-.prevent 阻止默认行为
-
-按键修饰符
-.enter 回车键 （.13 也可以）
-
-表单域修饰符
-.number 转换为数值
-.trim 去掉开头和结尾的空格
-.lazy 将input事件变为 change事件 （v-model默认用input事件）
-（input事件一改变就触发 change事件 失去焦点时才触发）</code></pre><h3 id="6-属性绑定"><a href="#6-属性绑定" class="headerlink" title="(6) 属性绑定"></a>(6) 属性绑定</h3><pre><code>v-bind (简写   : )
-&lt;div v-bind:属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;
-&lt;div :属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;</code></pre><h3 id="7-v-model-原理："><a href="#7-v-model-原理：" class="headerlink" title="(7) v-model 原理："></a>(7) v-model 原理：</h3><pre><code>&lt;input type=&apos;text&apos; v-bind:value = &apos;msg&apos;  v-on:input=&apos;msg = $event.target.value&apos;&gt;</code></pre>
+        <h2 id="js-call-apply-bind"><a href="#js-call-apply-bind" class="headerlink" title="js call() apply() bind()"></a>js call() apply() bind()</h2><p>　　1）bind的返回值是一个函数体，不会被立即调用</p>
+<p>　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递</p>
+<p>　　3）bind、call、apply这三个方法都属于函数（Function）的方法</p>
+<h3 id="自封bind"><a href="#自封bind" class="headerlink" title="自封bind"></a>自封bind</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> Function.prototype.myBind = function () &#123;</span><br><span class="line">    let first = [].shift.call(arguments)</span><br><span class="line">    let args = [].slice.call(arguments)</span><br><span class="line">    let _this = this</span><br><span class="line">    return function () &#123;</span><br><span class="line">        _this.apply(first, [].concat.call(args, [].slice.call(arguments)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>first = [].shift.call(arguments) 这一句就是把参数中的第一个剪切出来，赋给 context，那么也就相当于起到了将 参数中的 this 保存的目的。</p>
+<p>args = [].slice.call(arguments);<br>这一句，将除了 this 上下文的所有参数，传给了 args ，以备后来使用。</p>
+<p>返回函数<br>return function () {    // 返回一个新函数<br>    self.apply(context,[].concat.call(args, [].slice.call(arguments)));<br>}<br>这一段其实很好理解，因为bind 绑定了上下文，因此 self.apply 的第一个参数，是之前我们保存的 context。接下来，我们将 bind 的其余参数和调用bind后返回的函数在执行的过程中接收的参数进行拼接，作为一个数组传入apply的第二个参数中去。这就完美的实现了 bind 函数的功能，不得不说很是巧妙。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。(红宝书)</p>
+<h3 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h3><p>因为函数的内部函数使用了函数的变量，内部函数又被外部的变量接收，就可以在外部使用函数的变量(通过内部函数作用域链，因为内部函数是有权访问到函数中变量的),导致了函数中的变量存在了除了内部函数的指向，从而使函数不被垃圾回收机制(新生代算法 GC)回收。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>查找变量会先从当前的作用域中去查找,找不到就会去上一级查找，还没找到就到全局作用域查找，这样就形成了一个作用域链。简单来说就是在函数中所能访问的变量按照层级关系所组成的一条有着先后顺序的链子。</p>
+<h3 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h3><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
+<h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2>
     </div>
 
     
@@ -303,8 +275,8 @@ M(model 数据)  V(view 视图) VM(View-model )
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/21/html/" rel="next" title="html">
-                  <i class="fa fa-chevron-left"></i> html
+                <a href="/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" rel="next" title="Vue学习第一天">
+                  <i class="fa fa-chevron-left"></i> Vue学习第一天
                 </a>
               
             </div>
@@ -312,10 +284,6 @@ M(model 数据)  V(view 视图) VM(View-model )
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/21/javascript/" rel="prev" title="javascript">
-                  javascript <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -361,7 +329,7 @@ M(model 数据)  V(view 视图) VM(View-model )
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插值表达式"><span class="nav-number">1.</span> <span class="nav-text">1.插值表达式    </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-指令-属性-增强html的功能"><span class="nav-number">2.</span> <span class="nav-text">2.指令(属性) 增强html的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）v-cloak-指令"><span class="nav-number">2.1.</span> <span class="nav-text">（1）v-cloak 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-v-text-v-html-v-pre"><span class="nav-number">2.2.</span> <span class="nav-text">(2)v-text , v-html , v-pre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据响应式"><span class="nav-number">2.3.</span> <span class="nav-text">(3)数据响应式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-双向数据绑定"><span class="nav-number">2.4.</span> <span class="nav-text">(4)双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-事件绑定"><span class="nav-number">2.5.</span> <span class="nav-text">(5)事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-属性绑定"><span class="nav-number">2.6.</span> <span class="nav-text">(6) 属性绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-v-model-原理："><span class="nav-number">2.7.</span> <span class="nav-text">(7) v-model 原理：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-call-apply-bind"><span class="nav-number">1.</span> <span class="nav-text">js call() apply() bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自封bind"><span class="nav-number">1.1.</span> <span class="nav-text">自封bind</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包原理"><span class="nav-number">2.1.</span> <span class="nav-text">闭包原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">3.</span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC-垃圾回收新生代算法"><span class="nav-number">3.1.</span> <span class="nav-text">GC (垃圾回收新生代算法)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收的方式"><span class="nav-number">4.</span> <span class="nav-text">垃圾回收的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">5.</span> <span class="nav-text">继承</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
