@@ -1,0 +1,938 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,Mala" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="CSS 选择器分类 标签选择  id选择器 class选择器 后代选择 （div a） 子代选择 （div &amp;gt; p） 相邻选择 （div + p） 通配符选择 （*） 否定选择器 :not(.link){} 属性选择器 伪类选择器 伪元素选择器 ::before{}  CSS3属性选择器   选择器 描述    [attribute] 用于选取带有指定属性的元素。   [attribute=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;22&#x2F;css&#x2F;index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="CSS 选择器分类 标签选择  id选择器 class选择器 后代选择 （div a） 子代选择 （div &amp;gt; p） 相邻选择 （div + p） 通配符选择 （*） 否定选择器 :not(.link){} 属性选择器 伪类选择器 伪元素选择器 ::before{}  CSS3属性选择器   选择器 描述    [attribute] 用于选取带有指定属性的元素。   [attribute=">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-22T12:22:34.239Z">
+<meta name="twitter:card" content="summary">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> css | My blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" target="_blank" rel="noopener">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">我要offer</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            About
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              css
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-10-22T18:46:35+08:00" content="2019-10-22">
+            2019-10-22
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="CSS-选择器分类"><a href="#CSS-选择器分类" class="headerlink" title="CSS 选择器分类"></a>CSS 选择器分类</h2><ul>
+<li>标签选择 </li>
+<li>id选择器</li>
+<li>class选择器</li>
+<li>后代选择 （div a）</li>
+<li>子代选择 （div &gt; p）</li>
+<li>相邻选择 （div + p）</li>
+<li>通配符选择 （*）</li>
+<li>否定选择器 :not(.link){}</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>伪元素选择器 ::before{}</li>
+</ul>
+<h2 id="CSS3属性选择器"><a href="#CSS3属性选择器" class="headerlink" title="CSS3属性选择器"></a>CSS3属性选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[attribute]</td>
+<td>用于选取带有指定属性的元素。</td>
+</tr>
+<tr>
+<td>[attribute=value]</td>
+<td>用于选取带有指定属性和值的元素。</td>
+</tr>
+<tr>
+<td>[attribute~=value]</td>
+<td>用于选取属性值中包含指定词汇的元素。</td>
+</tr>
+<tr>
+<td>[attribute|=value]</td>
+<td>用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。</td>
+</tr>
+<tr>
+<td>[attribute^=value]</td>
+<td>匹配属性值以指定值开头的每个元素。</td>
+</tr>
+<tr>
+<td>[attribute$=value]</td>
+<td>匹配属性值以指定值结尾的每个元素。</td>
+</tr>
+<tr>
+<td>[attribute*=value]</td>
+<td>匹配属性值中包含指定值的每个元素</td>
+</tr>
+</tbody></table>
+<h2 id="iconfont原理"><a href="#iconfont原理" class="headerlink" title="iconfont原理"></a>iconfont原理</h2><ul>
+<li>利用编码让图标编为一个字符</li>
+<li>引入字体</li>
+<li>利用before伪元素向页面中插入一个文字</li>
+</ul>
+<h2 id="css-定义的权重"><a href="#css-定义的权重" class="headerlink" title="css 定义的权重"></a>css 定义的权重</h2><ul>
+<li>!important 优先级最高，但也会被权重高的important所覆盖</li>
+<li>行内样式总会覆盖外部样式表的任何样式(除了!important)</li>
+<li>单独使用一个选择器的时候，不能跨等级使css规则生效</li>
+<li>如果两个权重不同的选择器作用在同一元素上，权重值高的css规则生效</li>
+<li>如果两个相同权重的选择器作用在同一元素上：以后面出现的选择器为最后规则</li>
+<li>权重相同时，与元素距离近的选择器生</li>
+</ul>
+<p>一句话总结：<br>!important &gt; 行内样式 &gt; ID选择器 &gt; (类选择器 | 属性选择器 | 伪类选择器 ) &gt; 元素选择器 &gt; *</p>
+<h2 id="CSS3伪类选择器"><a href="#CSS3伪类选择器" class="headerlink" title="CSS3伪类选择器"></a>CSS3伪类选择器</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes#%E6%A0%87%E5%87%86%E4%BC%AA%E7%B1%BB%E7%B4%A2%E5%BC%95" target="_blank" rel="noopener">伪类 | MDN</a><br>常用：</p>
+<ul>
+<li>:hover</li>
+<li>:focus</li>
+<li>:after 在元素之前添加内容,也可以用来做清除浮动。</li>
+<li>:before 在元素之后添加内容</li>
+<li>:enabled 选择器匹配每个已启用的元素（大多用在表单元素上）。</li>
+<li>:disabled 控制表单控件的禁用状态。</li>
+<li>:checked 单选框或复选框被选中</li>
+<li>::selection  用户选中的区域</li>
+<li>:empty   一般用来隐藏内部什么都没有的元素</li>
+<li>:not(selecter)</li>
+<li></li>
+<li>p:first-of-type </li>
+<li>p:last-of-type </li>
+<li>p:only-of-type </li>
+<li>p:nth-of-type(n)</li>
+<li>p:nth-last-of-type(n)</li>
+<li></li>
+<li>:nth-child(n)</li>
+<li>:nth-last-child(n)</li>
+<li>p:only-child</li>
+</ul>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>盒模型有两种， IE 怪异盒子模型、W3C标准盒子模型；</p>
+<p>盒模型是由： 内容(content)、内边距(padding)、边框(border)、外边距(margin) 组成的。</p>
+<p>标准模型的宽高是指的content区宽高；<br>IE盒模型的宽高是指的content+padding+border的宽高。</p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p><a href="https://www.cnblogs.com/libin-1/p/7098468.html" target="_blank" rel="noopener">什么是BFC</a></p>
+<p>W3C对BFC定义：</p>
+<blockquote>
+<p>浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。</p>
+</blockquote>
+<p>BFC 就是块级格式上下文，是页面盒模型布局中的一种 CSS 渲染模式，相当于一个独立的容器，里面的元素和外部的元素相互不影响。</p>
+<p>BFC作用：</p>
+<ol>
+<li>利用BFC避免外边距折叠</li>
+<li>清除内部浮动 （撑开高度）<ol>
+<li>原理: 触发父div的BFC属性，使下面的子div都处在父div的同一个BFC区域之内</li>
+</ol>
+</li>
+<li>避免文字环绕</li>
+<li>分属于不同的BFC时，可以阻止margin重叠</li>
+<li>多列布局中使用BFC</li>
+</ol>
+<p>如何生成BFC：（脱离文档流，满足下列的任意一个或多个条件即可）</p>
+<ol>
+<li>根元素，即HTML元素（最大的一个BFC）</li>
+<li>float的值不为none</li>
+<li>position的值为absolute或fixed</li>
+<li>overflow的值不为visible（默认值。内容不会被修剪，会呈现在元素框之外）</li>
+<li>display的值为inline-block、table-cell、table-caption</li>
+</ol>
+<p>BFC布局规则：</p>
+<ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>属于同一个BFC的两个相邻的Box的margin会发生重叠</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此, 文字环绕效果，设置float</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>计算BFC的高度，浮动元素也参与计算</li>
+</ol>
+<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><ul>
+<li>元素”浮动”</li>
+<li>脱离文档流</li>
+<li>不脱离文本流</li>
+<li>位置尽量靠上，并靠左或右</li>
+</ul>
+<p>对自己的影响</p>
+<ul>
+<li>形成”块”(BFC)</li>
+<li>这个块会负责自己的布局，宽高由自己决定</li>
+</ul>
+<p>比如 span 中用 float 这个span就形成了一个BFC，就可以设置宽高了</p>
+<p>对兄弟元素的影响</p>
+<ul>
+<li>上面一般贴非float元素</li>
+<li>靠边贴float元素或边</li>
+<li>不影响其他块级元素位置</li>
+<li>影响其他块级元素文本</li>
+</ul>
+<p>对父级元素的影响</p>
+<ul>
+<li>从布局上”消失”</li>
+<li>高度塌陷</li>
+</ul>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>浮动的元素布局时不会占据父元素的布局空间，即父元素布局时不会管浮动元素，浮动元素有可能超出父元素，从而对其他元素造成影响。</p>
+<p>清除方法：</p>
+<ol>
+<li>父级 div 定义伪类：after 和 zoom (推荐使用，建议定义公共类，以减少 CSS 代码)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfloat</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">    <span class="attribute">visibility</span>:hidden;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfloat</span>&#123;<span class="attribute">zoom</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在结尾处添加空 div 标签 clear:both</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfloat"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.left</span> &#123;<span class="attribute">float</span>:left&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfloat</span>&#123;<span class="attribute">clear</span>:both&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>父级 div 定义 overflow:auto。 同时需要父级指定宽度</p>
+<p>参考链接<a href="https://www.cnblogs.com/nxl0908/p/7245460.html" target="_blank" rel="noopener">几种常用的清除浮动方法</a></p>
+<h2 id="inline-block的间隙"><a href="#inline-block的间隙" class="headerlink" title="inline-block的间隙"></a>inline-block的间隙</h2><p>两个并列的inline-block中间会有一条裂缝，这个的原因是两个标签之间有空格，浏览器把这些空格当成文字中空格，所以这两个块中间多少有间隙。</p>
+<p>解决办法：</p>
+<ol>
+<li>删除两个标签间的空格，但是这样html排版不好</li>
+<li>容器元素font-size: 0 然后再在里面再重新设置字体大小 </li>
+</ol>
+<h2 id="你对-line-height-是如何理解的？"><a href="#你对-line-height-是如何理解的？" class="headerlink" title="你对 line-height 是如何理解的？"></a>你对 line-height 是如何理解的？</h2><ul>
+<li>line-height 指一行字的高度，包含了字间距，实际上是下一行基线到上一行基线距离</li>
+<li>如果一个标签没有定义 height 属性，那么其最终表现的高度是由 line-height 决定的</li>
+<li>一个容器没有设置高度，那么撑开容器高度的是 line-height 而不是容器内的文字内容</li>
+<li>把 line-height 值设置为 height 一样大小的值可以实现单行文字的垂直居中</li>
+<li>line-height 和 height 都能撑开一个高度，height 会触发 haslayout（一个低版本IE的东西），而 line-height 不会</li>
+</ul>
+<h2 id="图片下面有一个缝隙是因为什么"><a href="#图片下面有一个缝隙是因为什么" class="headerlink" title="图片下面有一个缝隙是因为什么"></a>图片下面有一个缝隙是因为什么</h2><p>因为 img 也相当于一个 inline 的元素， inline 就要遵守行高的构成，它会按照base基线对齐，基线对齐的话那么它就会和底线间有一个缝隙。</p>
+<p>如何解决： 因为它会遵守文字对齐方案，那么就把图片的对齐方式修改为 <code>vertical-align: bottom</code>。或者让他<code>display: block</code>，这样图片虽然会换行，但是没有间隙了。</p>
+<h2 id="文字折行"><a href="#文字折行" class="headerlink" title="文字折行"></a>文字折行</h2><ul>
+<li>overflow-wrap(word-wrap)通用换行控制<ul>
+<li>是否保留单词</li>
+</ul>
+</li>
+<li>word-break 针对多字节文本文字<ul>
+<li>中文句子也是单词</li>
+</ul>
+</li>
+<li>white-space 空白处是否换行</li>
+</ul>
+<h3 id="单行文本溢出显示省略号"><a href="#单行文本溢出显示省略号" class="headerlink" title="单行文本溢出显示省略号"></a>单行文本溢出显示省略号</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">no-wrap</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="display-none-与-visibility-hidden-的区别"><a href="#display-none-与-visibility-hidden-的区别" class="headerlink" title="display: none; 与 visibility: hidden; 的区别"></a>display: none; 与 visibility: hidden; 的区别</h2><p>结构：</p>
+<ul>
+<li>display:none<ul>
+<li>会让元素完全从渲染树中消失，渲染的时候不占据任何空间, 不能点击，</li>
+</ul>
+</li>
+<li>visibility: hidden<ul>
+<li>不会让元素从渲染树消失，渲染元素继续占据空间，只是内容不可见，不能点击 </li>
+</ul>
+</li>
+<li>opacity: 0<ul>
+<li>不会让元素从渲染树消失，渲染元素继续占据空间，只是内容不可见，可以点击</li>
+</ul>
+</li>
+</ul>
+<p>继承</p>
+<ul>
+<li>display: none和opacity: 0<ul>
+<li>非继承属性，子孙节点消失由于元素从渲染树消失造成，通过修改子孙节点属性无法显示。</li>
+</ul>
+</li>
+<li>visibility: hidden<ul>
+<li>继承属性，子孙节点消失由于继承了hidden，通过设置visibility: visible;可以让子孙节点显式。</li>
+</ul>
+</li>
+</ul>
+<p>性能</p>
+<ul>
+<li>display:none<ul>
+<li>修改元素会造成文档回流。读屏器不会读取display: none元素内容，性能消耗较大</li>
+</ul>
+</li>
+<li>visibility:hidden<ul>
+<li>修改元素只会造成本元素的重绘,性能消耗较少。读屏器读取visibility: hidden元素内容</li>
+</ul>
+</li>
+<li>opacity: 0<ul>
+<li>修改元素会造成重绘，性能消耗较少</li>
+</ul>
+</li>
+</ul>
+<p>相同点： 它们都能让元素不可见、他们都依然可以被 JS 所获取到</p>
+<h2 id="CSS单位"><a href="#CSS单位" class="headerlink" title="CSS单位"></a>CSS单位</h2><ol>
+<li>px  绝对单位。传统上一个像素对应于计算机屏幕上的一个点，而对于高清屏则对应更多。</li>
+<li>%   父元素<strong>宽度</strong>的比例。<ol>
+<li>如果对 html 元素设置 font-size 为百分比值，则是以浏览器默认的字体大小16px为参照计算的（所有浏览器的默认字体大小都为 16px），如62.5%即等于10px（62.5% * 16px = 10px）。</li>
+</ol>
+</li>
+<li>em  相对单位。 不同的属性有不同的参照值。<ol>
+<li>对于字体大小属性（font-size）来说，em 的计算方式是相对于父元素的字体大小</li>
+<li>border, width, height, padding, margin, line-height）在这些属性中，使用em单位的计算方式是参照该元素的 font-size，1em 等于该元素设置的字体大小。同理如果该元素没有设置，则一直向父级元素查找，直到找到，如果都没有设置大小，则使用浏览器默认的字体大小。</li>
+</ol>
+</li>
+<li>rem 是相对于根元素 html 的 font-size 来计算的，所以其参照物是固定的。<ol>
+<li>好处：rem 只需要修改 html 的 font-size 值即可达到全部的修改，即所谓的牵一发而动全身。</li>
+</ol>
+</li>
+<li>vw, vh, vmin, vmax   相对单位，是基于视窗大小（浏览器用来显示内容的区域大小）来计算的。<ol>
+<li>vw：基于视窗的宽度计算，1vw 等于视窗宽度的百分之一</li>
+<li>vh：基于视窗的高度计算，1vh 等于视窗高度的百分之一</li>
+<li>vmin：基于vw和vh中的最小值来计算，1vmin 等于最小值的百分之一</li>
+<li>vmax：基于vw和vh中的最大值来计算，1vmax 等于最大值的百分之一</li>
+</ol>
+</li>
+</ol>
+<h2 id="CSS-优化、提高性能的方法有哪些？"><a href="#CSS-优化、提高性能的方法有哪些？" class="headerlink" title="CSS 优化、提高性能的方法有哪些？"></a>CSS 优化、提高性能的方法有哪些？</h2><ul>
+<li>多个 css 合并，尽量减少 HTTP 请求</li>
+<li>css 雪碧图</li>
+<li>抽象提取公共样式，减少代码量</li>
+<li>选择器优化嵌套，尽量避免层级过深 （用‘&gt;’替换‘ ’）</li>
+<li>属性值为 0 时，不加单位</li>
+<li>压缩CSS代码</li>
+<li>避免使用 <a href="http://www.divcss5.com/css3-style/c50224.shtml" target="_blank" rel="noopener">CSS 表达式</a><ul>
+<li>它们要计算成千上万次并且可能会对你页面的性能产生影响。</li>
+</ul>
+</li>
+</ul>
+<h2 id="display-有哪些值？说明他们的作用"><a href="#display-有哪些值？说明他们的作用" class="headerlink" title="display 有哪些值？说明他们的作用"></a>display 有哪些值？说明他们的作用</h2><ul>
+<li>block 像块类型元素一样显示。</li>
+<li>none  此元素将显示为块级元素，此元素前后会带有换行符。</li>
+<li>inline  内联元素，元素前后没有换行符。</li>
+<li>inline-block 象行内元素一样定位，但其内容象块类型元素一样显示。</li>
+<li>list-item 象块类型元素一样显示，并添加样式列表标记。</li>
+<li>table 此元素会作为块级表格来显示</li>
+<li>inherit 规定应该从父元素继承 display 属性的值</li>
+</ul>
+<h2 id="position-有哪些值？-relative-和-absolute-定位原点是？"><a href="#position-有哪些值？-relative-和-absolute-定位原点是？" class="headerlink" title="position 有哪些值？ relative 和 absolute 定位原点是？"></a>position 有哪些值？ relative 和 absolute 定位原点是？</h2><ul>
+<li>absolute 生成绝对定位的元素，相对于值不为 static 的第一个父元素进行定位。</li>
+<li>fixed （老 IE 不支持） 生成绝对定位的元素，相对于浏览器窗口进行定位。</li>
+<li>relative 生成相对定位的元素，相对于其正常位置进行定位。</li>
+<li>static 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right - z-index 声明）。</li>
+<li>inherit 规定从父元素继承 position 属性的值</li>
+</ul>
+<h2 id="CSS3新特性？"><a href="#CSS3新特性？" class="headerlink" title="CSS3新特性？"></a>CSS3新特性？</h2><ul>
+<li><p>新增选择器 p:nth-child(n){color: rgba(255, 0, 0, 0.75)}</p>
+</li>
+<li><p>弹性盒模型 display: flex;</p>
+</li>
+<li><p>多列布局 column-count: 5;</p>
+</li>
+<li><p>媒体查询 @media (max-width: 480px) {.box: {column-count: 1;}}</p>
+</li>
+<li><p>个性化字体 @font-face{font-family: BorderWeb; src:url(BORDERW0.eot);}</p>
+</li>
+<li><p>颜色透明度 color: rgba(255, 0, 0, 0.75);</p>
+</li>
+<li><p>圆角 border-radius: 5px;</p>
+</li>
+<li><p>渐变 background:linear-gradient(red, green, blue);</p>
+</li>
+<li><p>阴影 box-shadow:3px 3px 3px rgba(0, 64, 128, 0.3);</p>
+</li>
+<li><p>倒影 box-reflect: below 2px;</p>
+</li>
+<li><p>文字装饰 text-stroke-color: red;</p>
+</li>
+<li><p>文字溢出 text-overflow:ellipsis;</p>
+</li>
+<li><p>背景效果 background-size: 100px 100px;</p>
+</li>
+<li><p>边框效果 border-image:url(bt_blue.png) 0 10;</p>
+</li>
+<li><p>平滑过渡 transition: all .3s ease-in .1s;</p>
+</li>
+<li><p>动画 @keyframes anim-1 {50% {border-radius: 50%;}} animation: anim-1 1s;</p>
+</li>
+<li><p>变形 transform</p>
+<ul>
+<li>旋转 transform: rotate(20deg);</li>
+<li>倾斜 transform: skew(150deg, -10deg);</li>
+<li>位移 transform: translate(20px, 20px);</li>
+<li>缩放 transform: scale(.5);</li>
+</ul>
+<h2 id="什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的-IE？"><a href="#什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的-IE？" class="headerlink" title="什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？"></a>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</h2></li>
+<li><p>响应式设计就是网站能够兼容多个不同大小的终端，而不是为每个终端做一个特定的版本</p>
+</li>
+<li><p>基本原理是利用 CSS3 媒体查询，为不同尺寸的设备适配不同样式</p>
+</li>
+<li><p>对于低版本的 IE，可采用 JS 获取屏幕宽度，然后通过监听window.onresize 方法来实现兼容</p>
+</li>
+</ul>
+<h2 id="为什么要初始化-CSS-样式？"><a href="#为什么要初始化-CSS-样式？" class="headerlink" title="为什么要初始化 CSS 样式？"></a>为什么要初始化 CSS 样式？</h2><ul>
+<li>不同浏览器对有些标签样式的默认值解析不同</li>
+<li>不初始化 CSS 会造成各现浏览器之间的页面显示差异</li>
+<li>可以使用 reset.css 或 Normalize.css 做 CSS 初始化</li>
+</ul>
+<h2 id="Normalize-css-理解"><a href="#Normalize-css-理解" class="headerlink" title="Normalize.css 理解"></a>Normalize.css 理解</h2><p>Normalize.css 是一种现代的，为 HTML5 准备的优质替代方案。<br>创造 normalize.css 有下几个目的：</p>
+<ul>
+<li>保护有用的浏览器默认样式而不是完全去掉它们</li>
+<li>一般化的样式：为大部分 HTML 元素提供</li>
+<li>修复浏览器自身的 bug 并保证各浏览器的一致性</li>
+<li>优化 CSS 可用性：用一些小技巧</li>
+<li>解释代码：用注释和详细的文档来</li>
+</ul>
+<h2 id="介绍使用过的-CSS-预处理器"><a href="#介绍使用过的-CSS-预处理器" class="headerlink" title="介绍使用过的 CSS 预处理器"></a>介绍使用过的 CSS 预处理器</h2><p>CSS 预处理器基本思想：<br>    为 CSS 增加了一些编程的特性（变量、逻辑判断、函数等）</p>
+<p>行 Web 页面样式设计，再编译成正常的 CSS 文件使用.</p>
+<p><a href="https://www.sass.hk/guide/" target="_blank" rel="noopener">sass</a>, <a href="http://lesscss.cn" target="_blank" rel="noopener">less</a>, <a href="http://stylus-lang.com/" target="_blank" rel="noopener">stylus</a></p>
+<ul>
+<li>变量 (定义主题色)</li>
+<li>函数  (计算值)</li>
+<li>混合器 （代码段的复用）</li>
+<li>父级选择器</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/21/javascript/" rel="next">javascript</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+    </div>
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+          <div class="comments" id="comments">
+            
+            -->
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Xingzi" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Xingzi</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-选择器分类"><span class="nav-number">1.</span> <span class="nav-text">CSS 选择器分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3属性选择器"><span class="nav-number">2.</span> <span class="nav-text">CSS3属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iconfont原理"><span class="nav-number">3.</span> <span class="nav-text">iconfont原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-定义的权重"><span class="nav-number">4.</span> <span class="nav-text">css 定义的权重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3伪类选择器"><span class="nav-number">5.</span> <span class="nav-text">CSS3伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-number">6.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC"><span class="nav-number">7.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float"><span class="nav-number">8.</span> <span class="nav-text">float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动"><span class="nav-number">9.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline-block的间隙"><span class="nav-number">10.</span> <span class="nav-text">inline-block的间隙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你对-line-height-是如何理解的？"><span class="nav-number">11.</span> <span class="nav-text">你对 line-height 是如何理解的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片下面有一个缝隙是因为什么"><span class="nav-number">12.</span> <span class="nav-text">图片下面有一个缝隙是因为什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字折行"><span class="nav-number">13.</span> <span class="nav-text">文字折行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单行文本溢出显示省略号"><span class="nav-number">13.1.</span> <span class="nav-text">单行文本溢出显示省略号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display-none-与-visibility-hidden-的区别"><span class="nav-number">14.</span> <span class="nav-text">display: none; 与 visibility: hidden; 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS单位"><span class="nav-number">15.</span> <span class="nav-text">CSS单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-优化、提高性能的方法有哪些？"><span class="nav-number">16.</span> <span class="nav-text">CSS 优化、提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display-有哪些值？说明他们的作用"><span class="nav-number">17.</span> <span class="nav-text">display 有哪些值？说明他们的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-有哪些值？-relative-和-absolute-定位原点是？"><span class="nav-number">18.</span> <span class="nav-text">position 有哪些值？ relative 和 absolute 定位原点是？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3新特性？"><span class="nav-number">19.</span> <span class="nav-text">CSS3新特性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的-IE？"><span class="nav-number">20.</span> <span class="nav-text">什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要初始化-CSS-样式？"><span class="nav-number">21.</span> <span class="nav-text">为什么要初始化 CSS 样式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Normalize-css-理解"><span class="nav-number">22.</span> <span class="nav-text">Normalize.css 理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍使用过的-CSS-预处理器"><span class="nav-number">23.</span> <span class="nav-text">介绍使用过的 CSS 预处理器</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xingzi
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="https://idhyt.github.io" target="_blank" rel="noopener">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp" target="_blank" rel="noopener">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
