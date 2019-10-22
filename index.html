@@ -1,688 +1,488 @@
 <!DOCTYPE html>
+<html lang="en">
 
-
-
-
-
-<html lang="zh-CN">
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          
+        
+    </title>
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+    <link rel="canonical" href="http://yoursite.com/">
 
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
 
+    <link rel="stylesheet" href="/css/widget.css">
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    <link rel="stylesheet" href="/css/rocket.css">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-  <link rel="canonical" href="http://yoursite.com/">
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>Hexo</title>
-  
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
 
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/undefined') 
+            /*config*/
+        
+    }
+    
+</style>
 
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <h1>My blog</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"></span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</header>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">My blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-      
-    
-      
-      
-        
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      
-    
-  </ul>
-
-    
-
+    <!-- /.container -->
 </nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/2019/10/21/javascript/">
+        <h2 class="post-title">
+            javascript
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用
+　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递
+　　3）bind、call、apply这三个方法都属于函数（Function）的方法
+自封bind 12345678 Function.pr......
+        </div>
+    </a>
+    
+        <p class="post-meta">
+            Posted by Wxz on
+            2019-10-21
+        </p>
+    
+
 </div>
-    </header>
+<hr>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+<div class="post-preview">
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div class="content">
+    <a href="/2019/10/21/Vue学习第一天/">
+        <h2 class="post-title">
+            Vue学习第一天
+        </h2>
+        <h3 class="post-subtitle">
             
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/javascript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wxz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/21/javascript/" class="post-title-link" itemprop="url">javascript</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-21 20:09:59 / 修改时间：20:35:23" itemprop="dateCreated datePublished" datetime="2019-10-21T20:09:59+08:00">2019-10-21</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="js-call-apply-bind"><a href="#js-call-apply-bind" class="headerlink" title="js call() apply() bind()"></a>js call() apply() bind()</h2><p>　　1）bind的返回值是一个函数体，不会被立即调用</p>
-<p>　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递</p>
-<p>　　3）bind、call、apply这三个方法都属于函数（Function）的方法</p>
-<h3 id="自封bind"><a href="#自封bind" class="headerlink" title="自封bind"></a>自封bind</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> Function.prototype.myBind = function () &#123;</span><br><span class="line">    let first = [].shift.call(arguments)</span><br><span class="line">    let args = [].slice.call(arguments)</span><br><span class="line">    let _this = this</span><br><span class="line">    return function () &#123;</span><br><span class="line">        _this.apply(first, [].concat.call(args, [].slice.call(arguments)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>first = [].shift.call(arguments) 这一句就是把参数中的第一个剪切出来，赋给 context，那么也就相当于起到了将 参数中的 this 保存的目的。</p>
-<p>args = [].slice.call(arguments);<br>这一句，将除了 this 上下文的所有参数，传给了 args ，以备后来使用。</p>
-<p>返回函数<br>return function () {    // 返回一个新函数<br>    self.apply(context,[].concat.call(args, [].slice.call(arguments)));<br>}<br>这一段其实很好理解，因为bind 绑定了上下文，因此 self.apply 的第一个参数，是之前我们保存的 context。接下来，我们将 bind 的其余参数和调用bind后返回的函数在执行的过程中接收的参数进行拼接，作为一个数组传入apply的第二个参数中去。这就完美的实现了 bind 函数的功能，不得不说很是巧妙。</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。(红宝书)</p>
-<h3 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h3><p>因为函数的内部函数使用了函数的变量，内部函数又被外部的变量接收，就可以在外部使用函数的变量(通过内部函数作用域链，因为内部函数是有权访问到函数中变量的),导致了函数中的变量存在了除了内部函数的指向，从而使函数不被垃圾回收机制(新生代算法 GC)回收。</p>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>查找变量会先从当前的作用域中去查找,找不到就会去上一级查找，还没找到就到全局作用域查找，这样就形成了一个作用域链。简单来说就是在函数中所能访问的变量按照层级关系所组成的一条有着先后顺序的链子。</p>
-<h3 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h3><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
-<h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wxz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">Vue学习第一天</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-21 19:57:45 / 修改时间：20:35:28" itemprop="dateCreated datePublished" datetime="2019-10-21T19:57:45+08:00">2019-10-21</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Vue 模板语法</p>
-<h2 id="1-插值表达式"><a href="#1-插值表达式" class="headerlink" title="1.插值表达式    "></a>1.插值表达式    </h2><h2 id="2-指令-属性-增强html的功能"><a href="#2-指令-属性-增强html的功能" class="headerlink" title="2.指令(属性) 增强html的功能"></a>2.指令(属性) 增强html的功能</h2><h3 id="（1）v-cloak-指令"><a href="#（1）v-cloak-指令" class="headerlink" title="（1）v-cloak 指令"></a>（1）v-cloak 指令</h3><pre><code>用法：解决插值表达式存在的闪动问题
+        </h3>
+        <div class="post-content-preview">
+            Vue 模板语法
+1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题
 原理：
 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak
 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的
-2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v-cloak
-移除掉，这时候就会显示出来
-3.由于用户看到的直接就是hello，所以就不存在总{{msg}}到hello的切换</code></pre><h3 id="2-v-text-v-html-v-pre"><a href="#2-v-text-v-html-v-pre" class="headerlink" title="(2)v-text , v-html , v-pre"></a>(2)v-text , v-html , v-pre</h3><pre><code>- v-text : 填充纯文本(比插值表达式更加简洁)
-- v-html : 可以填充html代码(不推荐，有xss攻击的漏洞)
-- v-pre  : 原样输出 会直接输出{{msg}} 不会输出hello</code></pre><h3 id="3-数据响应式"><a href="#3-数据响应式" class="headerlink" title="(3)数据响应式"></a>(3)数据响应式</h3><pre><code>页面数据会根据数据的变化，而变化
-
-v-once 如果显示的额数据不需要修改，就使用v-once，来减少vue对数据的监听
-提高性能(使数据不再响应式)</code></pre><h3 id="4-双向数据绑定"><a href="#4-双向数据绑定" class="headerlink" title="(4)双向数据绑定"></a>(4)双向数据绑定</h3><pre><code>v-model 绑定数据
-原理: 事件监听 DOM Listeners
-      数据绑定 Data Bindings
-
-MVVM设局思想
-M(model 数据)  V(view 视图) VM(View-model )
-使M与V层分离 使业务变简单</code></pre><h3 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="(5)事件绑定"></a>(5)事件绑定</h3><pre><code>v-on (简写 @)
-事件函数的调用方式
-- 1 直接函数名 (如果不需要传参，用这个)
-&lt;button @click=&apos;handle&apos;&gt;点击2&lt;/button&gt;
-- 2 函数调用 (如果需要传参，用这个)
-&lt;button @click=&apos;handle1(3)&apos;&gt;点击3&lt;/button&gt;
-
-如果要传具体的事件对象 
-直接函数名的方式是默认会带事件的对象过去
-函数调用的话  必须要命名为$event
-
-事件修饰符
-.stop 阻止冒泡
-.prevent 阻止默认行为
-
-按键修饰符
-.enter 回车键 （.13 也可以）
-
-表单域修饰符
-.number 转换为数值
-.trim 去掉开头和结尾的空格
-.lazy 将input事件变为 change事件 （v-model默认用input事件）
-（input事件一改变就触发 change事件 失去焦点时才触发）</code></pre><h3 id="6-属性绑定"><a href="#6-属性绑定" class="headerlink" title="(6) 属性绑定"></a>(6) 属性绑定</h3><pre><code>v-bind (简写   : )
-&lt;div v-bind:属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;
-&lt;div :属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;</code></pre><h3 id="7-v-model-原理："><a href="#7-v-model-原理：" class="headerlink" title="(7) v-model 原理："></a>(7) v-model 原理：</h3><pre><code>&lt;input type=&apos;text&apos; v-bind:value = &apos;msg&apos;  v-on:input=&apos;msg = $event.target.value&apos;&gt;</code></pre>
-        
-      
-    </div>
-
+2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候......
+        </div>
+    </a>
     
+        <p class="post-meta">
+            Posted by Wxz on
+            2019-10-21
+        </p>
     
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/html/">
+</div>
+<hr>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wxz">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+<div class="post-preview">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
+    <a href="/2019/10/21/html/">
+        <h2 class="post-title">
+            html
+        </h2>
+        <h3 class="post-subtitle">
             
-            <a href="/2019/10/21/html/" class="post-title-link" itemprop="url">html</a>
-          
-        </h1>
+        </h3>
+        <div class="post-content-preview">
+            浏览器渲染页面原理浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+解析HTML，构建DOM tree。
 
-              
+解析CSS，构建CSSOM tree。
+
+合并DOM tree和CSSOM tree，生成render tree。
+
+布局（layout/reflow），计算各元素尺寸、位置。
+
+绘制（paint/repaint），绘制页面像素信息。
+
+浏览器将各层的信息发送给G......
+        </div>
+    </a>
+    
+        <p class="post-meta">
+            Posted by Wxz on
+            2019-10-21
+        </p>
+    
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+
+
+                <!-- 如果开启评论功能 -->
                 
-              
+            </div>
 
-              <time title="创建时间：2019-10-21 19:56:09 / 修改时间：20:35:19" itemprop="dateCreated datePublished" datetime="2019-10-21T19:56:09+08:00">2019-10-21</time>
-            </span>
-          
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+
+        
+
+        
+
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
             
 
             
-          
 
-          
+            
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="浏览器渲染页面原理"><a href="#浏览器渲染页面原理" class="headerlink" title="浏览器渲染页面原理"></a>浏览器渲染页面原理</h2><p>浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）</p>
-<ol>
-<li><p>解析HTML，构建DOM tree。</p>
-</li>
-<li><p>解析CSS，构建CSSOM tree。</p>
-</li>
-<li><p>合并DOM tree和CSSOM tree，生成render tree。</p>
-</li>
-<li><p>布局（layout/reflow），计算各元素尺寸、位置。</p>
-</li>
-<li><p>绘制（paint/repaint），绘制页面像素信息。</p>
-</li>
-<li><p>浏览器将各层的信息发送给GPU，GPU将各层合成，显示在屏幕上。</p>
-</li>
-</ol>
-<p>当修改了DOM或CSSOM，上述过程中的一些步骤就会重复执行。</p>
-<h2 id="渲染阻塞"><a href="#渲染阻塞" class="headerlink" title="渲染阻塞"></a>渲染阻塞</h2><p>当浏览器遇到一个 script 标记时，DOM 构建将暂停，直至脚本完成执行，然后继续构建DOM。<br>每次去执行JavaScript脚本都会严重地阻塞DOM树的构建，如果JavaScript脚本还操作了CSSOM，<br>而正好这个CSSOM还没有下载和构建，浏览器甚至会延迟脚本执行和构建DOM，直至完成其CSSOM的下载和构建。<br>所以，script 标签的位置很重要。实际使用时，可以遵循下面两个原则：<br>CSS 优先：引入顺序上，CSS 资源先于 JavaScript 资源。<br>JS置后：我们通常把JS代码放到页面底部，且JavaScript 应尽量少影响 DOM 的构建。<br>当解析html的时候，会把新来的元素插入dom树里面，同时去查找css，然后把对应的样式规则应用到元素上，<br>查找样式表是按照从右到左的顺序去匹配的。</p>
-<h2 id="reflow回流："><a href="#reflow回流：" class="headerlink" title="reflow回流："></a>reflow回流：</h2><p>当某个部分发生了变化影响了布局，需要倒回去重新渲染， 该过程称为reflow（回流）。reflow 几乎是无法避免的。<br>现在界面上流行的一些效果，比如树状目录的折叠、展开（实质上是元素的显 示与隐藏）等，都将引起浏览器的 reflow。<br>鼠标滑过、点击……只要这些行为引起了页面上某些元素的占位面积、定位方式、边距等属性的变化，都会引起它内部、周围甚至整个页面的重新渲染。<br>通常我们无法预估浏览器到底会 reflow 哪一部分的代码，它们彼此相互影响。</p>
-<h2 id="repaint重绘："><a href="#repaint重绘：" class="headerlink" title="repaint重绘："></a>repaint重绘：</h2><p>如果只是改变某个元素的背景色、文字颜色、边框颜色等等不影响它周围或内部布局的属性，将只会引起浏览器 repaint（重绘）。<br>repaint 的速度明显快于 reflow（在IE下需要换一下说法，reflow 要比 repaint 更缓慢）。</p>
-<p>reflow一定引起repaint，而repaint不一定要reflow。reflow的成本比repaint高很多，<br>DOM tree里每个结点的reflow很可能触发其子结点、祖先结点、兄弟结点的reflow。<br>reflow(回流)是导致DOM脚本执行低效的关键因素之一。</p>
-<p> 现代浏览器会对回流做优化，它会等到足够数量的变化发生，再做一次批处理回流。</p>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>尽量避免reflow：</p>
-<ul>
-<li>尽可能限制reflow的影响范围，修改DOM层级较低的结点。不要通过父级元素影响子元素样式。最好直接加在子元素上。</li>
-</ul>
-<ul>
-<li><p>不要一条一条的修改DOM的style，最好通过设置class的方式。 避免触发多次reflow和repaint。<br>经常reflow的元素，比如动画，position设为fixed或absolute，使其脱离文档流，不影响其它元素的布局。<br>权衡速度的平滑。比如实现一个动画，以1个像素为单位移动这样最平滑，但reflow就会过于频繁，CPU很快就会被完全占用。如果以3个像素为单位移动就会好很多。</p>
-</li>
-<li><p>不要用tables布局。tables中某个元素一旦触发reflow就会导致table里所有的其它元素reflow。<br>在适合用table的场合，可以设置table-layout为auto或fixed，这样可以让table一行一行的渲染，这种做法也是为了限制reflow的影响范围。</p>
-</li>
-<li><p>避免不必要的复杂的 CSS 选择器，尤其是后代选择器（descendant selectors），因为为了匹配选择器将耗费更多的 CPU。</p>
-</li>
-<li><p>尽量不要频繁的增加、修改、删除元素，可以先把DOM节点抽离到内存中进行复杂的操作然后再display到页面上。<br>（display:none的节点不会被加入render tree，而visibility:hidden会；display:none会触发reflow，而visibility:hidden只会触发repaint，因为layout没有变化）。</p>
-</li>
-</ul>
-<h2 id="Doctype-作用？标准模式与兼容模式各有什么区别"><a href="#Doctype-作用？标准模式与兼容模式各有什么区别" class="headerlink" title="Doctype 作用？标准模式与兼容模式各有什么区别?"></a>Doctype 作用？标准模式与兼容模式各有什么区别?</h2><p>DOCTYPE是用来声明文档类型和DTD规范的。<br><code>&lt;!DOCTYPE html&gt;</code>声明位于HTML文档中的第一行，不是一个HTML标签，处于 html 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。</p>
-<h2 id="介绍一下你对浏览器内核的理解？"><a href="#介绍一下你对浏览器内核的理解？" class="headerlink" title="介绍一下你对浏览器内核的理解？"></a>介绍一下你对浏览器内核的理解？</h2><p>主要分成两部分：渲染引擎(layout engineer 或 Rendering Engine)和 JS 引擎。</p>
-<p>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后渲染到用户的屏幕上。</p>
-<p>JS 引擎则：解析和执行 javascript 来实现逻辑和控制 DOM 进行交互。</p>
-<p>最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</p>
-<h2 id="HTML5变化"><a href="#HTML5变化" class="headerlink" title="HTML5变化"></a>HTML5变化</h2><ul>
-<li><a href="http://www.w3school.com.cn/html/html5_new_elements.asp" target="_blank" rel="noopener">新的语义化元素</a><ul>
-<li>header footer nav main article  section</li>
-<li>删除了一些纯样式的标签</li>
-</ul>
-</li>
-<li><a href="http://caibaojian.com/html5/form.html" target="_blank" rel="noopener">表单增强</a></li>
-<li>新API<ul>
-<li>离线 （applicationCache ）</li>
-<li>音视频 （audio, vidio）</li>
-<li>图形 （canvans）</li>
-<li>实时通信（websoket）</li>
-<li>本地存储（localStorage, indexDB）</li>
-<li>设备能力（地图定位，手机摇一摇</li>
-</ul>
-</li>
-</ul>
-<h2 id="简述一下你对-HTML-语义化的理解？"><a href="#简述一下你对-HTML-语义化的理解？" class="headerlink" title="简述一下你对 HTML 语义化的理解？"></a>简述一下你对 HTML 语义化的理解？</h2><ul>
-<li>用正确的标签做正确的事情。</li>
-<li>html 语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;</li>
-<li>即使在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的;</li>
-<li>搜索引擎的爬虫也依赖于 HTML 标记来确定上下文和各个关键字的权重，利于 SEO(搜索引擎优化);</li>
-<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</li>
-</ul>
-<h2 id="请描述一下-cookies，sessionStorage-和-localStorage-的区别？"><a href="#请描述一下-cookies，sessionStorage-和-localStorage-的区别？" class="headerlink" title="请描述一下 cookies，sessionStorage 和 localStorage 的区别？"></a>请描述一下 cookies，sessionStorage 和 localStorage 的区别？</h2><ul>
-<li>cookie 是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）</li>
-<li>cookie 数据始终在同源的 http 请求中携带（即使不需要），记会在浏览器和服务器间来回传递。</li>
-<li>sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。</li>
-<li>存储大小：<ul>
-<li>cookie 数据大小不能超过 4k。</li>
-<li>sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。</li>
-</ul>
-</li>
-<li>有效期（生命周期）：<ul>
-<li>localStorage: 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；</li>
-<li>sessionStorage: 数据在当前浏览器窗口关闭后自动删除。</li>
-<li>cookie: 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭</li>
-</ul>
-</li>
-<li>共享<ul>
-<li>sessionStorage不能共享，localStorage在同源文档之间共享，cookie在同源且符合path规则的文档之间共享</li>
-</ul>
-</li>
-</ul>
-<h2 id="移动端项目需要注意的4个问题"><a href="#移动端项目需要注意的4个问题" class="headerlink" title="移动端项目需要注意的4个问题"></a>移动端项目需要注意的4个问题</h2><h3 id="meta中设置viewport"><a href="#meta中设置viewport" class="headerlink" title="meta中设置viewport"></a>meta中设置viewport</h3><p>阻止用户手滑放大或缩小页面，需要在 index.html中添加meta元素,设置viewport。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="CSS样式统一问题"><a href="#CSS样式统一问题" class="headerlink" title="CSS样式统一问题"></a>CSS样式统一问题</h3><p>我们需要重置页面样式，因为在不同的手机浏览器上，默认的css样式不是统一的。 解决方法：使用reset.css重置所有元素的默认样式</p>
-<h3 id="一像素边框问题"><a href="#一像素边框问题" class="headerlink" title="一像素边框问题"></a>一像素边框问题</h3><p>有的手机分辨率比较高，是2倍屏或3倍屏，手机上的浏览器就会把CSS中的1像素值展示为2个或3个物理宽度 解决方法： 添加一个border.css库，将利用<strong>scroll缩放的原理</strong>将边框重置。当我们需要使用一像素边框时只需要在标签上添加对应类名，如设置底部一像素边框就在标签上加入”border-bottom”的class名</p>
-<h3 id="300毫秒点击延迟问题"><a href="#300毫秒点击延迟问题" class="headerlink" title="300毫秒点击延迟问题"></a>300毫秒点击延迟问题</h3><p>在移动端开发中，某些机型上使用click事件会延迟300ms才执行，这样影响了用户体验。 解决方法： 引入<a href="https://www.jianshu.com/p/05b142d84780" target="_blank" rel="noopener">fastclick.js</a>。</p>
-
-        
-      
+            
+            
+            
+            
+        </ul>
     </div>
-
+</section>
+        <hr>
     
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-  </div>
-
-  
-
-
-
-          </div>
-          
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Wxz</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-  </nav>
-</div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Wxz</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
       
-    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+        <li>
+          <a href="/2019/10/21/javascript/">javascript</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/21/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">Vue学习第一天</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/21/html/">html</a>
+        </li>
+      
+    </ul>
   </div>
 
-        
+        <hr>
+    
+        <!-- Friends Blog -->
 
-
-
-
-
-
-
-
-
-
-
+        <hr>
+    
+</div>
 
         
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+    </div>
+</div>
 
 
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
 
-  
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Wxz 2019 
+                    <br>
+                    Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
+
 </html>
