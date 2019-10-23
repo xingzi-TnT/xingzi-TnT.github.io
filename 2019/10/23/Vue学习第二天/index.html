@@ -45,7 +45,7 @@
 <meta property="og:site_name" content="My blog">
 <meta property="og:description" content="分支结构：v-if  控制元素是否渲染到页面 v-else  v-else-if  v-show  控制元素是否显示 （已经渲染到页面）  原理：display  &amp;lt;div v-if=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt; &amp;lt;div v-show=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;循环结构：v-for  （遵循就地">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T13:03:49.600Z">
+<meta property="og:updated_time" content="2019-10-23T13:08:45.002Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -260,7 +260,7 @@ v-for 和 v-if 一起使用 (不推荐)
              return value.charAt(0).toUpperCase() + value.slice(1)
            }
          }
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">            使用：  &#123;&#123; message | filterA | filterB &#125;&#125;</span><br><span class="line"></span><br><span class="line">## 生命周期：</span><br><span class="line">        create mount update destory</span><br><span class="line">        代码执行需要时间的</span><br><span class="line">        1. new Vue() 数据和模板都没有准备好-- - &gt; beforeCreate</span><br><span class="line">        2. 数据准备好 模板还没有准备好-- &gt; created</span><br><span class="line">        3. 通过el找到模板了， 数据和模板中的插值表达式没有同步-- &gt; beforeMount</span><br><span class="line">        4. 数据和模板同步了-- &gt; mounted 到此为止vue初始化成功了</span><br><span class="line">        5. 当用户修改数据的时候， 就会触发beforeUpdate（ 数据变了， 模板中还是旧的东西）-- &gt; updated（ 同步）</span><br><span class="line">        6. beforeDestroy-- &gt; destroyed</span><br></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">            使用：  &#123;&#123; message | filterA | filterB &#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 生命周期：</span><br><span class="line">        create mount update destory</span><br><span class="line">        代码执行需要时间的</span><br><span class="line">        1. new Vue() 数据和模板都没有准备好-- - &gt; beforeCreate</span><br><span class="line">        2. 数据准备好 模板还没有准备好-- &gt; created</span><br><span class="line">        3. 通过el找到模板了， 数据和模板中的插值表达式没有同步-- &gt; beforeMount</span><br><span class="line">        4. 数据和模板同步了-- &gt; mounted 到此为止vue初始化成功了</span><br><span class="line">        5. 当用户修改数据的时候， 就会触发beforeUpdate</span><br><span class="line">        （ 数据变了， 模板中还是旧的东西）-- &gt; updated（ 同步）</span><br><span class="line">        6. beforeDestroy-- &gt; destroyed</span><br></pre></td></tr></table></figure>
 var vm = new Vue({
     el: &apos;#app&apos;,
     data: {
@@ -299,8 +299,11 @@ var vm = new Vue({
     destroyed: function () {
         console.log(456)
     }
-});</code></pre><p>```<br>        代码执行越早越好</p>
-<pre><code>1. created 数据准备好 会在这个阶段可以去ajax请求数据
+});
+```
+代码执行越早越好
+
+1. created 数据准备好 会在这个阶段可以去ajax请求数据
 2. mounted DOM准备好 有些情况是必须要操作DOM 用一些第三方插件 swiper.js...
  3. beforeDestory 扫尾工作 当前组件要销毁， 用到定时器 clearTimeou</code></pre></span>
       
