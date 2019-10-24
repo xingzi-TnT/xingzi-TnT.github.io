@@ -38,14 +38,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="分支结构：v-if  控制元素是否渲染到页面 v-else  v-else-if  v-show  控制元素是否显示 （已经渲染到页面）  原理：display  &amp;lt;div v-if=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt; &amp;lt;div v-show=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;循环结构：v-for  （遵循就地">
+<meta name="description" content="组件的注册Vue.component(组件名称，{     data:组件数据，     template:组件模板和内容 })  12345678910111213141516Vue.component(&amp;apos;button-counter&amp;apos;, &amp;#123;    data: function () &amp;#123;        return &amp;#123;            co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习第二天">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9&#x2F;index.html">
+<meta property="og:title" content="Vue学习第三天">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;24&#x2F;Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%A4%A9&#x2F;index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:description" content="分支结构：v-if  控制元素是否渲染到页面 v-else  v-else-if  v-show  控制元素是否显示 （已经渲染到页面）  原理：display  &amp;lt;div v-if=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt; &amp;lt;div v-show=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;循环结构：v-for  （遵循就地">
+<meta property="og:description" content="组件的注册Vue.component(组件名称，{     data:组件数据，     template:组件模板和内容 })  12345678910111213141516Vue.component(&amp;apos;button-counter&amp;apos;, &amp;#123;    data: function () &amp;#123;        return &amp;#123;            co">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T13:18:08.667Z">
+<meta property="og:updated_time" content="2019-10-24T12:12:50.921Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> Vue学习第二天 | My blog </title>
+  <title> Vue学习第三天 | My blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -178,7 +178,7 @@
           
           
             
-              Vue学习第二天
+              Vue学习第三天
             
           
         </h1>
@@ -187,8 +187,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-23T21:00:07+08:00" content="2019-10-23">
-            2019-10-23
+          <time itemprop="dateCreated" datetime="2019-10-24T20:12:15+08:00" content="2019-10-24">
+            2019-10-24
           </time>
         </span>
 
@@ -206,92 +206,40 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="分支结构："><a href="#分支结构：" class="headerlink" title="分支结构："></a>分支结构：</h2><pre><code>v-if  控制元素是否渲染到页面
-v-else 
-v-else-if
+        <span itemprop="articleBody"><h2 id="组件的注册"><a href="#组件的注册" class="headerlink" title="组件的注册"></a>组件的注册</h2><pre><code>Vue.component(组件名称，{
+    data:组件数据，
+    template:组件模板和内容
+})
 
-v-show  控制元素是否显示 （已经渲染到页面）  原理：display
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;button-counter&apos;, &#123;</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;handle&quot;&gt;点击了&#123;&#123;count&#125;&#125;次&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        handle: function () &#123;</span><br><span class="line">            this.count += 2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><h2 id="组件的使用"><a href="#组件的使用" class="headerlink" title="组件的使用"></a>组件的使用</h2><pre><code>&lt;button-counter&gt;&lt;/button-counter&gt;
 
-&lt;div v-if=&quot;isActive&quot;&gt;&lt;/div&gt;
-&lt;div v-show=&quot;isActive&quot;&gt;&lt;/div&gt;</code></pre><h2 id="循环结构："><a href="#循环结构：" class="headerlink" title="循环结构："></a>循环结构：</h2><pre><code>v-for  （遵循就地更新）
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&apos;item in lists&apos; :key=&apos;item.id&apos;&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot;&gt;</span><br><span class="line">    &#123;&#123;item&#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-因为就地更新 是只是将元素修改（重绘） 并没有将全部元素删除并创建
-所以如果原始的带有比如 checkbox 就会出现问题 
 
-解决：添加 :key 给vue一个提示。以便它可以跟踪每个节点的身份
+注意：
+   - 组件名 要使用多个单词 用 - 隔开
+   - data 必须是一个函数  (保证有独立的作用域，使之互相不影响)
+    为什么data必须是一个函数呢？
+    （1）首先，如果不是一个函数，Vue会直接报错
+    （2）其次，原因是在于Vue让每个组件对象都返回一个新的对象
+        ，因为如果是同一个对象的，组件在对此使用后会互相影响
 
-v-for 和 v-if 一起使用 (不推荐)
-当vue处理指令时,v-for 比 v-if 有更高的优先级
-尽管效果是一样的 但是在内部 v-for 会循环完，性能较低
+   - 模板内容 必须是一个根元素或单个元素
+        如果模板只是兄弟关系的元素，会报错</code></pre><h2 id="局部组件的注册："><a href="#局部组件的注册：" class="headerlink" title="局部组件的注册："></a>局部组件的注册：</h2><pre><code>1、在根组件当中定义的属于全局组件
+2、在当前组件中嵌套内部使用的组件叫局部组件
+3、如何定义局部组件：当前组件中有一个属性叫components，在里面定义即可    
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;button-counter&apos;, &#123;</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;handle&quot;&gt;点击了&#123;&#123;count&#125;&#125;次&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    components: &#123;</span><br><span class="line">        &apos;hello-tom&apos;:`&lt;div&gt;</span><br><span class="line">                        hello tom</span><br><span class="line">                    `&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+局部组件只能在注册它的父组件中使用</code></pre><h2 id="组件间数据交互："><a href="#组件间数据交互：" class="headerlink" title="组件间数据交互："></a>组件间数据交互：</h2><h3 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h3><pre><code>（1） 组件内部通过props接受传递过来的值
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;menu-item&apos;, &#123;</span><br><span class="line">    props: [&apos;title&apos;],</span><br><span class="line">    template: `&lt;div&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+(2) 父组件通过属性将值传递给子组件
+    &lt;menu-item title=&apos;来自父组件的数据&apos;&gt;&lt;/menu-item&gt; 
 
-解决：先用 计算属性数据处理  从而避免 v-if 和 v-for 嵌套 </code></pre><h2 id="自定指令："><a href="#自定指令：" class="headerlink" title="自定指令："></a>自定指令：</h2><pre><code>全局指令：
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;, &#123;</span><br><span class="line">    inserted: function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-    讲解：
-        1、focus是随便定义的一个名字
-        2、el代表的是指令当前所在的元素
-        3、inserted在当前元素插入到DOM树的时候触发
-        4、对应的还有bind是在当前指令绑定到当前元素的时候触发
-            (1)大部分情况下推荐用bind，但这块必须要用inserted
-            (2)下面的代码解释为啥这块需要用到inserted而不是bind
- 局部指令：
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> directives: &#123;</span><br><span class="line">    focus: &#123;</span><br><span class="line">        inserted: function (el) &#123;</span><br><span class="line">            el.focus()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h2 id="计算属性："><a href="#计算属性：" class="headerlink" title="计算属性："></a>计算属性：</h2><pre><code>1、计算属性解决的问题是：插值表达式太过于复杂
-2、计算属性和数据模型一样，都是响应式的
-3、注意事项：计算属性虽然是一个方法，但是不需要加上小括号，这是语法规范，没有为什么，应该可以理解的，
-毕竟前面的事件对应的方法也是没有加括号的
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">        reverseString: function () &#123;</span><br><span class="line">            return this.msg.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-计算属性和与方法的区别
-    用途：
-        方法：事件需要用方法
-        计算属性：一个值需要各种计算 的结果  优点: 有缓存
+    &lt;menu-item :title=&apos;title&apos;&gt;&lt;/menu-item&gt;</code></pre><h3 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h3><pre><code>props 传递数据原则： 单项数据流
+（只允许父组件向子组件传递数据，不允许子组件直接操作数据）
 
-        计算属性是基于它们的依赖来缓存的 (数据变化才变化)</code></pre><h2 id="监听器："><a href="#监听器：" class="headerlink" title="监听器："></a>监听器：</h2><pre><code>应用场景： 
-当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。 (同步写计算属性)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">        watch: &#123;</span><br><span class="line">                // 如果 `question` 发生改变，这个函数就会运行</span><br><span class="line">                question: function (newQuestion, oldQuestion) &#123;</span><br><span class="line">                  this.answer = &apos;Waiting for you to stop typing...&apos;</span><br><span class="line">                  this.debouncedGetAnswer()</span><br><span class="line">                &#125;</span><br><span class="line">        ```        </span><br><span class="line">        </span><br><span class="line">## 过滤器:</span><br><span class="line">            全局:</span><br><span class="line"></span><br><span class="line">            Vue.filter(&apos;capitalize&apos;, function (value) &#123;</span><br><span class="line">                          if (!value) return &apos;&apos;</span><br><span class="line">                          value = value.toString()</span><br><span class="line">                          return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">                        &#125;)</span><br><span class="line"></span><br><span class="line">            局部:</span><br><span class="line"></span><br><span class="line">             filters: &#123;</span><br><span class="line">                   capitalize: function (value) &#123;</span><br><span class="line">                     if (!value) return &apos;&apos;</span><br><span class="line">                     value = value.toString()</span><br><span class="line">                     return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">                   &#125;</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            使用：  &#123;&#123; message | filterA | filterB &#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 生命周期：</span><br><span class="line">        create mount update destory</span><br><span class="line">        代码执行需要时间的</span><br><span class="line">        1. new Vue() 数据和模板都没有准备好-- - &gt; beforeCreate</span><br><span class="line">        2. 数据准备好 模板还没有准备好-- &gt; created</span><br><span class="line">        3. 通过el找到模板了， 数据和模板中的插值表达式没有同步-- &gt; beforeMount</span><br><span class="line">        4. 数据和模板同步了-- &gt; mounted 到此为止vue初始化成功了</span><br><span class="line">        5. 当用户修改数据的时候， 就会触发beforeUpdate</span><br><span class="line">        （ 数据变了， 模板中还是旧的东西）-- &gt; updated（ 同步）</span><br><span class="line">        6. beforeDestroy-- &gt; destroyed</span><br></pre></td></tr></table></figure>
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-        msg: &apos;hello vue&apos;,
-        list: []
-    },
-    methods: {},
-    // 8个生命周期钩子函数
-    beforeCreate: function () {
-        //    console.log(this.$el)
-        //    console.log(this.msg)
-    },
-    created: function () {
-        // console.log(this.$el)
-        // console.log(this.msg)
-    },
-    beforeMount: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    mounted: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    beforeUpdate: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    updated: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    beforeDestroy: function () {
-        console.log(123)
-    },
-    destroyed: function () {
-        console.log(456)
-    }
-});
-```
-代码执行越早越好
+（1）子组件通过自定义事件向父组件传递信息
+&lt;button @click=&apos;$emit(&quot;enlarge-text&quot;,o.1)&apos;&gt;扩大字体&lt;/button&gt;
 
-1. created 数据准备好 会在这个阶段可以去ajax请求数据
-2. mounted DOM准备好 有些情况是必须要操作DOM 用一些第三方插件 swiper.js...
- 3. beforeDestory 扫尾工作 当前组件要销毁， 用到定时器 clearTimeou</code></pre></span>
+（2）父组件监听子组件的事件
+&lt;menu-item @enlarge-text=&apos;fontSize += $event&apos;&gt;&lt;/menu-item&gt;</code></pre></span>
       
     </div>
 
@@ -302,13 +250,11 @@ var vm = new Vue({
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%A4%A9/" rel="prev">Vue学习第三天</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/22/css/" rel="next">css</a>
+              <a href="/2019/10/23/Vue%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9/" rel="next">Vue学习第二天</a>
             
           </div>
         </div>
@@ -414,7 +360,7 @@ var vm = new Vue({
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支结构："><span class="nav-number">1.</span> <span class="nav-text">分支结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环结构："><span class="nav-number">2.</span> <span class="nav-text">循环结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定指令："><span class="nav-number">3.</span> <span class="nav-text">自定指令：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性："><span class="nav-number">4.</span> <span class="nav-text">计算属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听器："><span class="nav-number">5.</span> <span class="nav-text">监听器：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件的注册"><span class="nav-number">1.</span> <span class="nav-text">组件的注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件的使用"><span class="nav-number">2.</span> <span class="nav-text">组件的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部组件的注册："><span class="nav-number">3.</span> <span class="nav-text">局部组件的注册：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件间数据交互："><span class="nav-number">4.</span> <span class="nav-text">组件间数据交互：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件向子组件传值"><span class="nav-number">4.1.</span> <span class="nav-text">父组件向子组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子组件向父组件传值"><span class="nav-number">4.2.</span> <span class="nav-text">子组件向父组件传值</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
