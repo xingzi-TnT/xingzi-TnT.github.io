@@ -48,7 +48,7 @@
 <meta property="og:site_name" content="Xingzi&#39;s blog">
 <meta property="og:description" content="组件的注册Vue.component(组件名称，{     data:组件数据，     template:组件模板和内容 })  12345678910111213141516Vue.component(&amp;apos;button-counter&amp;apos;, &amp;#123;    data: function () &amp;#123;        return &amp;#123;            co">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-24T12:12:50.921Z">
+<meta property="og:updated_time" content="2019-10-25T13:16:29.280Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -258,7 +258,8 @@
     template:组件模板和内容
 })
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;button-counter&apos;, &#123;</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;handle&quot;&gt;点击了&#123;&#123;count&#125;&#125;次&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        handle: function () &#123;</span><br><span class="line">            this.count += 2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><h2 id="组件的使用"><a href="#组件的使用" class="headerlink" title="组件的使用"></a>组件的使用</h2><pre><code>&lt;button-counter&gt;&lt;/button-counter&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;button-counter&apos;, &#123;</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;handle&quot;&gt;点击了&#123;&#123;count&#125;&#125;次&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        handle: function () &#123;</span><br><span class="line">            this.count += 2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+这些组件是全局注册的。也就是说它们在注册之后可以用在任何新创建的 Vue 根实例 (new Vue) 的模板中。</code></pre><h2 id="组件的使用"><a href="#组件的使用" class="headerlink" title="组件的使用"></a>组件的使用</h2><pre><code>&lt;button-counter&gt;&lt;/button-counter&gt;
 
 
 注意：
@@ -274,9 +275,11 @@
 2、在当前组件中嵌套内部使用的组件叫局部组件
 3、如何定义局部组件：当前组件中有一个属性叫components，在里面定义即可    
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;button-counter&apos;, &#123;</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;handle&quot;&gt;点击了&#123;&#123;count&#125;&#125;次&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    components: &#123;</span><br><span class="line">        &apos;hello-tom&apos;:`&lt;div&gt;</span><br><span class="line">                        hello tom</span><br><span class="line">                    `&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-局部组件只能在注册它的父组件中使用</code></pre><h2 id="组件间数据交互："><a href="#组件间数据交互：" class="headerlink" title="组件间数据交互："></a>组件间数据交互：</h2><h3 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h3><pre><code>（1） 组件内部通过props接受传递过来的值
+局部组件只能在注册它的父组件中使用
+
+全局注册往往是不够理想的。比如，如果你使用一个像 webpack 这样的构建系统，全局注册所有的组件意味着即便你已经不再使用一个组件了，它仍然会被包含在你最终的构建结果中。这造成了用户下载的 JavaScript 的无谓的增加。</code></pre><h2 id="组件间数据交互："><a href="#组件间数据交互：" class="headerlink" title="组件间数据交互："></a>组件间数据交互：</h2><h3 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h3><pre><code>（1） 子组件通过props属性接受父组件传递过来的值
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;menu-item&apos;, &#123;</span><br><span class="line">    props: [&apos;title&apos;],</span><br><span class="line">    template: `&lt;div&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-(2) 父组件通过属性将值传递给子组件
+(2) 父组件通过属性绑定将值传递给子组件
     &lt;menu-item title=&apos;来自父组件的数据&apos;&gt;&lt;/menu-item&gt; 
 
     &lt;menu-item :title=&apos;title&apos;&gt;&lt;/menu-item&gt;</code></pre><h3 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h3><pre><code>props 传递数据原则： 单项数据流
@@ -285,8 +288,15 @@
 （1）子组件通过自定义事件向父组件传递信息
 &lt;button @click=&apos;$emit(&quot;enlarge-text&quot;,o.1)&apos;&gt;扩大字体&lt;/button&gt;
 
+$emit 绑定一个自定义事件event，当这个这个语句被执行到的时候，就会将参数arg传递给父组件，父组件通过@event监听并接收参数。
+
+子组件中添加自定义 事件  ,逗号后面可以填需要传递的数据
+就实现了子组件向父组件传递数据
+
 （2）父组件监听子组件的事件
-&lt;menu-item @enlarge-text=&apos;fontSize += $event&apos;&gt;&lt;/menu-item&gt;</code></pre></span>
+&lt;menu-item @enlarge-text=&apos;fontSize += $event&apos;&gt;&lt;/menu-item&gt;
+
+父组件绑定，监听这个自定义事件  再在父组件中添加事件处理, 如果子组件传递了参数，  可以通过$event 来获取到传递过来的值</code></pre></span>
       
     </div>
 
@@ -435,7 +445,7 @@
               </span>
             
               <span class="links-of-author-item">
-              <a href="https://www.v2ex.com/" target="_blank">印记中文</a>
+              <a href="https://www.nowcoder.com/" target="_blank">牛客</a>
               </span>
             
           
