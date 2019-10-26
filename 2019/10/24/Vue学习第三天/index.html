@@ -48,7 +48,7 @@
 <meta property="og:site_name" content="Xingzi&#39;s blog">
 <meta property="og:description" content="组件的注册Vue.component(组件名称，{     data:组件数据，     template:组件模板和内容 })  12345678910111213141516Vue.component(&amp;apos;button-counter&amp;apos;, &amp;#123;    data: function () &amp;#123;        return &amp;#123;            co">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T13:16:29.280Z">
+<meta property="og:updated_time" content="2019-10-26T01:14:20.643Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -288,7 +288,8 @@
 （1）子组件通过自定义事件向父组件传递信息
 &lt;button @click=&apos;$emit(&quot;enlarge-text&quot;,o.1)&apos;&gt;扩大字体&lt;/button&gt;
 
-$emit 绑定一个自定义事件event，当这个这个语句被执行到的时候，就会将参数arg传递给父组件，父组件通过@event监听并接收参数。
+$emit 绑定一个自定义事件event，当这个这个语句被执行到的时候，
+就会将参数arg传递给父组件，父组件通过@event监听并接收参数。
 
 子组件中添加自定义 事件  ,逗号后面可以填需要传递的数据
 就实现了子组件向父组件传递数据
@@ -296,7 +297,8 @@ $emit 绑定一个自定义事件event，当这个这个语句被执行到的时
 （2）父组件监听子组件的事件
 &lt;menu-item @enlarge-text=&apos;fontSize += $event&apos;&gt;&lt;/menu-item&gt;
 
-父组件绑定，监听这个自定义事件  再在父组件中添加事件处理, 如果子组件传递了参数，  可以通过$event 来获取到传递过来的值</code></pre></span>
+父组件绑定，监听这个自定义事件  再在父组件中添加事件处理, 如果子组件传递了参数，  
+可以通过$event 来获取到传递过来的值</code></pre></span>
       
     </div>
 
