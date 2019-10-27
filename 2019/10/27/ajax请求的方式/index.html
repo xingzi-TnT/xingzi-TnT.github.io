@@ -41,17 +41,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta name="description" content="Promise异步调用    异步效果：        1.定时器        2.ajax        3.事件函数 多次异步调用     1.多次异步调用的结果顺序不确定     2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，     容易形成回调地狱  Promise 是异步编程的一种解决方案   它是一个对象 可以获取异步操作的消息fetch更加简单的数据获取方式,功能更强大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;javascript&#x2F;index.html">
+<meta property="og:title" content="ajax请求的方式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta property="og:description" content="Promise异步调用    异步效果：        1.定时器        2.ajax        3.事件函数 多次异步调用     1.多次异步调用的结果顺序不确定     2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，     容易形成回调地狱  Promise 是异步编程的一种解决方案   它是一个对象 可以获取异步操作的消息fetch更加简单的数据获取方式,功能更强大">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
-<meta property="og:updated_time" content="2019-10-21T12:35:23.758Z">
+<meta property="og:updated_time" content="2019-10-27T10:48:31.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +59,7 @@
   };
 </script>
 
-  <title> javascript | Xingzi's blog </title>
+  <title> ajax请求的方式 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -227,7 +225,7 @@
           
           
             
-              javascript
+              ajax请求的方式
             
           
         </h1>
@@ -236,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-21T20:09:59+08:00" content="2019-10-21">
-            2019-10-21
+          <time itemprop="dateCreated" datetime="2019-10-27T18:52:54+08:00" content="2019-10-27">
+            2019-10-27
           </time>
         </span>
 
@@ -255,19 +253,96 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="js-call-apply-bind"><a href="#js-call-apply-bind" class="headerlink" title="js call() apply() bind()"></a>js call() apply() bind()</h2><p>　　1）bind的返回值是一个函数体，不会被立即调用</p>
-<p>　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递</p>
-<p>　　3）bind、call、apply这三个方法都属于函数（Function）的方法</p>
-<h3 id="自封bind"><a href="#自封bind" class="headerlink" title="自封bind"></a>自封bind</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> Function.prototype.myBind = function () &#123;</span><br><span class="line">    let first = [].shift.call(arguments)</span><br><span class="line">    let args = [].slice.call(arguments)</span><br><span class="line">    let _this = this</span><br><span class="line">    return function () &#123;</span><br><span class="line">        _this.apply(first, [].concat.call(args, [].slice.call(arguments)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>first = [].shift.call(arguments) 这一句就是把参数中的第一个剪切出来，赋给 context，那么也就相当于起到了将 参数中的 this 保存的目的。</p>
-<p>args = [].slice.call(arguments);<br>这一句，将除了 this 上下文的所有参数，传给了 args ，以备后来使用。</p>
-<p>返回函数<br>return function () {    // 返回一个新函数<br>    self.apply(context,[].concat.call(args, [].slice.call(arguments)));<br>}<br>这一段其实很好理解，因为bind 绑定了上下文，因此 self.apply 的第一个参数，是之前我们保存的 context。接下来，我们将 bind 的其余参数和调用bind后返回的函数在执行的过程中接收的参数进行拼接，作为一个数组传入apply的第二个参数中去。这就完美的实现了 bind 函数的功能，不得不说很是巧妙。</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。(红宝书)</p>
-<h3 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h3><p>因为函数的内部函数使用了函数的变量，内部函数又被外部的变量接收，就可以在外部使用函数的变量(通过内部函数作用域链，因为内部函数是有权访问到函数中变量的),导致了函数中的变量存在了除了内部函数的指向，从而使函数不被垃圾回收机制(新生代算法 GC)回收。</p>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>查找变量会先从当前的作用域中去查找,找不到就会去上一级查找，还没找到就到全局作用域查找，这样就形成了一个作用域链。简单来说就是在函数中所能访问的变量按照层级关系所组成的一条有着先后顺序的链子。</p>
-<h3 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h3><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
-<h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2></span>
+        <span itemprop="articleBody"><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>异步调用<br>    异步效果：<br>        1.定时器<br>        2.ajax<br>        3.事件函数</p>
+<pre><code>多次异步调用
+    1.多次异步调用的结果顺序不确定
+    2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，
+    容易形成回调地狱
+
+Promise 是异步编程的一种解决方案  
+它是一个对象 可以获取异步操作的消息</code></pre><h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>更加简单的数据获取方式,功能更强大 （基于promise）</p>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>axios 是一个第三方js库</p>
+<p>支持 浏览器 和 node<br>基于promise</p>
+<h3 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h3><pre><code>axios.get(&apos;http://localhost:3000/adata&apos;)
+// 这里 .data 是固定的用法（用于获取数据）
+.then(ret =&gt; console.log(ret.data))</code></pre><h3 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h3><pre><code>- get
+    1.通过url直接传递数据
+    前端：
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  axios(&apos;http://localhost:3000/axios/id=wxz&apos;)</span><br><span class="line">    .then(res =&gt; console.log(res.data))</span><br><span class="line">```    </span><br><span class="line">服务器：</span><br></pre></td></tr></table></figure>
+        app.get(&apos;/axios&apos;, (req, res) =&gt; {
+          res.send(&apos;axios get 传递参数&apos; + req.query.id)
+        })
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2.params 传递</span><br><span class="line">前端：</span><br></pre></td></tr></table></figure>
+      axios(&apos;http://localhost:3000/axios&apos;,{
+          params:{  id=wxz }
+          }
+        )
+        .then(res =&gt; console.log(res.data))
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器：</span><br></pre></td></tr></table></figure>
+        app.get(&apos;/axios/:id&apos;, (req, res) =&gt; {
+          res.send(&apos;axios get (Restful) 传递参数&apos; + req.params.id)
+        })
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- delete (和get类似)</span><br><span class="line"></span><br><span class="line">- post</span><br><span class="line">    传递JSON 格式</span><br><span class="line">    前端：</span><br></pre></td></tr></table></figure>
+        axios.post(&apos;http://localhost:3000/axios&apos;, {
+            uname: &quot;wxz&quot;,
+            pwd: 132
+        })
+        .then(res =&gt; console.log(res))
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符格式：</span><br><span class="line">前端：</span><br></pre></td></tr></table></figure>
+        axios.post(&apos;http://localhost:3000/axios&apos;, &apos;uname=wxz&amp;pwd=456&apos;)
+        .then(res =&gt; console.log(res))
+
+        也可以直接传对象
+        var obj = new URLSearchParams();
+        obj.append(&apos;uname&apos;, &apos;zs&apos;);
+        obj.append(&apos;pwd&apos;, 123);
+
+        axios.post(&apos;http://localhost:3000/axios&apos;, obj).then     (function (ret) {
+            console.log(ret.data);
+
+        })   
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器：</span><br></pre></td></tr></table></figure>
+        app.post(&apos;/axios&apos;, (req, res) =&gt; {
+          console.log(req.body);
+          res.send(&apos;axios post 传递参数&apos; + req.body.uname +     &apos;---&apos; + req.body.pwd)
+        })   
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">       - put 和 post 类似</span><br><span class="line"></span><br><span class="line">###   axios 的全局配置：</span><br><span class="line"></span><br><span class="line">       axios.defaults.timeout = 3000 //超时时间</span><br><span class="line">       axios.defaults.baseURL = &apos;http://localhost:3000/&apos; //默认地址</span><br><span class="line">       axios.defaults.headers[&apos;mytoken&apos;] = &apos;sdadasdahskjhdsa&apos; //默认请求头</span><br><span class="line"></span><br><span class="line">###   axios 拦截器</span><br><span class="line"></span><br><span class="line">        请求拦截器</span><br></pre></td></tr></table></figure>
+    axios.interceptors.request.use(function (config) {
+        return config;
+    }, function (error) {
+        console.log(error)
+    })
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">响应拦截器</span><br></pre></td></tr></table></figure>
+    axios.interceptors.response.use(function (config) {
+        return config;
+    }, function (error) {
+        console.log(error)
+    }) 
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">async await 调用接口</span><br></pre></td></tr></table></figure>
+    async function fn() {
+        let p1 = await axios.get(&apos;axios&apos;, {
+            params: {
+                id: &apos;wxz&apos;
+            }
+        })
+        console.log(p1.data);
+
+        let p2 = await axios.get(&apos;axios&apos;, {
+            params: {
+                id: &apos;wxz123&apos;
+            }
+        })
+        console.log(p2);
+
+        let p3 = await axios.get(&apos;axios&apos;, {
+            params: {
+                id: &apos;wxz456&apos;
+            }
+        })
+        console.log(p3);
+    }
+    fn();
+    ```</code></pre></span>
       
     </div>
 
@@ -278,13 +353,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/22/css/" rel="prev">css</a>
+              <a href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/" rel="prev">Vue路由</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/21/Vue%E6%8C%87%E4%BB%A4/" rel="next">Vue指令</a>
+              <a href="/2019/10/24/Vue%E7%BB%84%E4%BB%B6/" rel="next">Vue组件</a>
             
           </div>
         </div>
@@ -435,7 +510,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-call-apply-bind"><span class="nav-number">1.</span> <span class="nav-text">js call() apply() bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自封bind"><span class="nav-number">1.1.</span> <span class="nav-text">自封bind</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包原理"><span class="nav-number">2.1.</span> <span class="nav-text">闭包原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">3.</span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC-垃圾回收新生代算法"><span class="nav-number">3.1.</span> <span class="nav-text">GC (垃圾回收新生代算法)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收的方式"><span class="nav-number">4.</span> <span class="nav-text">垃圾回收的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">5.</span> <span class="nav-text">继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch"><span class="nav-number">2.</span> <span class="nav-text">fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">3.</span> <span class="nav-text">axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法："><span class="nav-number">3.1.</span> <span class="nav-text">基本用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用API"><span class="nav-number">3.2.</span> <span class="nav-text">常用API</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

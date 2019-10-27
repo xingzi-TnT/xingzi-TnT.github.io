@@ -41,13 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Xingzi的个人站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xingzi&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue指令">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;Vue%E6%8C%87%E4%BB%A4&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="Xingzi的个人站">
+<meta property="og:description" content="Vue 模板语法 1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题 原理： 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak 的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的 2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-21T12:35:28.236Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -58,7 +59,7 @@
   };
 </script>
 
-  <title> Xingzi's blog </title>
+  <title> Vue指令 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -76,9 +77,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/xingzi-TnT/" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80"
         height="80" viewBox="0 0 250 250"
@@ -213,9 +212,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -226,467 +225,7 @@
           
           
             
-              <a class="post-title-link" href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/" itemprop="url">
-                Vue路由
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-27T18:53:01+08:00" content="2019-10-27">
-            2019-10-27
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            Vue RouterVue Router 基本使用
-第一步、肯定要引入vue-router.js库文件  
-第二步、既然是路由，肯定至少要两个组件进行切换123456789101112 var Register = &#123;            template: `             
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/27/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F/" itemprop="url">
-                ajax请求的方式
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-27T18:52:54+08:00" content="2019-10-27">
-            2019-10-27
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            Promise异步调用    异步效果：        1.定时器        2.ajax        3.事件函数
-多次异步调用
-    1.多次异步调用的结果顺序不确定
-    2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，
-    容易形成回调地狱
-
-Promise 是异步编程
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/27/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/24/Vue%E7%BB%84%E4%BB%B6/" itemprop="url">
-                Vue组件
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-24T20:12:15+08:00" content="2019-10-24">
-            2019-10-24
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            组件的注册Vue.component(组件名称，{
-    data:组件数据，
-    template:组件模板和内容
-})
-
-12345678910111213141516Vue.component(&apos;button-counter&apos;, &#123;    data: fun
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/24/Vue%E7%BB%84%E4%BB%B6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/23/Vue%E6%8C%87%E4%BB%A4(2)/" itemprop="url">
-                Vue指令(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-23T21:00:07+08:00" content="2019-10-23">
-            2019-10-23
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            分支结构：v-if  控制元素是否渲染到页面
-v-else 
-v-else-if
-
-v-show  控制元素是否显示 （已经渲染到页面）  原理：display
-
-&lt;div v-if=&quot;isActive&quot;&gt;&lt;/div&gt;
-&lt;div v-show=&qu
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/23/Vue%E6%8C%87%E4%BB%A4(2)/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/22/css/" itemprop="url">
-                css
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-22T18:46:35+08:00" content="2019-10-22">
-            2019-10-22
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            CSS 选择器分类
-标签选择 
-id选择器
-class选择器
-后代选择 （div a）
-子代选择 （div &gt; p）
-相邻选择 （div + p）
-通配符选择 （*）
-否定选择器 :not(.link){}
-属性选择器
-伪类选择器
-伪元素选择器 ::before{}
-
-CSS3属性选择器
-
-
-
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/22/css/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/21/javascript/" itemprop="url">
-                javascript
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-21T20:09:59+08:00" content="2019-10-21">
-            2019-10-21
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用
-　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递
-　　3）bind、call、apply这三个方
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/21/javascript/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/21/Vue%E6%8C%87%E4%BB%A4/" itemprop="url">
-                Vue指令
-              </a>
+              Vue指令
             
           
         </h1>
@@ -714,22 +253,49 @@ CSS3属性选择器
       
 
       
-        
-          <span itemprop="articleBody">
-            
-            Vue 模板语法
-1.插值表达式    2.指令(属性) 增强html的功能（1）v-cloak 指令用法：解决插值表达式存在的闪动问题
+        <span itemprop="articleBody"><p>Vue 模板语法</p>
+<h2 id="1-插值表达式"><a href="#1-插值表达式" class="headerlink" title="1.插值表达式    "></a>1.插值表达式    </h2><h2 id="2-指令-属性-增强html的功能"><a href="#2-指令-属性-增强html的功能" class="headerlink" title="2.指令(属性) 增强html的功能"></a>2.指令(属性) 增强html的功能</h2><h3 id="（1）v-cloak-指令"><a href="#（1）v-cloak-指令" class="headerlink" title="（1）v-cloak 指令"></a>（1）v-cloak 指令</h3><pre><code>用法：解决插值表达式存在的闪动问题
 原理：
 1.代码是从上向下执行的，当加载到#app的时候，由于提供了一个V-cloak
-的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/21/Vue%E6%8C%87%E4%BB%A4/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
+的属性，并且属性选择器添加了display:none 的样式 ，所以是隐藏的
+2.在vue初始化成功之后，此时{{msg}} 已经变成了hello world，这个时候再把v-cloak
+移除掉，这时候就会显示出来
+3.由于用户看到的直接就是hello，所以就不存在总{{msg}}到hello的切换</code></pre><h3 id="2-v-text-v-html-v-pre"><a href="#2-v-text-v-html-v-pre" class="headerlink" title="(2)v-text , v-html , v-pre"></a>(2)v-text , v-html , v-pre</h3><pre><code>- v-text : 填充纯文本(比插值表达式更加简洁)
+- v-html : 可以填充html代码(不推荐，有xss攻击的漏洞)
+- v-pre  : 原样输出 会直接输出{{msg}} 不会输出hello</code></pre><h3 id="3-数据响应式"><a href="#3-数据响应式" class="headerlink" title="(3)数据响应式"></a>(3)数据响应式</h3><pre><code>页面数据会根据数据的变化，而变化
+
+v-once 如果显示的额数据不需要修改，就使用v-once，来减少vue对数据的监听
+提高性能(使数据不再响应式)</code></pre><h3 id="4-双向数据绑定"><a href="#4-双向数据绑定" class="headerlink" title="(4)双向数据绑定"></a>(4)双向数据绑定</h3><pre><code>v-model 绑定数据
+原理: 事件监听 DOM Listeners
+      数据绑定 Data Bindings
+
+MVVM设局思想
+M(model 数据)  V(view 视图) VM(View-model )
+使M与V层分离 使业务变简单</code></pre><h3 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="(5)事件绑定"></a>(5)事件绑定</h3><pre><code>v-on (简写 @)
+事件函数的调用方式
+- 1 直接函数名 (如果不需要传参，用这个)
+&lt;button @click=&apos;handle&apos;&gt;点击2&lt;/button&gt;
+- 2 函数调用 (如果需要传参，用这个)
+&lt;button @click=&apos;handle1(3)&apos;&gt;点击3&lt;/button&gt;
+
+如果要传具体的事件对象 
+直接函数名的方式是默认会带事件的对象过去
+函数调用的话  必须要命名为$event
+
+事件修饰符
+.stop 阻止冒泡
+.prevent 阻止默认行为
+
+按键修饰符
+.enter 回车键 （.13 也可以）
+
+表单域修饰符
+.number 转换为数值
+.trim 去掉开头和结尾的空格
+.lazy 将input事件变为 change事件 （v-model默认用input事件）
+（input事件一改变就触发 change事件 失去焦点时才触发）</code></pre><h3 id="6-属性绑定"><a href="#6-属性绑定" class="headerlink" title="(6) 属性绑定"></a>(6) 属性绑定</h3><pre><code>v-bind (简写   : )
+&lt;div v-bind:属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;
+&lt;div :属性名 = &apos;data中的变量&apos;&gt;&lt;/div&gt;</code></pre><h3 id="7-v-model-原理："><a href="#7-v-model-原理：" class="headerlink" title="(7) v-model 原理："></a>(7) v-model 原理：</h3><pre><code>&lt;input type=&apos;text&apos; v-bind:value = &apos;msg&apos;  v-on:input=&apos;msg = $event.target.value&apos;&gt;</code></pre></span>
       
     </div>
 
@@ -737,100 +303,44 @@ CSS3属性选择器
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/21/javascript/" rel="prev">javascript</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/21/html/" rel="next">html</a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/10/21/html/" itemprop="url">
-                html
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-10-21T19:56:09+08:00" content="2019-10-21">
-            2019-10-21
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            浏览器渲染页面原理浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）
-
-解析HTML，构建DOM tree。
-
-解析CSS，构建CSSOM tree。
-
-合并DOM tree和CSSOM tree，生成render tree。
-
-布局（layout/reflow），计算各元素尺寸、
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/10/21/html/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
+    <div>
       
     </div>
 
-    <footer class="post-footer">
+    <div class="post-spread">
       
+    </div>
+  </div>
 
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
  </div>
 
         
+        <div class="comments" id="comments">
+          
+            -->
+          
         </div>
 
         
@@ -846,6 +356,15 @@ CSS3属性选择器
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -939,6 +458,17 @@ CSS3属性选择器
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插值表达式"><span class="nav-number">1.</span> <span class="nav-text">1.插值表达式    </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-指令-属性-增强html的功能"><span class="nav-number">2.</span> <span class="nav-text">2.指令(属性) 增强html的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）v-cloak-指令"><span class="nav-number">2.1.</span> <span class="nav-text">（1）v-cloak 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-v-text-v-html-v-pre"><span class="nav-number">2.2.</span> <span class="nav-text">(2)v-text , v-html , v-pre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据响应式"><span class="nav-number">2.3.</span> <span class="nav-text">(3)数据响应式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-双向数据绑定"><span class="nav-number">2.4.</span> <span class="nav-text">(4)双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-事件绑定"><span class="nav-number">2.5.</span> <span class="nav-text">(5)事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-属性绑定"><span class="nav-number">2.6.</span> <span class="nav-text">(6) 属性绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-v-model-原理："><span class="nav-number">2.7.</span> <span class="nav-text">(7) v-model 原理：</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -1004,6 +534,165 @@ CSS3属性选择器
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
