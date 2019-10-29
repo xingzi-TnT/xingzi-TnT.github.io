@@ -48,7 +48,7 @@
 <meta property="og:site_name" content="Xingzi&#39;s blog">
 <meta property="og:description" content="组件的注册Vue.component(组件名称，{     data:组件数据，     template:组件模板和内容 })  12345678910111213141516Vue.component(&amp;apos;button-counter&amp;apos;, &amp;#123;    data: function () &amp;#123;        return &amp;#123;            co">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-27T10:45:47.731Z">
+<meta property="og:updated_time" content="2019-10-28T03:49:07.727Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -285,6 +285,8 @@
     &lt;menu-item :title=&apos;title&apos;&gt;&lt;/menu-item&gt;</code></pre><h3 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h3><pre><code>props 传递数据原则： 单项数据流
 （只允许父组件向子组件传递数据，不允许子组件直接操作数据）
 
+但是如果传递的是数组，对象在子组件中是可以修改的，但是不推荐！
+
 （1）子组件通过自定义事件向父组件传递信息
 &lt;button @click=&apos;$emit(&quot;enlarge-text&quot;,o.1)&apos;&gt;扩大字体&lt;/button&gt;
 
@@ -299,6 +301,7 @@ $emit 绑定一个自定义事件event，当这个这个语句被执行到的时
 
 父组件绑定，监听这个自定义事件  再在父组件中添加事件处理, 如果子组件传递了参数，  
 可以通过$event 来获取到传递过来的值</code></pre><h2 id="组件插槽"><a href="#组件插槽" class="headerlink" title="组件插槽"></a>组件插槽</h2><pre><code>插槽：就是定义的时候挖坑，内容由使用的时候用户自己去填写
+插槽，也就是slot，是组件的一块HTML模板，这块模板显示不显示、以及怎样显示由父组件来决定。 实际上，一个slot最核心的两个问题这里就点出来了，是显示不显示和怎样显示。
 模板中 &lt;slot&gt;&lt;/slot&gt; 就是挖的坑
 Vue.component(&apos;error-box&apos;, {
     template: `
@@ -308,7 +311,7 @@ Vue.component(&apos;error-box&apos;, {
     `
 })
 
-&lt;error-box&gt;密码错误&lt;/error-box&gt;</code></pre><h3 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h3><pre><code>当你挖多个坑的时候，需要给坑起一个名字，到时候用的时候能对得上号
+&lt;error-box&gt;密码错误&lt;/error-box&gt;</code></pre><h3 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h3><pre><code>匿名插槽没有name属性，所以是匿名插槽，那么，插槽加了name属性，就变成了具名插槽。具名插槽可以在一个组件中出现N次。出现在不同的位置。下面的例子，就是一个有两个具名插槽和单个插槽的组件，这三个插槽被父组件用同一套css样式显示了出来，不同的是内容上略有区别。
  Vue.component(&apos;alert-box&apos;, {
     template: `
         &lt;div&gt;
@@ -321,7 +324,11 @@ Vue.component(&apos;error-box&apos;, {
 &lt;alert-box&gt;
     &lt;template slot=&quot;name&quot;&gt;hahaha&lt;/template&gt;
     &lt;template slot=&quot;pwd&quot;&gt;lalala&lt;/template&gt;
-&lt;/alert-box&gt;</code></pre><h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><pre><code>slot-scope 可以接收绑定在子插槽上的属性</code></pre></span>
+&lt;/alert-box&gt;</code></pre><h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><pre><code>官方叫它作用域插槽，实际上，对比前面两种插槽，我们可以叫它带数据的插槽。什么意思呢，就是前面两种，都是在组件template里面写
+
+但是作用域插槽要求，在slot上面绑定数据。
+
+slot-scope 可以接收绑定在子插槽上的属性</code></pre></span>
       
     </div>
 
@@ -402,7 +409,7 @@ Vue.component(&apos;error-box&apos;, {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

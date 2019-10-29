@@ -41,14 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="分支结构：v-if  控制元素是否渲染到页面 v-else  v-else-if  v-show  控制元素是否显示 （已经渲染到页面）  原理：display  &amp;lt;div v-if=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt; &amp;lt;div v-show=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;循环结构：v-for  （遵循就地">
+<meta name="description" content="ES6 导入和导出 导出let a = 10;let c = 20;&#x2F;&#x2F;外界访问不到变量d,因为它没有被暴露出去let d = 30;function show(){}&#x2F;&#x2F;将本模块中的私有成员暴露出去，供其他模块使用export default {    a,    c,    show} 导入import m1 from ‘.&#x2F;m1.js’console.log(m1) 在一个模块中，只允许使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue指令(2)">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;Vue%E6%8C%87%E4%BB%A4(2)&#x2F;index.html">
+<meta property="og:title" content="webpack模块化">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;webpack%E6%A8%A1%E5%9D%97%E5%8C%96&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="分支结构：v-if  控制元素是否渲染到页面 v-else  v-else-if  v-show  控制元素是否显示 （已经渲染到页面）  原理：display  &amp;lt;div v-if=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt; &amp;lt;div v-show=&amp;quot;isActive&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;循环结构：v-for  （遵循就地">
+<meta property="og:description" content="ES6 导入和导出 导出let a = 10;let c = 20;&#x2F;&#x2F;外界访问不到变量d,因为它没有被暴露出去let d = 30;function show(){}&#x2F;&#x2F;将本模块中的私有成员暴露出去，供其他模块使用export default {    a,    c,    show} 导入import m1 from ‘.&#x2F;m1.js’console.log(m1) 在一个模块中，只允许使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-24T12:22:34.252Z">
+<meta property="og:updated_time" content="2019-10-29T09:18:53.751Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title> Vue指令(2) | Xingzi's blog </title>
+  <title> webpack模块化 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -225,7 +225,7 @@
           
           
             
-              Vue指令(2)
+              webpack模块化
             
           
         </h1>
@@ -234,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-23T21:00:07+08:00" content="2019-10-23">
-            2019-10-23
+          <time itemprop="dateCreated" datetime="2019-10-29T15:58:35+08:00" content="2019-10-29">
+            2019-10-29
           </time>
         </span>
 
@@ -253,127 +253,13 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="分支结构："><a href="#分支结构：" class="headerlink" title="分支结构："></a>分支结构：</h2><pre><code>v-if  控制元素是否渲染到页面
-v-else 
-v-else-if
-
-v-show  控制元素是否显示 （已经渲染到页面）  原理：display
-
-&lt;div v-if=&quot;isActive&quot;&gt;&lt;/div&gt;
-&lt;div v-show=&quot;isActive&quot;&gt;&lt;/div&gt;</code></pre><h2 id="循环结构："><a href="#循环结构：" class="headerlink" title="循环结构："></a>循环结构：</h2><pre><code>v-for  （遵循就地更新）
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&apos;item in lists&apos; :key=&apos;item.id&apos;&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot;&gt;</span><br><span class="line">    &#123;&#123;item&#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-因为就地更新 是只是将元素修改（重绘） 并没有将全部元素删除并创建
-所以如果原始的带有比如 checkbox 就会出现问题 
-
-解决：添加 :key 给vue一个提示。以便它可以跟踪每个节点的身份
-
-v-for 和 v-if 一起使用 (不推荐)
-当vue处理指令时,v-for 比 v-if 有更高的优先级
-尽管效果是一样的 但是在内部 v-for 会循环完，性能较低
-
-解决：先用 计算属性数据处理  从而避免 v-if 和 v-for 嵌套 </code></pre><h2 id="自定指令："><a href="#自定指令：" class="headerlink" title="自定指令："></a>自定指令：</h2><pre><code>全局指令：
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;, &#123;</span><br><span class="line">    inserted: function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-    讲解：
-        1、focus是随便定义的一个名字
-        2、el代表的是指令当前所在的元素
-        3、inserted在当前元素插入到DOM树的时候触发
-        4、对应的还有bind是在当前指令绑定到当前元素的时候触发
-            (1)大部分情况下推荐用bind，但这块必须要用inserted
-            (2)下面的代码解释为啥这块需要用到inserted而不是bind
- 局部指令：
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> directives: &#123;</span><br><span class="line">    focus: &#123;</span><br><span class="line">        inserted: function (el) &#123;</span><br><span class="line">            el.focus()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h2 id="计算属性："><a href="#计算属性：" class="headerlink" title="计算属性："></a>计算属性：</h2><pre><code>1、计算属性解决的问题是：插值表达式太过于复杂
-2、计算属性和数据模型一样，都是响应式的
-3、注意事项：计算属性虽然是一个方法，但是不需要加上小括号，这是语法规范，没有为什么，应该可以理解的，
-毕竟前面的事件对应的方法也是没有加括号的
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">        reverseString: function () &#123;</span><br><span class="line">            return this.msg.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-计算属性和与方法的区别
-    用途：
-        方法：事件需要用方法
-        计算属性：一个值需要各种计算 的结果  优点: 有缓存
-
-        计算属性是基于它们的依赖来缓存的 (数据变化才变化)</code></pre><h2 id="监听器："><a href="#监听器：" class="headerlink" title="监听器："></a>监听器：</h2><pre><code>应用场景： 
-当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。 (同步写计算属性)
-
-watch: {
-        // 如果 `question` 发生改变，这个函数就会运行
-        question: function (newQuestion, oldQuestion) {
-          this.answer = &apos;Waiting for you to stop typing...&apos;
-          this.debouncedGetAnswer()
-        }</code></pre><h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器:"></a>过滤器:</h2><pre><code>全局:
-
-Vue.filter(&apos;capitalize&apos;, function (value) {
-              if (!value) return &apos;&apos;
-              value = value.toString()
-              return value.charAt(0).toUpperCase() + value.slice(1)
-            })
-
-局部:
-
- filters: {
-       capitalize: function (value) {
-         if (!value) return &apos;&apos;
-         value = value.toString()
-         return value.charAt(0).toUpperCase() + value.slice(1)
-       }
-     }
-
-
-使用：  {{ message | filterA | filterB }}</code></pre><h2 id="生命周期："><a href="#生命周期：" class="headerlink" title="生命周期："></a>生命周期：</h2><pre><code>create mount update destory
-代码执行需要时间的
-1. new Vue() 数据和模板都没有准备好-- - &gt; beforeCreate
-2. 数据准备好 模板还没有准备好-- &gt; created
-3. 通过el找到模板了， 数据和模板中的插值表达式没有同步-- &gt; beforeMount
-4. 数据和模板同步了-- &gt; mounted 到此为止vue初始化成功了
-5. 当用户修改数据的时候， 就会触发beforeUpdate
-（ 数据变了， 模板中还是旧的东西）-- &gt; updated（ 同步）
-6. beforeDestroy-- &gt; destroyed
-
-
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-        msg: &apos;hello vue&apos;,
-        list: []
-    },
-    methods: {},
-    // 8个生命周期钩子函数
-    beforeCreate: function () {
-        //    console.log(this.$el)
-        //    console.log(this.msg)
-    },
-    created: function () {
-        // console.log(this.$el)
-        // console.log(this.msg)
-    },
-    beforeMount: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    mounted: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    beforeUpdate: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    updated: function () {
-        // console.log(this.msg)
-        // console.log(this.$el.querySelector(&apos;#ceshi&apos;).innerHTML)
-    },
-    beforeDestroy: function () {
-        console.log(123)
-    },
-    destroyed: function () {
-        console.log(456)
-    }
-});
-
-代码执行越早越好
-
-1. created 数据准备好 会在这个阶段可以去ajax请求数据
-2. mounted DOM准备好 有些情况是必须要操作DOM 用一些第三方插件 swiper.js...
- 3. beforeDestory 扫尾工作 当前组件要销毁， 用到定时器 clearTimeou</code></pre></span>
+        <span itemprop="articleBody"><h2 id="ES6-导入和导出"><a href="#ES6-导入和导出" class="headerlink" title="ES6 导入和导出"></a>ES6 导入和导出</h2><p> 导出<br>let a = 10;<br>let c = 20;<br>//外界访问不到变量d,因为它没有被暴露出去<br>let d = 30;<br>function show(){}<br>//将本模块中的私有成员暴露出去，供其他模块使用<br>export default {<br>    a,<br>    c,<br>    show<br>}</p>
+<p>导入<br>import m1 from ‘./m1.js’<br>console.log(m1)</p>
+<p>在一个模块中，只允许使用export default向外默认暴露一次成员，千万不要写多个export default</p>
+<h2 id="按需导入和按需导出"><a href="#按需导入和按需导出" class="headerlink" title="按需导入和按需导出"></a>按需导入和按需导出</h2><p>导出<br>export let s1 = 100<br>export let s2 = 200</p>
+<p>导入<br>import mi, { s1,s2 as S} from ‘./mi’<br>可以通过 as 来给导入的数据起别名(但有别名之后，原来的名字就不能用了)</p>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p> webpack 是一个流行的前端项目构建工具 (打包工具)<br> 提供了友好的模块化支持,以及代码压缩混淆，处理js兼容问题，性能优化</p>
+</span>
       
     </div>
 
@@ -384,13 +270,11 @@ var vm = new Vue({
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Vue%E7%BB%84%E4%BB%B6/" rel="prev">Vue组件</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/22/css/" rel="next">css</a>
+              <a href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/" rel="next">Vue路由</a>
             
           </div>
         </div>
@@ -541,7 +425,7 @@ var vm = new Vue({
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支结构："><span class="nav-number">1.</span> <span class="nav-text">分支结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环结构："><span class="nav-number">2.</span> <span class="nav-text">循环结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定指令："><span class="nav-number">3.</span> <span class="nav-text">自定指令：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性："><span class="nav-number">4.</span> <span class="nav-text">计算属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听器："><span class="nav-number">5.</span> <span class="nav-text">监听器：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器"><span class="nav-number">6.</span> <span class="nav-text">过滤器:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期："><span class="nav-number">7.</span> <span class="nav-text">生命周期：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-导入和导出"><span class="nav-number">1.</span> <span class="nav-text">ES6 导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入和按需导出"><span class="nav-number">2.</span> <span class="nav-text">按需导入和按需导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">3.</span> <span class="nav-text">webpack</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

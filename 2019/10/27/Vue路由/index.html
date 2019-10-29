@@ -41,14 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Vue RouterVue Router 基本使用 第一步、肯定要引入vue-router.js库文件   第二步、既然是路由，肯定至少要两个组件进行切换123456789101112 var Register = &amp;#123;            template: `                &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;            `">
+<meta name="description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue路由">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;Vue%E8%B7%AF%E7%94%B1&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="Vue RouterVue Router 基本使用 第一步、肯定要引入vue-router.js库文件   第二步、既然是路由，肯定至少要两个组件进行切换123456789101112 var Register = &amp;#123;            template: `                &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;            `">
+<meta property="og:description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-27T10:52:07.977Z">
+<meta property="og:updated_time" content="2019-10-29T12:02:53.015Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -253,26 +253,35 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue Router"></a>Vue Router</h1><h2 id="Vue-Router-基本使用"><a href="#Vue-Router-基本使用" class="headerlink" title="Vue Router 基本使用"></a>Vue Router 基本使用</h2><ul>
-<li>第一步、肯定要引入vue-router.js库文件  <script src="js/vue-router_3.0.2.js"></script></li>
-<li>第二步、既然是路由，肯定至少要两个组件进行切换<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> var Register = &#123;</span><br><span class="line">            template: `</span><br><span class="line">                &lt;div&gt;注册组件&lt;/div&gt;</span><br><span class="line">            `</span><br><span class="line">        &#125;</span><br><span class="line">        var User = &#123;</span><br><span class="line">            template: `</span><br><span class="line">                &lt;div&gt;用户组件&lt;/div&gt;</span><br><span class="line">            `</span><br><span class="line">        &#125;</span><br><span class="line">```        </span><br><span class="line">- 第三步、路由是一个对象，我们要new一个对象出来，并且要挂到vm实例对象 上面，与vue实例对象产生关系</span><br></pre></td></tr></table></figure>
-var vm = new Vue({<pre><code>    el: &apos;#app&apos;,
-    data: {},
-    methods: {},
-    router:new VueRouter
-});</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 第四步、路由就是设置hash与组件之间的映射关系</span><br></pre></td></tr></table></figure>
-new VueRouter({<pre><code>    routes: [{
-            path: &apos;/register&apos;,
-            component: Register
-        },
-        {
-            path: &apos;/user&apos;,
-            component: User
-        },
-    ]
-})</code></pre>```        </li>
-<li>第五步、需要放一个占位符 (将来会被组件所替换)<pre><code>&lt;router-view&gt;&lt;/router-view&gt;</code></pre></li>
-<li>第六步、手动输入太麻烦了，可以设置vue-router专用链接router-link<pre><code>&lt;router-link to=&quot;/register&quot;&gt;register&lt;/router-link&gt;
+        <span itemprop="articleBody"><p> Vue Router </p>
+<h2 id="Vue-Router-基本使用"><a href="#Vue-Router-基本使用" class="headerlink" title="Vue Router 基本使用"></a>Vue Router 基本使用</h2><ul>
+<li><p>第一步、肯定要引入vue-router.js库文件</p>
+ <script src="js/vue-router_3.0.2.js"></script>
+</li>
+<li><p>第二步、既然是路由，肯定至少要两个组件进行切换</p>
+<p>var Register = {</p>
+<pre><code>    template: `
+        &lt;div&gt;注册组件&lt;/div&gt;
+    `
+}
+var User = {
+    template: `
+        &lt;div&gt;用户组件&lt;/div&gt;
+    `
+}</code></pre></li>
+<li><p>第三步、路由是一个对象，我们要new一个对象出来，并且要挂到vm实例对象 上面，与vue实例对象产生关系</p>
+</li>
+</ul>
+<p>var vm = new Vue({<br>            el: ‘#app’,<br>            data: {},<br>            methods: {},<br>            router:new VueRouter<br>        });</p>
+<ul>
+<li>第四步、路由就是设置hash与组件之间的映射关系</li>
+</ul>
+<p>new VueRouter({<br>            routes: [{<br>                    path: ‘/register’,<br>                    component: Register<br>                },<br>                {<br>                    path: ‘/user’,<br>                    component: User<br>                },<br>            ]<br>        })</p>
+<ul>
+<li><p>第五步、需要放一个占位符 (将来会被组件所替换)</p>
+<pre><code>&lt;router-view&gt;&lt;/router-view&gt;</code></pre></li>
+<li><p>第六步、手动输入太麻烦了，可以设置vue-router专用链接router-link</p>
+<pre><code>&lt;router-link to=&quot;/register&quot;&gt;register&lt;/router-link&gt;
 &lt;router-link to=&quot;/user&quot;&gt;user&lt;/router-link&gt;</code></pre></li>
 </ul>
 <h2 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h2><pre><code>开发中有时候我们虽然设置的路径不一致，但是我们希望跳转到同一个页面，或者说是打开同一个组件。这时候我们就用到了路由的重新定向redirect参数。
@@ -293,7 +302,122 @@ new VueRouter({<pre><code>    routes: [{
    这里我们 打开默认首页 会重定向到/user</code></pre><h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><pre><code>所谓的嵌套路由就是子路由，也就是路由中的路由
 
 (1)在路由规则中添加子路由
-(2)在父级模板中加入占位符和子模板</code></pre></span>
+
+     routes: [{ //路由匹配规则 
+                // path 表示监听 那个路由连接地址
+                // component 表示路由皮牌到那个地址，则展示component属性对应的那个组件 
+                path: &apos;/register&apos;,
+                // 动态路径参数  以冒号开头
+                component: Register,
+                children: [{
+                    path: &apos;/register/tab1&apos;,
+                    component: Tab1,
+                }, {
+                    path: &apos;/register/tab2&apos;,
+                    component: Tab2,
+                }]
+            }
+
+(2)在父级模板中加入占位符和子模板
+    var Register = {
+        template: `
+        &lt;div&gt;
+            &lt;div&gt;注册组件&lt;/div&gt;
+            &lt;hr&gt;
+            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
+            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
+            &lt;transition mode=&apos;out-in&apos;&gt;
+            &lt;router-view&gt;&lt;/router-view&gt;
+            &lt;/transition&gt;
+        &lt;/div&gt;    
+        `,
+    }</code></pre><h2 id="动态匹配路由"><a href="#动态匹配路由" class="headerlink" title="动态匹配路由"></a>动态匹配路由</h2><pre><code>{
+    path: &apos;/user/:id&apos;,
+    component: User,
+    props: true
+},
+
+布尔模式
+ var User = {
+    props: [&apos;id&apos;],
+    template: `
+    &lt;div&gt;
+        &lt;transition mode=&apos;out-in&apos;&gt;
+        &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
+        &lt;/transition&gt;
+        &lt;hr&gt;
+        &lt;router-link to=&quot;/user/1&quot;&gt;user1&lt;/router-link&gt;
+        &lt;router-link to=&quot;/user/2&quot;&gt;user2&lt;/router-link&gt;
+        &lt;router-link to=&quot;/user/3&quot;&gt;user3&lt;/router-link&gt;
+    &lt;/div&gt;`
+}
+
+函数模式
+{
+    path: &apos;/user/:id&apos;,
+    component: User,
+    props: function (route) {
+        return {
+            name: &quot;zs&quot;,
+            age: 14,
+            id: route.params.id
+        }
+    }
+},
+
+用箭头函数的话,在对象外面加小括号，提高优先级
+不然会被当成函数体来解析
+
+{
+    path: &apos;/user/:id&apos;,
+    component: User,
+    props:route =&gt; ({name: &quot;zs&quot;,age: 14,id:route.params.id})
+},</code></pre><h2 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h2><pre><code>为了更加方便的表示路由的路径，可以给路由规则起一个别名
+ {
+    path: &apos;/user/:id&apos;,
+    component: User,
+    name: &apos;user&apos;,
+    props: function (route) {
+        return {
+            name: &quot;zs&quot;,
+            age: 14,
+            id: route.params.id
+        }
+    }
+},   
+
+注意： 格式  :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;:to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;
+ var User = {
+        props: [&apos;id&apos;],
+        template: `
+        &lt;div&gt;
+            &lt;transition mode=&apos;out-in&apos;&gt;
+            &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
+            &lt;/transition&gt;
+            &lt;hr&gt;
+            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;&gt;user1&lt;/router-link&gt;
+            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:2}}&quot;&gt;user2&lt;/router-link&gt;
+            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:3}}&quot;&gt;user3&lt;/router-link&gt;
+        &lt;/div&gt;`
+    }     </code></pre><h2 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h2><pre><code>用JS的方式使页面跳转
+var Register = {
+        template: `
+        &lt;div&gt;
+            &lt;div&gt;注册组件&lt;/div&gt;
+            &lt;hr&gt;
+            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
+            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
+            &lt;transition mode=&apos;out-in&apos;&gt;
+            &lt;router-view&gt;&lt;/router-view&gt;
+            &lt;/transition&gt;
+            &lt;button @click=goUser&gt;tiaozhuan&lt;/button&gt;
+        &lt;/div&gt;    
+        `,
+        methods: {
+            goUser() {
+                this.$router.push(&apos;/User&apos;)
+            }
+        },</code></pre></span>
       
     </div>
 
@@ -303,6 +427,8 @@ new VueRouter({<pre><code>    routes: [{
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/29/webpack%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="prev">webpack模块化</a>
             
           </div>
 
@@ -372,7 +498,7 @@ new VueRouter({<pre><code>    routes: [{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -459,7 +585,7 @@ new VueRouter({<pre><code>    routes: [{
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-Router"><span class="nav-number">1.</span> <span class="nav-text">Vue Router</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-基本使用"><span class="nav-number">1.1.</span> <span class="nav-text">Vue Router 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由重定向"><span class="nav-number">1.2.</span> <span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套路由"><span class="nav-number">1.3.</span> <span class="nav-text">嵌套路由</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-基本使用"><span class="nav-number">1.</span> <span class="nav-text">Vue Router 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由重定向"><span class="nav-number">2.</span> <span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套路由"><span class="nav-number">3.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态匹配路由"><span class="nav-number">4.</span> <span class="nav-text">动态匹配路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名路由"><span class="nav-number">5.</span> <span class="nav-text">命名路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程式导航"><span class="nav-number">6.</span> <span class="nav-text">编程式导航</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
