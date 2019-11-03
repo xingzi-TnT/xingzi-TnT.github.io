@@ -41,14 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Promise异步调用    异步效果：        1.定时器        2.ajax        3.事件函数 多次异步调用     1.多次异步调用的结果顺序不确定     2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，     容易形成回调地狱  Promise 是异步编程的一种解决方案   它是一个对象 可以获取异步操作的消息fetch更加简单的数据获取方式,功能更强大">
+<meta name="description" content="1、for 循环1234567let arr = [1,2,3];for (let i=0; i&amp;lt;arr.length; i++)&amp;#123; console.log(i,arr[i])&amp;#125;&#x2F;&#x2F; 0 1&#x2F;&#x2F; 1 2&#x2F;&#x2F; 2 3 for 循环是 Js 中最常用的一个循环工具，经常用于数组的循环遍历。 2、for in 循环123456let obj = &amp;#123;name:&amp;apos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax请求的方式">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F&#x2F;index.html">
+<meta property="og:title" content="js 中各种循环的方法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;js%20%E4%B8%AD%E5%90%84%E7%A7%8D%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%96%B9%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="Promise异步调用    异步效果：        1.定时器        2.ajax        3.事件函数 多次异步调用     1.多次异步调用的结果顺序不确定     2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，     容易形成回调地狱  Promise 是异步编程的一种解决方案   它是一个对象 可以获取异步操作的消息fetch更加简单的数据获取方式,功能更强大">
+<meta property="og:description" content="1、for 循环1234567let arr = [1,2,3];for (let i=0; i&amp;lt;arr.length; i++)&amp;#123; console.log(i,arr[i])&amp;#125;&#x2F;&#x2F; 0 1&#x2F;&#x2F; 1 2&#x2F;&#x2F; 2 3 for 循环是 Js 中最常用的一个循环工具，经常用于数组的循环遍历。 2、for in 循环123456let obj = &amp;#123;name:&amp;apos">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T12:07:10.438Z">
+<meta property="og:updated_time" content="2019-11-03T03:39:55.554Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title> ajax请求的方式 | Xingzi's blog </title>
+  <title> js 中各种循环的方法 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -225,7 +225,7 @@
           
           
             
-              ajax请求的方式
+              js 中各种循环的方法
             
           
         </h1>
@@ -234,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-27T18:52:54+08:00" content="2019-10-27">
-            2019-10-27
+          <time itemprop="dateCreated" datetime="2019-11-03T11:32:55+08:00" content="2019-11-03">
+            2019-11-03
           </time>
         </span>
 
@@ -253,96 +253,34 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>异步调用<br>    异步效果：<br>        1.定时器<br>        2.ajax<br>        3.事件函数</p>
-<pre><code>多次异步调用
-    1.多次异步调用的结果顺序不确定
-    2.如果异步的异步存在依赖关系,只能函数嵌套来确定顺序，
-    容易形成回调地狱
-
-Promise 是异步编程的一种解决方案  
-它是一个对象 可以获取异步操作的消息</code></pre><h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>更加简单的数据获取方式,功能更强大 （基于promise）</p>
-<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>axios 是一个第三方js库</p>
-<p>支持 浏览器 和 node<br>基于promise</p>
-<h3 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h3><pre><code>axios.get(&apos;http://localhost:3000/adata&apos;)
-// 这里 .data 是固定的用法（用于获取数据）
-.then(ret =&gt; console.log(ret.data))</code></pre><h3 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h3><pre><code>- get
-    1.通过url直接传递数据
-    前端：
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  axios(&apos;http://localhost:3000/axios/id=wxz&apos;)</span><br><span class="line">    .then(res =&gt; console.log(res.data))</span><br><span class="line">```    </span><br><span class="line">服务器：</span><br></pre></td></tr></table></figure>
-        app.get(&apos;/axios&apos;, (req, res) =&gt; {
-          res.send(&apos;axios get 传递参数&apos; + req.query.id)
-        })
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2.params 传递</span><br><span class="line">前端：</span><br></pre></td></tr></table></figure>
-      axios(&apos;http://localhost:3000/axios&apos;,{
-          params:{  id=wxz }
-          }
-        )
-        .then(res =&gt; console.log(res.data))
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器：</span><br></pre></td></tr></table></figure>
-        app.get(&apos;/axios/:id&apos;, (req, res) =&gt; {
-          res.send(&apos;axios get (Restful) 传递参数&apos; + req.params.id)
-        })
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- delete (和get类似)</span><br><span class="line"></span><br><span class="line">- post</span><br><span class="line">    传递JSON 格式</span><br><span class="line">    前端：</span><br></pre></td></tr></table></figure>
-        axios.post(&apos;http://localhost:3000/axios&apos;, {
-            uname: &quot;wxz&quot;,
-            pwd: 132
-        })
-        .then(res =&gt; console.log(res))
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符格式：</span><br><span class="line">前端：</span><br></pre></td></tr></table></figure>
-        axios.post(&apos;http://localhost:3000/axios&apos;, &apos;uname=wxz&amp;pwd=456&apos;)
-        .then(res =&gt; console.log(res))
-
-        也可以直接传对象
-        var obj = new URLSearchParams();
-        obj.append(&apos;uname&apos;, &apos;zs&apos;);
-        obj.append(&apos;pwd&apos;, 123);
-
-        axios.post(&apos;http://localhost:3000/axios&apos;, obj).then     (function (ret) {
-            console.log(ret.data);
-
-        })   
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器：</span><br></pre></td></tr></table></figure>
-        app.post(&apos;/axios&apos;, (req, res) =&gt; {
-          console.log(req.body);
-          res.send(&apos;axios post 传递参数&apos; + req.body.uname +     &apos;---&apos; + req.body.pwd)
-        })   
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">       - put 和 post 类似</span><br><span class="line"></span><br><span class="line">###   axios 的全局配置：</span><br><span class="line"></span><br><span class="line">       axios.defaults.timeout = 3000 //超时时间</span><br><span class="line">       axios.defaults.baseURL = &apos;http://localhost:3000/&apos; //默认地址</span><br><span class="line">       axios.defaults.headers[&apos;mytoken&apos;] = &apos;sdadasdahskjhdsa&apos; //默认请求头</span><br><span class="line"></span><br><span class="line">###   axios 拦截器</span><br><span class="line"></span><br><span class="line">        请求拦截器</span><br></pre></td></tr></table></figure>
-    axios.interceptors.request.use(function (config) {
-        return config;
-    }, function (error) {
-        console.log(error)
-    })
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">响应拦截器</span><br></pre></td></tr></table></figure>
-    axios.interceptors.response.use(function (config) {
-        return config;
-    }, function (error) {
-        console.log(error)
-    }) 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">async await 调用接口</span><br></pre></td></tr></table></figure>
-    async function fn() {
-        let p1 = await axios.get(&apos;axios&apos;, {
-            params: {
-                id: &apos;wxz&apos;
-            }
-        })
-        console.log(p1.data);
-
-        let p2 = await axios.get(&apos;axios&apos;, {
-            params: {
-                id: &apos;wxz123&apos;
-            }
-        })
-        console.log(p2);
-
-        let p3 = await axios.get(&apos;axios&apos;, {
-            params: {
-                id: &apos;wxz456&apos;
-            }
-        })
-        console.log(p3);
-    }
-    fn();
-    ```</code></pre></span>
+        <span itemprop="articleBody"><h2 id="1、for-循环"><a href="#1、for-循环" class="headerlink" title="1、for 循环"></a>1、for 循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">for (let i=0; i&lt;arr.length; i++)&#123;</span><br><span class="line"> console.log(i,arr[i])</span><br><span class="line">&#125;</span><br><span class="line">// 0 1</span><br><span class="line">// 1 2</span><br><span class="line">// 2 3</span><br></pre></td></tr></table></figure>
+<p>for 循环是 Js 中最常用的一个循环工具，经常用于数组的循环遍历。</p>
+<h2 id="2、for-in-循环"><a href="#2、for-in-循环" class="headerlink" title="2、for in 循环"></a>2、for in 循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;name:&apos;zhou&apos;,age:&apos;**&apos;&#125;</span><br><span class="line">for(let i in obj)&#123;</span><br><span class="line"> console.log(i,obj[i])</span><br><span class="line">&#125;</span><br><span class="line">// name zhou</span><br><span class="line">// age **</span><br></pre></td></tr></table></figure>
+<p>for in 循环主要用于遍历普通对象，i 代表对象的 key 值，obj[i] 代表对应的 value,当用它来遍历数组时候，<br>多数情况下也能达到同样的效果，但是你不要这么做，这是有风险的，因为 i 输出为字符串形式，而不是数组需要的数字下标，<br>这意味着在某些情况下，会发生字符串运算，导致数据错误，比如：’52’+1 = ‘521’ 而不是我们需要的 53。</p>
+<p>另外 for in 循环的时候，不仅遍历自身的属性，还会找到 prototype 上去，所以最好在循环体内加一个判断，就用 obj[i].<br>hasOwnProperty(i)，这样就避免遍历出太多不需要的属性。</p>
+<h2 id="3、while-循环"><a href="#3、while-循环" class="headerlink" title="3、while 循环"></a>3、while 循环</h2><p>同样的遍历 cars 数组，先用 for 循环方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">let cars=[&quot;BMW&quot;,&quot;Volvo&quot;,&quot;Saab&quot;,&quot;Ford&quot;];</span><br><span class="line">let i=0;</span><br><span class="line">for (;cars[i];)</span><br><span class="line">&#123;</span><br><span class="line">console.log(cars[i])</span><br><span class="line">i++;</span><br><span class="line">&#125;;</span><br><span class="line">// BMW</span><br><span class="line">// Volvo</span><br><span class="line">// Saab</span><br><span class="line">// Ford</span><br><span class="line">然后是 while 循环方法</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cars=[&quot;BMW&quot;,&quot;Volvo&quot;,&quot;Saab&quot;,&quot;Ford&quot;];</span><br><span class="line">var i=0;</span><br><span class="line">while (cars[i])</span><br><span class="line">&#123;</span><br><span class="line">console.log(cars[i] + &quot;&lt;br&gt;&quot;)</span><br><span class="line">i++;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们发现，它们可以实现同样的效果，事实上它们底层的处理是一样的，不过 for 循环可以把定义、<br>条件判断、自增自减操作放到一个条件里执行，代码看起来方便一些，仅此而已。</p>
+<h2 id="4、do-while-循环"><a href="#4、do-while-循环" class="headerlink" title="4、do while 循环"></a>4、do while 循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let i = 3;</span><br><span class="line">do&#123;</span><br><span class="line"> console.log(i)</span><br><span class="line"> i--;</span><br><span class="line">&#125;</span><br><span class="line">while(i&gt;0)</span><br><span class="line">// 3</span><br><span class="line">// 2</span><br><span class="line">// 1</span><br></pre></td></tr></table></figure>
+<p>do while 循环是 while 循环的一个变体，它首先执行一次操作，然后才进行条件判断，是 true<br> 的话再继续执行操作，是 false 的话循环结束。</p>
+<h2 id="5、Array-forEach-循环"><a href="#5、Array-forEach-循环" class="headerlink" title="5、Array forEach 循环"></a>5、Array forEach 循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">arr.forEach(function(i,index)&#123;</span><br><span class="line"> console.log(i,index)</span><br><span class="line">&#125;)</span><br><span class="line">// 1 0</span><br><span class="line">// 2 1</span><br><span class="line">// 3 2</span><br></pre></td></tr></table></figure>
+<p>forEach循环，循环数组中每一个元素并采取操作， 没有返回值， 可以不用知道数组长度,他有三个参数<br>，只有第一个是必需的，代表当前下标下的 value。</p>
+<p>另外请注意，forEach 循环在所有元素调用完毕之前是不能停止的，它没有 break 语句，如果你必须要停止<br>，可以尝试 try catch 语句，就是在要强制退出的时候，抛出一个 error 给 catch 捕捉到，<br>然后在 catch 里面 return，这样就能中止循环了，如果你经常用这个方法，最好自定义一个这样的 forEach 函数在你的库里。</p>
+<h2 id="6、Array-map-方法"><a href="#6、Array-map-方法" class="headerlink" title="6、Array map()方法"></a>6、Array map()方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">let tt = arr.map(function(i)&#123;</span><br><span class="line"> console.log(i)</span><br><span class="line"> return i*2;</span><br><span class="line">&#125;)</span><br><span class="line">// [2,4,6]</span><br></pre></td></tr></table></figure>
+<p>map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。<br>注意：map 和 forEach 方法都是只能用来遍历数组，不能用来遍历普通对象。</p>
+<h2 id="7、Array-filter-方法"><a href="#7、Array-filter-方法" class="headerlink" title="7、Array filter() 方法"></a>7、Array filter() 方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">let tt = arr.filter(function(i)&#123;</span><br><span class="line"> return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">// [2,3]</span><br></pre></td></tr></table></figure>
+<p>filter 方法是 Array 对象内置方法，它会返回通过过滤的元素，不改变原来的数组。</p>
+<h2 id="8、Array-some-方法"><a href="#8、Array-some-方法" class="headerlink" title="8、Array some() 方法"></a>8、Array some() 方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">let tt = arr.some(function(i)&#123;</span><br><span class="line"> return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+<p>some() 方法用于检测数组中的元素是否满足指定条件（函数提供）,返回 boolean 值，不改变原数组。</p>
+<h2 id="9、Array-every-方法"><a href="#9、Array-every-方法" class="headerlink" title="9、Array every() 方法"></a>9、Array every() 方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">let tt = arr.some(function(i)&#123;</span><br><span class="line"> return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">// 检测数组中元素是否都大于1</span><br><span class="line">// false</span><br></pre></td></tr></table></figure>
+<p>every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供），返回 boolean 值，不改变原数组。</p>
+<h2 id="10、Array-reduce-方法"><a href="#10、Array-reduce-方法" class="headerlink" title="10、Array reduce()方法"></a>10、Array reduce()方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3];</span><br><span class="line">let ad = arr.reduce(function(i,j)&#123;</span><br><span class="line"> return i+j;</span><br><span class="line">&#125;)</span><br><span class="line">// 6</span><br></pre></td></tr></table></figure>
+<p>reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。</p>
+<h2 id="11、Array-reduceRight-方法"><a href="#11、Array-reduceRight-方法" class="headerlink" title="11、Array reduceRight()方法"></a>11、Array reduceRight()方法</h2><p>let arr = [1,2,3];<br>let ad = arr.reduceRight(function(i,j){<br> return i+j;<br>})<br>// 6</p>
+<p>reduceRight()方法,和 reduce() 功能是一样的，它是从数组的末尾处向前开始计算。</p>
+<h2 id="12、for-of-循环"><a href="#12、for-of-循环" class="headerlink" title="12、for of 循环"></a>12、for of 循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;name&apos;,&apos;age&apos;];</span><br><span class="line">for(let i of arr)&#123;</span><br><span class="line"> console.log(i)</span><br><span class="line">&#125;</span><br><span class="line">// name</span><br><span class="line">// age</span><br></pre></td></tr></table></figure>
+<p>for of 循环是 Es6 中新增的语句，用来替代 for in 和 forEach，它允许你遍历 Arrays（数组）<br>, Strings（字符串）, Maps（映射）, Sets（集合）等可迭代(Iterable data)的数据结构,注意它的兼容性。</p>
+</span>
       
     </div>
 
@@ -353,13 +291,11 @@ Promise 是异步编程的一种解决方案
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/" rel="prev">Vue路由</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/24/Vue%E7%BB%84%E4%BB%B6/" rel="next">Vue组件</a>
+              <a href="/2019/10/30/%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" rel="next">高频面试问题</a>
             
           </div>
         </div>
@@ -510,7 +446,7 @@ Promise 是异步编程的一种解决方案
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch"><span class="nav-number">2.</span> <span class="nav-text">fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">3.</span> <span class="nav-text">axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法："><span class="nav-number">3.1.</span> <span class="nav-text">基本用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用API"><span class="nav-number">3.2.</span> <span class="nav-text">常用API</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、for-循环"><span class="nav-number">1.</span> <span class="nav-text">1、for 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、for-in-循环"><span class="nav-number">2.</span> <span class="nav-text">2、for in 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、while-循环"><span class="nav-number">3.</span> <span class="nav-text">3、while 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、do-while-循环"><span class="nav-number">4.</span> <span class="nav-text">4、do while 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Array-forEach-循环"><span class="nav-number">5.</span> <span class="nav-text">5、Array forEach 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、Array-map-方法"><span class="nav-number">6.</span> <span class="nav-text">6、Array map()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、Array-filter-方法"><span class="nav-number">7.</span> <span class="nav-text">7、Array filter() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、Array-some-方法"><span class="nav-number">8.</span> <span class="nav-text">8、Array some() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、Array-every-方法"><span class="nav-number">9.</span> <span class="nav-text">9、Array every() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、Array-reduce-方法"><span class="nav-number">10.</span> <span class="nav-text">10、Array reduce()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11、Array-reduceRight-方法"><span class="nav-number">11.</span> <span class="nav-text">11、Array reduceRight()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12、for-of-循环"><span class="nav-number">12.</span> <span class="nav-text">12、for of 循环</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

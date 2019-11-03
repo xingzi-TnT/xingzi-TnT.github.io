@@ -41,14 +41,13 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="ES6 导入和导出 导出let a = 10;let c = 20;&#x2F;&#x2F;外界访问不到变量d,因为它没有被暴露出去let d = 30;function show(){}&#x2F;&#x2F;将本模块中的私有成员暴露出去，供其他模块使用export default {    a,    c,    show} 导入import m1 from ‘.&#x2F;m1.js’console.log(m1) 在一个模块中，只允许使用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="webpack模块化">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;webpack%E6%A8%A1%E5%9D%97%E5%8C%96&#x2F;index.html">
+<meta name="description" content="Xingzi的个人站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xingzi&#39;s blog">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;2&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="ES6 导入和导出 导出let a = 10;let c = 20;&#x2F;&#x2F;外界访问不到变量d,因为它没有被暴露出去let d = 30;function show(){}&#x2F;&#x2F;将本模块中的私有成员暴露出去，供其他模块使用export default {    a,    c,    show} 导入import m1 from ‘.&#x2F;m1.js’console.log(m1) 在一个模块中，只允许使用">
+<meta property="og:description" content="Xingzi的个人站">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T01:43:45.886Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -59,7 +58,7 @@
   };
 </script>
 
-  <title> webpack模块化 | Xingzi's blog </title>
+  <title> Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -77,7 +76,9 @@
 
 
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
     <a href="https://github.com/xingzi-TnT/" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80"
         height="80" viewBox="0 0 250 250"
@@ -212,9 +213,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -225,7 +226,9 @@
           
           
             
-              webpack模块化
+              <a class="post-title-link" href="/2019/10/21/html/" itemprop="url">
+                html
+              </a>
             
           
         </h1>
@@ -234,8 +237,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-29T15:58:35+08:00" content="2019-10-29">
-            2019-10-29
+          <time itemprop="dateCreated" datetime="2019-10-21T19:56:09+08:00" content="2019-10-21">
+            2019-10-21
           </time>
         </span>
 
@@ -253,43 +256,26 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="ES6-导入和导出"><a href="#ES6-导入和导出" class="headerlink" title="ES6 导入和导出"></a>ES6 导入和导出</h2><p> 导出<br>let a = 10;<br>let c = 20;<br>//外界访问不到变量d,因为它没有被暴露出去<br>let d = 30;<br>function show(){}<br>//将本模块中的私有成员暴露出去，供其他模块使用<br>export default {<br>    a,<br>    c,<br>    show<br>}</p>
-<p>导入<br>import m1 from ‘./m1.js’<br>console.log(m1)</p>
-<p>在一个模块中，只允许使用export default向外默认暴露一次成员，千万不要写多个export default</p>
-<h2 id="按需导入和按需导出"><a href="#按需导入和按需导出" class="headerlink" title="按需导入和按需导出"></a>按需导入和按需导出</h2><p>导出<br>export let s1 = 100<br>export let s2 = 200</p>
-<p>导入<br>import mi, { s1,s2 as S} from ‘./mi’<br>可以通过 as 来给导入的数据起别名(但有别名之后，原来的名字就不能用了)</p>
-<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p> webpack 是一个流行的前端项目构建工具 (打包工具)<br> 提供了友好的模块化支持,以及代码压缩混淆，处理js兼容问题，性能优化</p>
-<h2 id="在项目中安装和配置webpack"><a href="#在项目中安装和配置webpack" class="headerlink" title="在项目中安装和配置webpack"></a>在项目中安装和配置webpack</h2><ul>
-<li><p>(1)第一步、运行npm install webpack webpack-cli -D命令</p>
-</li>
-<li><p>(2)第二步、在项目的根目录创建webpack.config.js</p>
-<pre><code>module.exports = {
-    mode:&apos;development&apos;
-}</code></pre></li>
-<li><p>(3)第三步、修改package.json文件<br>  script 中添加 “dev”:”webpack”</p>
-</li>
-<li><p>(4)第四步、执行命令 npm run dev<br>  默认执行webpack命令的时候，它会去src目录中找一个叫index.js进行打包，把打包好的代码输出到dist中的main.js中（webpack默认的约定）</p>
-<p>  这块的玩法其实你也可以用npx来做，本质上是一样的</p>
-</li>
-</ul>
-<h2 id="webpack-配置打包的入口与出口"><a href="#webpack-配置打包的入口与出口" class="headerlink" title="webpack-配置打包的入口与出口"></a>webpack-配置打包的入口与出口</h2><ul>
-<li><p>(1)第一步、删除掉dist文件夹</p>
-</li>
-<li><p>(2)第二步、修改webpack.config.js文件</p>
-<pre><code>const path = require(&apos;path&apos;);
-module.exports = {
-    //打包的模式
-    mode:&apos;development&apos;,
-    entry:path.join(__dirname,&apos;./src/index.js&apos;),
-    output:{
-        path:path.join(__dirname,&apos;./dist&apos;),
-        filename:&apos;bundle.js&apos;
-    }
-}</code></pre></li>
-<li><p>(3)第三步、重新执行命令 npm run dev</p>
-</li>
-</ul>
-<h2 id="webpack-配置webpack的自动打包功能"><a href="#webpack-配置webpack的自动打包功能" class="headerlink" title="webpack-配置webpack的自动打包功能"></a>webpack-配置webpack的自动打包功能</h2></span>
+        
+          <span itemprop="articleBody">
+            
+            浏览器渲染页面原理浏览器拿到HTML之后的渲染过程：（不同内核实现不一样但大概是这样）
+
+解析HTML，构建DOM tree。
+
+解析CSS，构建CSSOM tree。
+
+合并DOM tree和CSSOM tree，生成render tree。
+
+布局（layout/reflow），计算各元素尺寸、
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/10/21/html/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
       
     </div>
 
@@ -297,44 +283,26 @@ module.exports = {
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/30/%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" rel="prev">高频面试问题</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/10/27/Vue%E8%B7%AF%E7%94%B1/" rel="next">Vue路由</a>
-            
-          </div>
-        </div>
-      
 
       
+      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div>
-      
-    </div>
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&amp;laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
  </div>
 
         
-        <div class="comments" id="comments">
-          
-            -->
-          
         </div>
 
         
@@ -350,15 +318,6 @@ module.exports = {
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table Of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
       
 
       <section class="site-overview">
@@ -452,17 +411,6 @@ module.exports = {
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-导入和导出"><span class="nav-number">1.</span> <span class="nav-text">ES6 导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入和按需导出"><span class="nav-number">2.</span> <span class="nav-text">按需导入和按需导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">3.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在项目中安装和配置webpack"><span class="nav-number">4.</span> <span class="nav-text">在项目中安装和配置webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-配置打包的入口与出口"><span class="nav-number">5.</span> <span class="nav-text">webpack-配置打包的入口与出口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-配置webpack的自动打包功能"><span class="nav-number">6.</span> <span class="nav-text">webpack-配置webpack的自动打包功能</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
 
     </div>
   </aside>
@@ -528,165 +476,6 @@ module.exports = {
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
 
   <script type="text/javascript">
     $(document).ready(function () {
