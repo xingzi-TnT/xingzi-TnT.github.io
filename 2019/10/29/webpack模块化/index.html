@@ -48,7 +48,7 @@
 <meta property="og:site_name" content="Xingzi&#39;s blog">
 <meta property="og:description" content="ES6 导入和导出 导出let a = 10;let c = 20;&#x2F;&#x2F;外界访问不到变量d,因为它没有被暴露出去let d = 30;function show(){}&#x2F;&#x2F;将本模块中的私有成员暴露出去，供其他模块使用export default {    a,    c,    show} 导入import m1 from ‘.&#x2F;m1.js’console.log(m1) 在一个模块中，只允许使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T09:18:53.751Z">
+<meta property="og:updated_time" content="2019-10-30T01:43:45.886Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -259,7 +259,37 @@
 <h2 id="按需导入和按需导出"><a href="#按需导入和按需导出" class="headerlink" title="按需导入和按需导出"></a>按需导入和按需导出</h2><p>导出<br>export let s1 = 100<br>export let s2 = 200</p>
 <p>导入<br>import mi, { s1,s2 as S} from ‘./mi’<br>可以通过 as 来给导入的数据起别名(但有别名之后，原来的名字就不能用了)</p>
 <h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p> webpack 是一个流行的前端项目构建工具 (打包工具)<br> 提供了友好的模块化支持,以及代码压缩混淆，处理js兼容问题，性能优化</p>
-</span>
+<h2 id="在项目中安装和配置webpack"><a href="#在项目中安装和配置webpack" class="headerlink" title="在项目中安装和配置webpack"></a>在项目中安装和配置webpack</h2><ul>
+<li><p>(1)第一步、运行npm install webpack webpack-cli -D命令</p>
+</li>
+<li><p>(2)第二步、在项目的根目录创建webpack.config.js</p>
+<pre><code>module.exports = {
+    mode:&apos;development&apos;
+}</code></pre></li>
+<li><p>(3)第三步、修改package.json文件<br>  script 中添加 “dev”:”webpack”</p>
+</li>
+<li><p>(4)第四步、执行命令 npm run dev<br>  默认执行webpack命令的时候，它会去src目录中找一个叫index.js进行打包，把打包好的代码输出到dist中的main.js中（webpack默认的约定）</p>
+<p>  这块的玩法其实你也可以用npx来做，本质上是一样的</p>
+</li>
+</ul>
+<h2 id="webpack-配置打包的入口与出口"><a href="#webpack-配置打包的入口与出口" class="headerlink" title="webpack-配置打包的入口与出口"></a>webpack-配置打包的入口与出口</h2><ul>
+<li><p>(1)第一步、删除掉dist文件夹</p>
+</li>
+<li><p>(2)第二步、修改webpack.config.js文件</p>
+<pre><code>const path = require(&apos;path&apos;);
+module.exports = {
+    //打包的模式
+    mode:&apos;development&apos;,
+    entry:path.join(__dirname,&apos;./src/index.js&apos;),
+    output:{
+        path:path.join(__dirname,&apos;./dist&apos;),
+        filename:&apos;bundle.js&apos;
+    }
+}</code></pre></li>
+<li><p>(3)第三步、重新执行命令 npm run dev</p>
+</li>
+</ul>
+<h2 id="webpack-配置webpack的自动打包功能"><a href="#webpack-配置webpack的自动打包功能" class="headerlink" title="webpack-配置webpack的自动打包功能"></a>webpack-配置webpack的自动打包功能</h2></span>
       
     </div>
 
@@ -269,6 +299,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/30/%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" rel="prev">高频面试问题</a>
             
           </div>
 
@@ -338,7 +370,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -425,7 +457,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-导入和导出"><span class="nav-number">1.</span> <span class="nav-text">ES6 导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入和按需导出"><span class="nav-number">2.</span> <span class="nav-text">按需导入和按需导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">3.</span> <span class="nav-text">webpack</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-导入和导出"><span class="nav-number">1.</span> <span class="nav-text">ES6 导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入和按需导出"><span class="nav-number">2.</span> <span class="nav-text">按需导入和按需导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">3.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在项目中安装和配置webpack"><span class="nav-number">4.</span> <span class="nav-text">在项目中安装和配置webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-配置打包的入口与出口"><span class="nav-number">5.</span> <span class="nav-text">webpack-配置打包的入口与出口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-配置webpack的自动打包功能"><span class="nav-number">6.</span> <span class="nav-text">webpack-配置webpack的自动打包功能</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

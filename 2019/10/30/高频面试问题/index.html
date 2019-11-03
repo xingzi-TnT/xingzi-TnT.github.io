@@ -41,14 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
+<meta name="description" content="1.盒子垂直水平居中的方法（1）宽度和高度已知的给父元素相对定位 给子元素绝对定位 left: 50%;top: 50%; margin-left: 负的宽度一半。 margin-top: 负的高度一半；（2）宽度和高度自己未知意思就是说子盒子本身还是有宽度和高度的，只是自己未知。 思路： 给父盒子相对定位 给子盒子绝对定位 top、right、bottom、left全为0 margin: aut">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue路由">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;Vue%E8%B7%AF%E7%94%B1&#x2F;index.html">
+<meta property="og:title" content="高频面试问题">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
+<meta property="og:description" content="1.盒子垂直水平居中的方法（1）宽度和高度已知的给父元素相对定位 给子元素绝对定位 left: 50%;top: 50%; margin-left: 负的宽度一半。 margin-top: 负的高度一半；（2）宽度和高度自己未知意思就是说子盒子本身还是有宽度和高度的，只是自己未知。 思路： 给父盒子相对定位 给子盒子绝对定位 top、right、bottom、left全为0 margin: aut">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T12:02:53.015Z">
+<meta property="og:updated_time" content="2019-11-03T01:01:29.834Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title> Vue路由 | Xingzi's blog </title>
+  <title> 高频面试问题 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -225,7 +225,7 @@
           
           
             
-              Vue路由
+              高频面试问题
             
           
         </h1>
@@ -234,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-27T18:53:01+08:00" content="2019-10-27">
-            2019-10-27
+          <time itemprop="dateCreated" datetime="2019-10-30T19:56:58+08:00" content="2019-10-30">
+            2019-10-30
           </time>
         </span>
 
@@ -253,171 +253,76 @@
       
 
       
-        <span itemprop="articleBody"><p> Vue Router </p>
-<h2 id="Vue-Router-基本使用"><a href="#Vue-Router-基本使用" class="headerlink" title="Vue Router 基本使用"></a>Vue Router 基本使用</h2><ul>
-<li><p>第一步、肯定要引入vue-router.js库文件</p>
- <script src="js/vue-router_3.0.2.js"></script>
-</li>
-<li><p>第二步、既然是路由，肯定至少要两个组件进行切换</p>
-<p>var Register = {</p>
-<pre><code>    template: `
-        &lt;div&gt;注册组件&lt;/div&gt;
-    `
+        <span itemprop="articleBody"><h2 id="1-盒子垂直水平居中的方法"><a href="#1-盒子垂直水平居中的方法" class="headerlink" title="1.盒子垂直水平居中的方法"></a>1.盒子垂直水平居中的方法</h2><h3 id="（1）宽度和高度已知的"><a href="#（1）宽度和高度已知的" class="headerlink" title="（1）宽度和高度已知的"></a>（1）宽度和高度已知的</h3><pre><code>给父元素相对定位
+给子元素绝对定位
+left: 50%;top: 50%;
+margin-left: 负的宽度一半。
+margin-top: 负的高度一半；</code></pre><h3 id="（2）宽度和高度自己未知"><a href="#（2）宽度和高度自己未知" class="headerlink" title="（2）宽度和高度自己未知"></a>（2）宽度和高度自己未知</h3><pre><code>意思就是说子盒子本身还是有宽度和高度的，只是自己未知。
+思路：
+给父盒子相对定位
+给子盒子绝对定位
+top、right、bottom、left全为0
+margin: auto;</code></pre><h3 id="（3）flex布局"><a href="#（3）flex布局" class="headerlink" title="（3）flex布局"></a>（3）flex布局</h3><pre><code>display: flex;
+justify-content: center;//实现水平居中
+align-items: center;//实现垂直居中</code></pre><h3 id="（4）利用display-table-cell"><a href="#（4）利用display-table-cell" class="headerlink" title="（4）利用display:table-cell;"></a>（4）利用display:table-cell;</h3><pre><code>.parent{
+        display:table-cell;
+        vertical-align:middle;
+        text-align:center;
 }
-var User = {
-    template: `
-        &lt;div&gt;用户组件&lt;/div&gt;
-    `
-}</code></pre></li>
-<li><p>第三步、路由是一个对象，我们要new一个对象出来，并且要挂到vm实例对象 上面，与vue实例对象产生关系</p>
-</li>
+.child{
+        display:inline-block;
+}</code></pre><h2 id="2-flex是怎么使用的，flex-1-代表什么？"><a href="#2-flex是怎么使用的，flex-1-代表什么？" class="headerlink" title="2.flex是怎么使用的，flex:1 代表什么？"></a>2.flex是怎么使用的，flex:1 代表什么？</h2><pre><code>给父盒子添加display:flex 
+flex 是 flex-grow | flex-shrink | flex-basis 的缩写。</code></pre><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><pre><code>flex-basis 用于设置子项的占用空间。如果设置了值，则子项占用的空间为设置的值；如果没设置或者为 auto，那子项的空间为width/height 的值。</code></pre><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><pre><code>用来“瓜分”父项的“剩余空间”。    </code></pre><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><pre><code>用来“吸收”超出的空间</code></pre><ul>
+<li><a href="https://www.jianshu.com/p/ea53c2daff9c" target="_blank" rel="noopener">详细：</a></li>
 </ul>
-<p>var vm = new Vue({<br>            el: ‘#app’,<br>            data: {},<br>            methods: {},<br>            router:new VueRouter<br>        });</p>
+<h2 id="3-rem为什么可以实现自适应布局-移动端是有不同的html字体大小嘛-拿到ui的图之后怎样进行计算"><a href="#3-rem为什么可以实现自适应布局-移动端是有不同的html字体大小嘛-拿到ui的图之后怎样进行计算" class="headerlink" title="3.rem为什么可以实现自适应布局?(移动端是有不同的html字体大小嘛) 拿到ui的图之后怎样进行计算"></a>3.rem为什么可以实现自适应布局?(移动端是有不同的html字体大小嘛) 拿到ui的图之后怎样进行计算</h2><pre><code>媒体查询</code></pre><h2 id="4-三次握手，四次挥手"><a href="#4-三次握手，四次挥手" class="headerlink" title="4.三次握手，四次挥手"></a>4.三次握手，四次挥手</h2><h2 id="5-http状态码"><a href="#5-http状态码" class="headerlink" title="5.http状态码"></a>5.http状态码</h2><pre><code>200 成功 
+301 永久性定向。该状态码表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI。
+302 临时性重定向。该状态码表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问。
+和301相似，但302表示的资源不是永久移动，只是临时性的。
+304 未修改
+404 未找到
+503 响应超时
+
+1XX 通知  2XX  成功   3XX  重定向  4XX 客户端错误  5XX  服务器错误</code></pre><h2 id="6-axios的底层是怎么实现的？用什么实现的？"><a href="#6-axios的底层是怎么实现的？用什么实现的？" class="headerlink" title="6.axios的底层是怎么实现的？用什么实现的？"></a>6.axios的底层是怎么实现的？用什么实现的？</h2><pre><code>1.axios 原理还是属于 XMLHttpRequest， 因此需要实现一个ajax。
+2.但还会需要一个promise对象来对结果进行处理。
+3.ajax实现  
+
+axios实现</code></pre><p>var Axios = {<br>    get: function(url) {<br>        return new Promise((resolve, reject) =&gt; {<br>            var xhr = new XMLHttpRequest();<br>            xhr.open(‘GET’, url, true);<br>            xhr.onreadystatechange = function() {<br>                // readyState == 4说明请求已完成<br>                if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {<br>                    // 从服务器获得数据<br>                    resolve(xhr.responseText)<br>                }<br>            };<br>            xhr.send();<br>        })<br>    },<br>}</p>
+<h2 id="7-生命周期-？-mounted和created的区别？"><a href="#7-生命周期-？-mounted和created的区别？" class="headerlink" title="7.生命周期 ？ mounted和created的区别？"></a>7.生命周期 ？ mounted和created的区别？</h2><p>根据生命周期的不同分为三类：</p>
 <ul>
-<li>第四步、路由就是设置hash与组件之间的映射关系</li>
+<li><p>(1)创建阶段的生命周期</p>
+<pre><code>beforeCreate 
+实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性
+
+created
+实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板
+
+beforeMount
+此时已经完成了模板的编译，但是还没有挂载到页面中
+
+mounted
+此时，已经将编译好的模板，挂载到了页面指定的容器中显示</code></pre></li>
+<li><p>(2)运行阶段的生命周期</p>
+<pre><code>beforeUpdate
+状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，
+因为此时还没有开始重新渲染DOM节点
+
+updated
+实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，
+界面已经被重新渲染好了！</code></pre></li>
+<li><p>(3)销毁阶段的生命周期</p>
+<pre><code>beforeDestroy
+实例销毁之前调用。在这一步，实例仍然完全可用。
+
+destroyed
+Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，
+所有的子实例也会被销毁。</code></pre></li>
+<li><p>(4)mounted和created的区别</p>
+<pre><code>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。
+mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</code></pre><h2 id="8-组件传值（父传子，子传父，兄弟传值）"><a href="#8-组件传值（父传子，子传父，兄弟传值）" class="headerlink" title="8.组件传值（父传子，子传父，兄弟传值）"></a>8.组件传值（父传子，子传父，兄弟传值）</h2><p>  父传子 :  父组件 在 子组件 上用v-bind 绑定一个变量, 子组件用 props 获取这个变量<br>  子传父 ： 子组件 用$emit 绑定 声明事件,绑定变量  父组件监听 事件并添加处理事件<br>  兄弟传值:  运用 eventBus  </p>
+<h2 id="9-keep-alive-是怎么使用的"><a href="#9-keep-alive-是怎么使用的" class="headerlink" title="9.keep-alive 是怎么使用的"></a>9.keep-alive 是怎么使用的</h2></li>
 </ul>
-<p>new VueRouter({<br>            routes: [{<br>                    path: ‘/register’,<br>                    component: Register<br>                },<br>                {<br>                    path: ‘/user’,<br>                    component: User<br>                },<br>            ]<br>        })</p>
-<ul>
-<li><p>第五步、需要放一个占位符 (将来会被组件所替换)</p>
-<pre><code>&lt;router-view&gt;&lt;/router-view&gt;</code></pre></li>
-<li><p>第六步、手动输入太麻烦了，可以设置vue-router专用链接router-link</p>
-<pre><code>&lt;router-link to=&quot;/register&quot;&gt;register&lt;/router-link&gt;
-&lt;router-link to=&quot;/user&quot;&gt;user&lt;/router-link&gt;</code></pre></li>
-</ul>
-<h2 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h2><pre><code>开发中有时候我们虽然设置的路径不一致，但是我们希望跳转到同一个页面，或者说是打开同一个组件。这时候我们就用到了路由的重新定向redirect参数。
-
-  routes: [{
-                path: &apos;/register&apos;,
-                component: Register
-            },
-            {
-                path: &apos;/user&apos;,
-                component: User
-            },
-            {
-                path: &apos;/&apos;,
-                redirect: &apos;/user&apos;
-            }
-        ]     
-   这里我们 打开默认首页 会重定向到/user</code></pre><h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><pre><code>所谓的嵌套路由就是子路由，也就是路由中的路由
-
-(1)在路由规则中添加子路由
-
-     routes: [{ //路由匹配规则 
-                // path 表示监听 那个路由连接地址
-                // component 表示路由皮牌到那个地址，则展示component属性对应的那个组件 
-                path: &apos;/register&apos;,
-                // 动态路径参数  以冒号开头
-                component: Register,
-                children: [{
-                    path: &apos;/register/tab1&apos;,
-                    component: Tab1,
-                }, {
-                    path: &apos;/register/tab2&apos;,
-                    component: Tab2,
-                }]
-            }
-
-(2)在父级模板中加入占位符和子模板
-    var Register = {
-        template: `
-        &lt;div&gt;
-            &lt;div&gt;注册组件&lt;/div&gt;
-            &lt;hr&gt;
-            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
-            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;router-view&gt;&lt;/router-view&gt;
-            &lt;/transition&gt;
-        &lt;/div&gt;    
-        `,
-    }</code></pre><h2 id="动态匹配路由"><a href="#动态匹配路由" class="headerlink" title="动态匹配路由"></a>动态匹配路由</h2><pre><code>{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props: true
-},
-
-布尔模式
- var User = {
-    props: [&apos;id&apos;],
-    template: `
-    &lt;div&gt;
-        &lt;transition mode=&apos;out-in&apos;&gt;
-        &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
-        &lt;/transition&gt;
-        &lt;hr&gt;
-        &lt;router-link to=&quot;/user/1&quot;&gt;user1&lt;/router-link&gt;
-        &lt;router-link to=&quot;/user/2&quot;&gt;user2&lt;/router-link&gt;
-        &lt;router-link to=&quot;/user/3&quot;&gt;user3&lt;/router-link&gt;
-    &lt;/div&gt;`
-}
-
-函数模式
-{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props: function (route) {
-        return {
-            name: &quot;zs&quot;,
-            age: 14,
-            id: route.params.id
-        }
-    }
-},
-
-用箭头函数的话,在对象外面加小括号，提高优先级
-不然会被当成函数体来解析
-
-{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props:route =&gt; ({name: &quot;zs&quot;,age: 14,id:route.params.id})
-},</code></pre><h2 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h2><pre><code>为了更加方便的表示路由的路径，可以给路由规则起一个别名
- {
-    path: &apos;/user/:id&apos;,
-    component: User,
-    name: &apos;user&apos;,
-    props: function (route) {
-        return {
-            name: &quot;zs&quot;,
-            age: 14,
-            id: route.params.id
-        }
-    }
-},   
-
-注意： 格式  :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;:to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;
- var User = {
-        props: [&apos;id&apos;],
-        template: `
-        &lt;div&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
-            &lt;/transition&gt;
-            &lt;hr&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;&gt;user1&lt;/router-link&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:2}}&quot;&gt;user2&lt;/router-link&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:3}}&quot;&gt;user3&lt;/router-link&gt;
-        &lt;/div&gt;`
-    }     </code></pre><h2 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h2><pre><code>用JS的方式使页面跳转
-var Register = {
-        template: `
-        &lt;div&gt;
-            &lt;div&gt;注册组件&lt;/div&gt;
-            &lt;hr&gt;
-            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
-            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;router-view&gt;&lt;/router-view&gt;
-            &lt;/transition&gt;
-            &lt;button @click=goUser&gt;tiaozhuan&lt;/button&gt;
-        &lt;/div&gt;    
-        `,
-        methods: {
-            goUser() {
-                this.$router.push(&apos;/User&apos;)
-            }
-        },</code></pre></span>
+<h2 id="10-Vue双向绑定原理"><a href="#10-Vue双向绑定原理" class="headerlink" title="10.Vue双向绑定原理"></a>10.Vue双向绑定原理</h2><h2 id="11-跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）"><a href="#11-跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）" class="headerlink" title="11.跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）"></a>11.跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）</h2><h2 id="12-this的指向问题（call，apply，bind-的区别？-用apply实现bind）"><a href="#12-this的指向问题（call，apply，bind-的区别？-用apply实现bind）" class="headerlink" title="12.this的指向问题（call，apply，bind 的区别？ 用apply实现bind）"></a>12.this的指向问题（call，apply，bind 的区别？ 用apply实现bind）</h2><h2 id="13-promise-和-async-await-的区别（await-后面有什么特点？报错了怎么抓取）"><a href="#13-promise-和-async-await-的区别（await-后面有什么特点？报错了怎么抓取）" class="headerlink" title="13.promise 和 async await 的区别（await 后面有什么特点？报错了怎么抓取）"></a>13.promise 和 async await 的区别（await 后面有什么特点？报错了怎么抓取）</h2><h2 id="14-ES6的新特性有哪些"><a href="#14-ES6的新特性有哪些" class="headerlink" title="14.ES6的新特性有哪些"></a>14.ES6的新特性有哪些</h2><h2 id="15-let-var-const的区别"><a href="#15-let-var-const的区别" class="headerlink" title="15.let var const的区别"></a>15.let var const的区别</h2></span>
       
     </div>
 
@@ -428,13 +333,11 @@ var Register = {
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/29/webpack%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="prev">webpack模块化</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/27/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F/" rel="next">ajax请求的方式</a>
+              <a href="/2019/10/29/webpack%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="next">webpack模块化</a>
             
           </div>
         </div>
@@ -585,7 +488,7 @@ var Register = {
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-基本使用"><span class="nav-number">1.</span> <span class="nav-text">Vue Router 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由重定向"><span class="nav-number">2.</span> <span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套路由"><span class="nav-number">3.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态匹配路由"><span class="nav-number">4.</span> <span class="nav-text">动态匹配路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名路由"><span class="nav-number">5.</span> <span class="nav-text">命名路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程式导航"><span class="nav-number">6.</span> <span class="nav-text">编程式导航</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-盒子垂直水平居中的方法"><span class="nav-number">1.</span> <span class="nav-text">1.盒子垂直水平居中的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）宽度和高度已知的"><span class="nav-number">1.1.</span> <span class="nav-text">（1）宽度和高度已知的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）宽度和高度自己未知"><span class="nav-number">1.2.</span> <span class="nav-text">（2）宽度和高度自己未知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）flex布局"><span class="nav-number">1.3.</span> <span class="nav-text">（3）flex布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）利用display-table-cell"><span class="nav-number">1.4.</span> <span class="nav-text">（4）利用display:table-cell;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-flex是怎么使用的，flex-1-代表什么？"><span class="nav-number">2.</span> <span class="nav-text">2.flex是怎么使用的，flex:1 代表什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-basis"><span class="nav-number">2.1.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-grow"><span class="nav-number">2.2.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-shrink"><span class="nav-number">2.3.</span> <span class="nav-text">flex-shrink</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-rem为什么可以实现自适应布局-移动端是有不同的html字体大小嘛-拿到ui的图之后怎样进行计算"><span class="nav-number">3.</span> <span class="nav-text">3.rem为什么可以实现自适应布局?(移动端是有不同的html字体大小嘛) 拿到ui的图之后怎样进行计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-三次握手，四次挥手"><span class="nav-number">4.</span> <span class="nav-text">4.三次握手，四次挥手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-http状态码"><span class="nav-number">5.</span> <span class="nav-text">5.http状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-axios的底层是怎么实现的？用什么实现的？"><span class="nav-number">6.</span> <span class="nav-text">6.axios的底层是怎么实现的？用什么实现的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-生命周期-？-mounted和created的区别？"><span class="nav-number">7.</span> <span class="nav-text">7.生命周期 ？ mounted和created的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-组件传值（父传子，子传父，兄弟传值）"><span class="nav-number">8.</span> <span class="nav-text">8.组件传值（父传子，子传父，兄弟传值）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-keep-alive-是怎么使用的"><span class="nav-number">9.</span> <span class="nav-text">9.keep-alive 是怎么使用的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Vue双向绑定原理"><span class="nav-number">10.</span> <span class="nav-text">10.Vue双向绑定原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）"><span class="nav-number">11.</span> <span class="nav-text">11.跨域是哪几种方式实现的（什么是跨域？限制了什么？不同源的话会进行什么策略？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-this的指向问题（call，apply，bind-的区别？-用apply实现bind）"><span class="nav-number">12.</span> <span class="nav-text">12.this的指向问题（call，apply，bind 的区别？ 用apply实现bind）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-promise-和-async-await-的区别（await-后面有什么特点？报错了怎么抓取）"><span class="nav-number">13.</span> <span class="nav-text">13.promise 和 async await 的区别（await 后面有什么特点？报错了怎么抓取）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-ES6的新特性有哪些"><span class="nav-number">14.</span> <span class="nav-text">14.ES6的新特性有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-let-var-const的区别"><span class="nav-number">15.</span> <span class="nav-text">15.let var const的区别</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
