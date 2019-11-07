@@ -41,14 +41,14 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
+<meta name="description" content="深拷贝递归实现1234567891011121314151617181920function deepCopy(newobj, oldobj) &amp;#123;    for (var k in oldobj) &amp;#123;        &#x2F;&#x2F; 判断我们的属性值属于那种数据类型        &#x2F;&#x2F; 1. 获取属性值  oldobj[k]        var item = oldobj[k];">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue路由">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;Vue%E8%B7%AF%E7%94%B1&#x2F;index.html">
+<meta property="og:title" content="面试问题(2)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;07&#x2F;%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98(2)&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="Vue Router  Vue Router 基本使用 第一步、肯定要引入vue-router.js库文件    第二步、既然是路由，肯定至少要两个组件进行切换 var Register = {     template: `         &amp;lt;div&amp;gt;注册组件&amp;lt;&#x2F;div&amp;gt;     ` } var User = {     template: `         &amp;lt;">
+<meta property="og:description" content="深拷贝递归实现1234567891011121314151617181920function deepCopy(newobj, oldobj) &amp;#123;    for (var k in oldobj) &amp;#123;        &#x2F;&#x2F; 判断我们的属性值属于那种数据类型        &#x2F;&#x2F; 1. 获取属性值  oldobj[k]        var item = oldobj[k];">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T12:02:53.015Z">
+<meta property="og:updated_time" content="2019-11-07T13:29:44.456Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title> Vue路由 | Xingzi's blog </title>
+  <title> 面试问题(2) | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -225,7 +225,7 @@
           
           
             
-              Vue路由
+              面试问题(2)
             
           
         </h1>
@@ -234,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-27T18:53:01+08:00" content="2019-10-27">
-            2019-10-27
+          <time itemprop="dateCreated" datetime="2019-11-07T21:05:24+08:00" content="2019-11-07">
+            2019-11-07
           </time>
         </span>
 
@@ -253,171 +253,11 @@
       
 
       
-        <span itemprop="articleBody"><p> Vue Router </p>
-<h2 id="Vue-Router-基本使用"><a href="#Vue-Router-基本使用" class="headerlink" title="Vue Router 基本使用"></a>Vue Router 基本使用</h2><ul>
-<li><p>第一步、肯定要引入vue-router.js库文件</p>
- <script src="js/vue-router_3.0.2.js"></script>
-</li>
-<li><p>第二步、既然是路由，肯定至少要两个组件进行切换</p>
-<p>var Register = {</p>
-<pre><code>    template: `
-        &lt;div&gt;注册组件&lt;/div&gt;
-    `
-}
-var User = {
-    template: `
-        &lt;div&gt;用户组件&lt;/div&gt;
-    `
-}</code></pre></li>
-<li><p>第三步、路由是一个对象，我们要new一个对象出来，并且要挂到vm实例对象 上面，与vue实例对象产生关系</p>
-</li>
-</ul>
-<p>var vm = new Vue({<br>            el: ‘#app’,<br>            data: {},<br>            methods: {},<br>            router:new VueRouter<br>        });</p>
-<ul>
-<li>第四步、路由就是设置hash与组件之间的映射关系</li>
-</ul>
-<p>new VueRouter({<br>            routes: [{<br>                    path: ‘/register’,<br>                    component: Register<br>                },<br>                {<br>                    path: ‘/user’,<br>                    component: User<br>                },<br>            ]<br>        })</p>
-<ul>
-<li><p>第五步、需要放一个占位符 (将来会被组件所替换)</p>
-<pre><code>&lt;router-view&gt;&lt;/router-view&gt;</code></pre></li>
-<li><p>第六步、手动输入太麻烦了，可以设置vue-router专用链接router-link</p>
-<pre><code>&lt;router-link to=&quot;/register&quot;&gt;register&lt;/router-link&gt;
-&lt;router-link to=&quot;/user&quot;&gt;user&lt;/router-link&gt;</code></pre></li>
-</ul>
-<h2 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h2><pre><code>开发中有时候我们虽然设置的路径不一致，但是我们希望跳转到同一个页面，或者说是打开同一个组件。这时候我们就用到了路由的重新定向redirect参数。
+        <span itemprop="articleBody"><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><h3 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy(newobj, oldobj) &#123;</span><br><span class="line">    for (var k in oldobj) &#123;</span><br><span class="line">        // 判断我们的属性值属于那种数据类型</span><br><span class="line">        // 1. 获取属性值  oldobj[k]</span><br><span class="line">        var item = oldobj[k];</span><br><span class="line">        // 2. 判断这个值是否是数组</span><br><span class="line">        if (item instanceof Array) &#123;</span><br><span class="line">            newobj[k] = [];</span><br><span class="line">            deepCopy(newobj[k], item)</span><br><span class="line">        &#125; else if (item instanceof Object) &#123;</span><br><span class="line">            // 3. 判断这个值是否是对象</span><br><span class="line">            newobj[k] = &#123;&#125;;</span><br><span class="line">            deepCopy(newobj[k], item)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 4. 属于简单数据类型</span><br><span class="line">            newobj[k] = item;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  routes: [{
-                path: &apos;/register&apos;,
-                component: Register
-            },
-            {
-                path: &apos;/user&apos;,
-                component: User
-            },
-            {
-                path: &apos;/&apos;,
-                redirect: &apos;/user&apos;
-            }
-        ]     
-   这里我们 打开默认首页 会重定向到/user</code></pre><h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><pre><code>所谓的嵌套路由就是子路由，也就是路由中的路由
-
-(1)在路由规则中添加子路由
-
-     routes: [{ //路由匹配规则 
-                // path 表示监听 那个路由连接地址
-                // component 表示路由皮牌到那个地址，则展示component属性对应的那个组件 
-                path: &apos;/register&apos;,
-                // 动态路径参数  以冒号开头
-                component: Register,
-                children: [{
-                    path: &apos;/register/tab1&apos;,
-                    component: Tab1,
-                }, {
-                    path: &apos;/register/tab2&apos;,
-                    component: Tab2,
-                }]
-            }
-
-(2)在父级模板中加入占位符和子模板
-    var Register = {
-        template: `
-        &lt;div&gt;
-            &lt;div&gt;注册组件&lt;/div&gt;
-            &lt;hr&gt;
-            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
-            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;router-view&gt;&lt;/router-view&gt;
-            &lt;/transition&gt;
-        &lt;/div&gt;    
-        `,
-    }</code></pre><h2 id="动态匹配路由"><a href="#动态匹配路由" class="headerlink" title="动态匹配路由"></a>动态匹配路由</h2><pre><code>{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props: true
-},
-
-布尔模式
- var User = {
-    props: [&apos;id&apos;],
-    template: `
-    &lt;div&gt;
-        &lt;transition mode=&apos;out-in&apos;&gt;
-        &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
-        &lt;/transition&gt;
-        &lt;hr&gt;
-        &lt;router-link to=&quot;/user/1&quot;&gt;user1&lt;/router-link&gt;
-        &lt;router-link to=&quot;/user/2&quot;&gt;user2&lt;/router-link&gt;
-        &lt;router-link to=&quot;/user/3&quot;&gt;user3&lt;/router-link&gt;
-    &lt;/div&gt;`
-}
-
-函数模式
-{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props: function (route) {
-        return {
-            name: &quot;zs&quot;,
-            age: 14,
-            id: route.params.id
-        }
-    }
-},
-
-用箭头函数的话,在对象外面加小括号，提高优先级
-不然会被当成函数体来解析
-
-{
-    path: &apos;/user/:id&apos;,
-    component: User,
-    props:route =&gt; ({name: &quot;zs&quot;,age: 14,id:route.params.id})
-},</code></pre><h2 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h2><pre><code>为了更加方便的表示路由的路径，可以给路由规则起一个别名
- {
-    path: &apos;/user/:id&apos;,
-    component: User,
-    name: &apos;user&apos;,
-    props: function (route) {
-        return {
-            name: &quot;zs&quot;,
-            age: 14,
-            id: route.params.id
-        }
-    }
-},   
-
-注意： 格式  :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;:to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;
- var User = {
-        props: [&apos;id&apos;],
-        template: `
-        &lt;div&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;div&gt;用户组件 --- 用户id为：{{id}}&lt;/div&gt;
-            &lt;/transition&gt;
-            &lt;hr&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:1}}&quot;&gt;user1&lt;/router-link&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:2}}&quot;&gt;user2&lt;/router-link&gt;
-            &lt;router-link :to=&quot;{name:&apos;user&apos;,params:{id:3}}&quot;&gt;user3&lt;/router-link&gt;
-        &lt;/div&gt;`
-    }     </code></pre><h2 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h2><pre><code>用JS的方式使页面跳转
-var Register = {
-        template: `
-        &lt;div&gt;
-            &lt;div&gt;注册组件&lt;/div&gt;
-            &lt;hr&gt;
-            &lt;router-link to=&quot;/register/tab1&quot;&gt;tab1&lt;/router-link&gt;
-            &lt;router-link to=&quot;/register/tab2&quot;&gt;tab2&lt;/router-link&gt;
-            &lt;transition mode=&apos;out-in&apos;&gt;
-            &lt;router-view&gt;&lt;/router-view&gt;
-            &lt;/transition&gt;
-            &lt;button @click=goUser&gt;tiaozhuan&lt;/button&gt;
-        &lt;/div&gt;    
-        `,
-        methods: {
-            goUser() {
-                this.$router.push(&apos;/User&apos;)
-            }
-        },</code></pre></span>
+<h3 id="Json函数"><a href="#Json函数" class="headerlink" title="Json函数"></a>Json函数</h3><p>b = JSON.parse( JSON.stringify( a ) )<br>不足：<br>由于JSON.stringify()这个方法是先将文明要拷贝的数据线转换成字符串，<br>来开辟一个新的地址用以储存新的数据，但是这个方法无法转化 function 和 undefined。</p>
+<h2 id="JS的数据类型"><a href="#JS的数据类型" class="headerlink" title="JS的数据类型"></a>JS的数据类型</h2><p>字符串，数字，布尔，数组，null，Undefined，symbol，对象。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></span>
       
     </div>
 
@@ -428,13 +268,11 @@ var Register = {
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/29/webpack%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="prev">webpack模块化</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/27/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E5%BC%8F/" rel="next">ajax请求的方式</a>
+              <a href="/2019/11/03/js%20%E4%B8%AD%E5%90%84%E7%A7%8D%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next">js 中各种循环的方法</a>
             
           </div>
         </div>
@@ -580,7 +418,7 @@ var Register = {
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-基本使用"><span class="nav-number">1.</span> <span class="nav-text">Vue Router 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由重定向"><span class="nav-number">2.</span> <span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套路由"><span class="nav-number">3.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态匹配路由"><span class="nav-number">4.</span> <span class="nav-text">动态匹配路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名路由"><span class="nav-number">5.</span> <span class="nav-text">命名路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程式导航"><span class="nav-number">6.</span> <span class="nav-text">编程式导航</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归实现"><span class="nav-number">1.1.</span> <span class="nav-text">递归实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Json函数"><span class="nav-number">1.2.</span> <span class="nav-text">Json函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS的数据类型"><span class="nav-number">2.</span> <span class="nav-text">JS的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
