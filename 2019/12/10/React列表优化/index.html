@@ -41,17 +41,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta name="description" content="为什么优化在 JS 当中直接操作 DOM，会导致性能严重下降，所以渲染长列表（也就是大量 DOM），会导致浏览器卡顿严重，甚至有可能出现假死状态。 容易失帧，因为渲染很慢，所以无法维持浏览器的帧率，主观上会显得页面卡顿 网页失去响应，事件等无法及时被触发 为什么在 React 中渲染大量 DOM 会导致浏览器假死(15.x)？ 事件触发线程：当一个事件被触发时(鼠标点击，键盘敲击等)该线程会把事件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;javascript&#x2F;index.html">
+<meta property="og:title" content="React列表优化">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;React%E5%88%97%E8%A1%A8%E4%BC%98%E5%8C%96&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta property="og:description" content="为什么优化在 JS 当中直接操作 DOM，会导致性能严重下降，所以渲染长列表（也就是大量 DOM），会导致浏览器卡顿严重，甚至有可能出现假死状态。 容易失帧，因为渲染很慢，所以无法维持浏览器的帧率，主观上会显得页面卡顿 网页失去响应，事件等无法及时被触发 为什么在 React 中渲染大量 DOM 会导致浏览器假死(15.x)？ 事件触发线程：当一个事件被触发时(鼠标点击，键盘敲击等)该线程会把事件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
-<meta property="og:updated_time" content="2019-10-21T12:35:23.758Z">
+<meta property="og:updated_time" content="2019-12-10T03:44:16.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +59,7 @@
   };
 </script>
 
-  <title> javascript | Xingzi's blog </title>
+  <title> React列表优化 | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -227,7 +225,7 @@
           
           
             
-              javascript
+              React列表优化
             
           
         </h1>
@@ -236,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-21T20:09:59+08:00" content="2019-10-21">
-            2019-10-21
+          <time itemprop="dateCreated" datetime="2019-12-10T11:35:18+08:00" content="2019-12-10">
+            2019-12-10
           </time>
         </span>
 
@@ -255,19 +253,32 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="js-call-apply-bind"><a href="#js-call-apply-bind" class="headerlink" title="js call() apply() bind()"></a>js call() apply() bind()</h2><p>　　1）bind的返回值是一个函数体，不会被立即调用</p>
-<p>　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递</p>
-<p>　　3）bind、call、apply这三个方法都属于函数（Function）的方法</p>
-<h3 id="自封bind"><a href="#自封bind" class="headerlink" title="自封bind"></a>自封bind</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> Function.prototype.myBind = function () &#123;</span><br><span class="line">    let first = [].shift.call(arguments)</span><br><span class="line">    let args = [].slice.call(arguments)</span><br><span class="line">    let _this = this</span><br><span class="line">    return function () &#123;</span><br><span class="line">        _this.apply(first, [].concat.call(args, [].slice.call(arguments)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>first = [].shift.call(arguments) 这一句就是把参数中的第一个剪切出来，赋给 context，那么也就相当于起到了将 参数中的 this 保存的目的。</p>
-<p>args = [].slice.call(arguments);<br>这一句，将除了 this 上下文的所有参数，传给了 args ，以备后来使用。</p>
-<p>返回函数<br>return function () {    // 返回一个新函数<br>    self.apply(context,[].concat.call(args, [].slice.call(arguments)));<br>}<br>这一段其实很好理解，因为bind 绑定了上下文，因此 self.apply 的第一个参数，是之前我们保存的 context。接下来，我们将 bind 的其余参数和调用bind后返回的函数在执行的过程中接收的参数进行拼接，作为一个数组传入apply的第二个参数中去。这就完美的实现了 bind 函数的功能，不得不说很是巧妙。</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。(红宝书)</p>
-<h3 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h3><p>因为函数的内部函数使用了函数的变量，内部函数又被外部的变量接收，就可以在外部使用函数的变量(通过内部函数作用域链，因为内部函数是有权访问到函数中变量的),导致了函数中的变量存在了除了内部函数的指向，从而使函数不被垃圾回收机制(新生代算法 GC)回收。</p>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>查找变量会先从当前的作用域中去查找,找不到就会去上一级查找，还没找到就到全局作用域查找，这样就形成了一个作用域链。简单来说就是在函数中所能访问的变量按照层级关系所组成的一条有着先后顺序的链子。</p>
-<h3 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h3><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
-<h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2></span>
+        <span itemprop="articleBody"><h2 id="为什么优化"><a href="#为什么优化" class="headerlink" title="为什么优化"></a>为什么优化</h2><p>在 JS 当中直接操作 DOM，会导致性能严重下降，所以渲染长列表（也就是大量 DOM），会导致浏览器卡顿严重，甚至有可能出现假死状态。</p>
+<p>容易失帧，因为渲染很慢，所以无法维持浏览器的帧率，主观上会显得页面卡顿</p>
+<p>网页失去响应，事件等无法及时被触发</p>
+<h2 id="为什么在-React-中渲染大量-DOM-会导致浏览器假死-15-x-？"><a href="#为什么在-React-中渲染大量-DOM-会导致浏览器假死-15-x-？" class="headerlink" title="为什么在 React 中渲染大量 DOM 会导致浏览器假死(15.x)？"></a>为什么在 React 中渲染大量 DOM 会导致浏览器假死(15.x)？</h2><ul>
+<li>事件触发线程：当一个事件被触发时(鼠标点击，键盘敲击等)该线程会把事件添加到待处理队列的队尾，等待 JS 引擎的处理。</li>
+<li>React 使用 Virtual DOM 跟 diff 算法来优化 DOM 的变更，这也意味着 React 在渲染出真实 DOM 的时候，所有的 Virtual DOM 树都在 JS 内存中。</li>
+<li>并且 React 不会有一次更新就执行一次刷新操作，而是把所有的差异对比，放到一个差异队列，再一次性去执行 patch 方法进行更新与渲染（时间长）。</li>
+<li>等到 GUI 线程去渲染真实的 DOM 时，由于渲染的 DOM 量太大，GUI 执行的时间也会很长（页面会出现空白等状况）。</li>
+</ul>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><ul>
+<li>1.滚动加载，逐步渲染 DOM（分页，一个意思）。</li>
+<li>2.通过合理的逻辑来限制仅渲染可视区域部分。</li>
+<li>3.算是 1 的变种，写一个异步循环渲染，通过异步的方式，给浏览器执行其它 task 的机会。（React 异步渲染可以关注一下哦）</li>
+</ul>
+<h2 id="虚拟列表优化长列表的原理"><a href="#虚拟列表优化长列表的原理" class="headerlink" title="虚拟列表优化长列表的原理"></a>虚拟列表优化长列表的原理</h2><p>优化长列表的原理很简单，基本原理可以一句话概括：</p>
+<p>用数组保存所有列表元素的位置，只渲染可视区内的列表元素，当可视区滚动时，根据滚动的 offset 大小以及所有列表元素的位置，计算在可视区应该渲染哪些元素。</p>
+<p>具体实现步骤如下所示：</p>
+<ul>
+<li>1.首先确定长列表所在父元素的大小，父元素的大小决定了可视区的宽和高</li>
+<li>2.确定长列表每一个列表元素的宽和高，同时初始的条件下计算好长列表每一个元素相对于父元素的位置，并用一个数组来保存所有列表元素的位置信息</li>
+<li>3.首次渲染时，只展示相对于父元素可视区内的子列表元素，<br>在滚动时，根据父元素的滚动的 offset 重新计算应该在可视区内的子列表元素。这样保证了无论如何滚动，真实渲染出的 dom 节点只有可视区内的列表元素。</li>
+<li>4.假设可视区内能展示 5 个子列表元素，及时长列表总共有 1000 个元素，但是每时每刻，真实渲染出来的 dom 节点只有 5 个。</li>
+<li>5.补充说明，这种情况下，父元素一般使用 position：relative，子元素的定位一般使用：position：absolute 或 sticky</li>
+</ul>
+<h2 id="通过-react-virtualized-来优化长列表"><a href="#通过-react-virtualized-来优化长列表" class="headerlink" title="通过 react-virtualized 来优化长列表"></a>通过 react-virtualized 来优化长列表</h2><p>社区实现虚拟列表的 React 组件很多，较为常用的是 react-virtualized 和 react-tiny-virtual-list，前一个较为全面，第二个较为轻量。接下来会分别来介绍这俩个 React 组件库</p>
+</span>
       
     </div>
 
@@ -278,13 +289,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/22/css/" rel="prev">css</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/21/Vue%E6%8C%87%E4%BB%A4/" rel="next">Vue指令</a>
+              <a href="/2019/11/27/%E5%88%9D%E6%AD%A5React/" rel="next">初步React</a>
             
           </div>
         </div>
@@ -430,7 +439,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-call-apply-bind"><span class="nav-number">1.</span> <span class="nav-text">js call() apply() bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自封bind"><span class="nav-number">1.1.</span> <span class="nav-text">自封bind</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包原理"><span class="nav-number">2.1.</span> <span class="nav-text">闭包原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">3.</span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC-垃圾回收新生代算法"><span class="nav-number">3.1.</span> <span class="nav-text">GC (垃圾回收新生代算法)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收的方式"><span class="nav-number">4.</span> <span class="nav-text">垃圾回收的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">5.</span> <span class="nav-text">继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么优化"><span class="nav-number">1.</span> <span class="nav-text">为什么优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么在-React-中渲染大量-DOM-会导致浏览器假死-15-x-？"><span class="nav-number">2.</span> <span class="nav-text">为什么在 React 中渲染大量 DOM 会导致浏览器假死(15.x)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案："><span class="nav-number">3.</span> <span class="nav-text">解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟列表优化长列表的原理"><span class="nav-number">4.</span> <span class="nav-text">虚拟列表优化长列表的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-react-virtualized-来优化长列表"><span class="nav-number">5.</span> <span class="nav-text">通过 react-virtualized 来优化长列表</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -41,17 +41,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta name="description" content="JSX&#x2F;&#x2F; 组件名首字符大写 ！！(ReactDOM.render 好像不能识别小写组件)跟Vue 组件只能有一个根节点 由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。 在 JSX 中不能使用 if else 语句，但可以使用 condition">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;javascript&#x2F;index.html">
+<meta property="og:title" content="初步React">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;27&#x2F;%E5%88%9D%E6%AD%A5React&#x2F;index.html">
 <meta property="og:site_name" content="Xingzi&#39;s blog">
-<meta property="og:description" content="js call() apply() bind()　　1）bind的返回值是一个函数体，不会被立即调用 　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递 　　3）bind、call、apply这三个方法都属于函数（Function）的方法 自封bind 12345678 Function.proto">
+<meta property="og:description" content="JSX&#x2F;&#x2F; 组件名首字符大写 ！！(ReactDOM.render 好像不能识别小写组件)跟Vue 组件只能有一个根节点 由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。 在 JSX 中不能使用 if else 语句，但可以使用 condition">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
-<meta property="og:updated_time" content="2019-10-21T12:35:23.758Z">
+<meta property="og:updated_time" content="2019-11-27T08:12:28.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;21&#x2F;img&#x2F;gc-new.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +59,7 @@
   };
 </script>
 
-  <title> javascript | Xingzi's blog </title>
+  <title> 初步React | Xingzi's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -227,7 +225,7 @@
           
           
             
-              javascript
+              初步React
             
           
         </h1>
@@ -236,8 +234,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-10-21T20:09:59+08:00" content="2019-10-21">
-            2019-10-21
+          <time itemprop="dateCreated" datetime="2019-11-27T16:13:32+08:00" content="2019-11-27">
+            2019-11-27
           </time>
         </span>
 
@@ -255,19 +253,69 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="js-call-apply-bind"><a href="#js-call-apply-bind" class="headerlink" title="js call() apply() bind()"></a>js call() apply() bind()</h2><p>　　1）bind的返回值是一个函数体，不会被立即调用</p>
-<p>　　2）call、apply会立即调用，第一个参数都是用来改变this的指向，两者的区别是前者传递参数的时候是一个一个传递，后者是以一个数组的形式传递</p>
-<p>　　3）bind、call、apply这三个方法都属于函数（Function）的方法</p>
-<h3 id="自封bind"><a href="#自封bind" class="headerlink" title="自封bind"></a>自封bind</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> Function.prototype.myBind = function () &#123;</span><br><span class="line">    let first = [].shift.call(arguments)</span><br><span class="line">    let args = [].slice.call(arguments)</span><br><span class="line">    let _this = this</span><br><span class="line">    return function () &#123;</span><br><span class="line">        _this.apply(first, [].concat.call(args, [].slice.call(arguments)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>first = [].shift.call(arguments) 这一句就是把参数中的第一个剪切出来，赋给 context，那么也就相当于起到了将 参数中的 this 保存的目的。</p>
-<p>args = [].slice.call(arguments);<br>这一句，将除了 this 上下文的所有参数，传给了 args ，以备后来使用。</p>
-<p>返回函数<br>return function () {    // 返回一个新函数<br>    self.apply(context,[].concat.call(args, [].slice.call(arguments)));<br>}<br>这一段其实很好理解，因为bind 绑定了上下文，因此 self.apply 的第一个参数，是之前我们保存的 context。接下来，我们将 bind 的其余参数和调用bind后返回的函数在执行的过程中接收的参数进行拼接，作为一个数组传入apply的第二个参数中去。这就完美的实现了 bind 函数的功能，不得不说很是巧妙。</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。(红宝书)</p>
-<h3 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h3><p>因为函数的内部函数使用了函数的变量，内部函数又被外部的变量接收，就可以在外部使用函数的变量(通过内部函数作用域链，因为内部函数是有权访问到函数中变量的),导致了函数中的变量存在了除了内部函数的指向，从而使函数不被垃圾回收机制(新生代算法 GC)回收。</p>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>查找变量会先从当前的作用域中去查找,找不到就会去上一级查找，还没找到就到全局作用域查找，这样就形成了一个作用域链。简单来说就是在函数中所能访问的变量按照层级关系所组成的一条有着先后顺序的链子。</p>
-<h3 id="GC-垃圾回收新生代算法"><a href="#GC-垃圾回收新生代算法" class="headerlink" title="GC (垃圾回收新生代算法)"></a>GC (垃圾回收新生代算法)</h3><p>在新生代空间中，内存空间分为两部分，分别为 From 空间和 To 空间。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了。<br><img src="../img/gc-new.png" alt=""></p>
-<h2 id="垃圾回收的方式"><a href="#垃圾回收的方式" class="headerlink" title="垃圾回收的方式"></a>垃圾回收的方式</h2><p>标记(主要)和计数</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2></span>
+        <span itemprop="articleBody"><h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>// 组件名首字符大写 ！！(ReactDOM.render 好像不能识别小写组件)<br>跟Vue 组件只能有一个根节点</p>
+<p>由于 JSX 就是 JavaScript，<br>一些标识符像 class 和 for 不建议作为 XML 属性名。<br>作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。</p>
+<p>在 JSX 中不能使用 if else 语句，<br>但可以使用 conditional (三元运算) 表达式来替代。</p>
+<p>注释:<br>{/<em>注释…</em>/}</p>
+<p>JSX 允许在模板中插入数组，数组会自动展开所有成员</p>
+<p><br>必须写成<br /></p>
+<p>创建组件的方式<br>function HelloMessage(props) {<br>    return <h1>Hello World!</h1>;<br>}</p>
+<p>class Welcome extends React.Component {<br>  render() {<br>    return <h1>Hello World!</h1>;<br>  }<br>}</p>
+<p>区别： 接受值时  props 和 this.props</p>
+<p>当this.setState()被调用的时候，<br>React会重新调用render方法来重新渲染UI。(也是数据改变，视图改变)</p>
+<h2 id="React-生命周期："><a href="#React-生命周期：" class="headerlink" title="React 生命周期："></a>React 生命周期：</h2><p>组件初始化(initialization)阶段</p>
+<p>继承了react Component这个基类，<br>也就继承这个react的基类，才能有render(),生命周期等方法可以使用</p>
+<p>super(props)用来调用基类的构造方法( constructor() ),<br> 也将父组件的props注入给子组件，<br> 供子组件读取</p>
+<p>而constructor()用来做一些组件的初始化工作，<br>如定义this.state的初始内容。</p>
+<p>组件的挂载(Mounting)阶段</p>
+<p>componentDidMount 内存中已经已经好了,将虚拟挂到DOM 时<br>componentWillUnmount 挂载之后</p>
+<h2 id="props-和-state"><a href="#props-和-state" class="headerlink" title="props 和 state"></a>props 和 state</h2><p> (组件中props只读不可变，state可变 ！！！)。</p>
+<p>默认 Props<br>你可以通过组件类的 defaultProps 属性为 props 设置默认值，</p>
+<p>Props 验证   React.PropTypes<br>propTypes = {<br>  title: PropTypes.string<br>};</p>
+<h2 id="React-事件处理"><a href="#React-事件处理" class="headerlink" title="React 事件处理"></a>React 事件处理</h2><p>React 元素的事件处理和 DOM 元素类似。但是有一点语法上的不同:</p>
+<p>React 事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，<br>而不是一个字符串(DOM 元素的写法)</p>
+<button onClick={activateLasers}>
+  激活按钮
+</button>
+
+
+<p>在React 中不能用 return false 来阻止默认行为<br>必须明确使用 e.preventDefault</p>
+<p>JSX 回调函数中的 this，类的方法默认是不会绑定 this 的。 ！！</p>
+<p>绑定this </p>
+<h3 id="1-this-handleClick-this-handleClick-bind-this"><a href="#1-this-handleClick-this-handleClick-bind-this" class="headerlink" title="1 this.handleClick = this.handleClick.bind(this);"></a>1 this.handleClick = this.handleClick.bind(this);</h3><h3 id="2-lt-button-onClick-e-gt-this-handleClick-e-gt"><a href="#2-lt-button-onClick-e-gt-this-handleClick-e-gt" class="headerlink" title="2 &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;"></a>2 &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;</h3><pre><code>  Click me
+&lt;/button&gt;</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>使用 map() 方法遍历数组生成列表</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>setState(object nextState[, function callback])<br>参数说明<br>nextState，将要设置的新状态，该状态会和当前的state合并<br>callback，可选参数，回调函数。该函数会在setState设置成功，<br>且组件重新渲染后调用。<br>合并nextState和当前state，并重新渲染组件。setState是React事件处理<br>函数中和请求回调函数中触发UI更新的主要方法。</p>
+<h2 id="React-父子组件传值"><a href="#React-父子组件传值" class="headerlink" title="React 父子组件传值"></a>React 父子组件传值</h2><p>子级向父级 传值：</p>
+<p>子组件向父组件传递数据：子组件绑定一个方法，<br>方法中通过this.props.父组件方法名（参数）传递给父组件，<br>父组件通过该方法接受数据。</p>
+<p>子组件中传递数据：<br>&lt;button onClcik={()=&gt;{this.change(value)}}&gt;</button></p>
+<p>change=(value)=&gt;{<br>this.props.handleClick();<br>}</p>
+<p>父组件中接收数据：<br><Son handleClick={this.handleClick}></Son></p>
+<p>handleClick=(value)=&gt;{<br>console.log(value)<br>}</p>
+<h2 id="React-router"><a href="#React-router" class="headerlink" title="React-router"></a>React-router</h2><p>通常我们在 React 的使用中，一般要引入两个包，<br>react和 react-dom，那么react-router和react-router-dom是不是两个都要引用呢？<br>注意：他们两个只要引用一个就行了，不同之处就是后者比前者多出了<br><Link> <BrowserRouter>这样的 DOM 类组件。<br>因此我们只需引用react-router-dom这个包就OK了</p>
+<Route exact path='/' component={Home} />
+<Route path='/page' component={Page} />
+//这样匹配路由path='/page'，只会匹配到Page组件
+，react路由会匹配到所有能匹配到的路由组件，
+exact能够使得路由的匹配更严格一些
+
+<h3 id="Route-Router-和Link"><a href="#Route-Router-和Link" class="headerlink" title="Route Router 和Link"></a>Route Router 和Link</h3><h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p>redux 的三个部分  action  reducer state(store)</p>
+<p>action 通过action来进行与外部的通信 (就是进入仓库的门票) </p>
+<p>reducer 仓库的员工 (具体进行什么修改)</p>
+<p>Redux 原则 ： 单项数据流，不允许直接修改state(只读)，使用reducer 纯函数来进行修改</p>
+<p>流程：<br>  先从 Redux 接收  createStore </p>
+<p>  再定义一个 reducer 函数 (传入初始 的状态 和 action)</p>
+<p>  function(state=0,action){<br>    switch(action.type){<br>      case:”add”:<br>          return state + 1<br>      case:”sub”:<br>          return state - 1<br>      default :<br>        return state<br>    }<br>  }</p>
+<p>import {  connect } from ‘react-redux’</p>
+<p>然后通过 connect 与 state(仓库连接)<br>export default connect()(App);</p>
+<p>再通过 dispatch({type:’’}) 来派发 action 的执行<br>可以根据 reducer 改变 state 值</p>
+<p>如果要取出 state 的值 要增强 connect</p>
+<p>connect 可以传两个参数 </p>
+<p>connect(mapStateToProps,)</p>
+<p>mapStateToProps 映射</p>
+<p>const mapStateToProps = state =&gt; {<br>  return {<br>    要映射的值:state<br>  }<br>}</p>
+<p>state 的 数据页面跳转时 会被重置</p>
+<p> 注意： == ===  ！！</p>
+</span>
       
     </div>
 
@@ -278,13 +326,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/22/css/" rel="prev">css</a>
+              <a href="/2019/12/10/React%E5%88%97%E8%A1%A8%E4%BC%98%E5%8C%96/" rel="prev">React列表优化</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/21/Vue%E6%8C%87%E4%BB%A4/" rel="next">Vue指令</a>
+              <a href="/2019/11/07/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98(2)/" rel="next">面试问题(2)</a>
             
           </div>
         </div>
@@ -430,7 +478,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-call-apply-bind"><span class="nav-number">1.</span> <span class="nav-text">js call() apply() bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自封bind"><span class="nav-number">1.1.</span> <span class="nav-text">自封bind</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包原理"><span class="nav-number">2.1.</span> <span class="nav-text">闭包原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">3.</span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC-垃圾回收新生代算法"><span class="nav-number">3.1.</span> <span class="nav-text">GC (垃圾回收新生代算法)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收的方式"><span class="nav-number">4.</span> <span class="nav-text">垃圾回收的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">5.</span> <span class="nav-text">继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX"><span class="nav-number">1.</span> <span class="nav-text">JSX</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">Hello World!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">Hello World!</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-生命周期："><span class="nav-number">1.</span> <span class="nav-text">React 生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props-和-state"><span class="nav-number">2.</span> <span class="nav-text">props 和 state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-事件处理"><span class="nav-number">3.</span> <span class="nav-text">React 事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-this-handleClick-this-handleClick-bind-this"><span class="nav-number">3.1.</span> <span class="nav-text">1 this.handleClick = this.handleClick.bind(this);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-lt-button-onClick-e-gt-this-handleClick-e-gt"><span class="nav-number">3.2.</span> <span class="nav-text">2 &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">4.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">5.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-父子组件传值"><span class="nav-number">6.</span> <span class="nav-text">React 父子组件传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-router"><span class="nav-number">7.</span> <span class="nav-text">React-router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-Router-和Link"><span class="nav-number">7.1.</span> <span class="nav-text">Route Router 和Link</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">8.</span> <span class="nav-text">Redux</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
